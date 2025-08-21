@@ -1,0 +1,20 @@
+---
+// src/layouts/BaseLayout.astro
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium Design Company</title>
+  </head>
+  <body class="bg-bg text-text">
+    <Header />
+    <main class="flex flex-col">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
