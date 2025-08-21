@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --color-bg: #ffffff;
   --color-text: #303030;
@@ -11,22 +10,34 @@
   --color-secondary: #ffd43b;
   --color-muted: #f5f5f5;
   --color-bg-card: #f5f5f5;
+  --color-bg-btn-primary: #ff6b6b;
+  --color-bg-btn-secondary: #ff6b6b;
+  --color-bg-btn-outline: #ff6b6b;
+  --color-text-btn-primary: #f5f5f5;
+  --color-text-btn-secondary: #f5f5f5;
+  --color-text-btn-outline: #f5f5f5;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --color-bg: #1a1a1a;
   --color-text: #ffffff;
   --color-primary: #ff8787;
   --color-secondary: #ffe066;
   --color-muted: #2a2a2a;
   --color-bg-card: #2a2a2a;
+  --color-bg-btn-primary: #ff8787;
+  --color-bg-btn-secondary: #ff8787;
+  --color-bg-btn-outline: #ff8787;
+   --color-text-btn-primary: #212121;
+  --color-text-btn-secondary: #212121;
+  --color-text-btn-outline: #212121;
 }
 
 body {
   @apply bg-[var(--color-bg)] text-[var(--color-text)] font-sans;
 }
 h1 {
-  @apply text-[var(--color-primary)] font-bold;
+  @apply text-[var(--color-primary)] font-bold text-4xl/[1.5] md:text-5xl/[1.5] lg:text-6xl/[1.5] mb-2 md:mb-3 lg:mb-4;
 }
 
 h2 {
@@ -36,15 +47,38 @@ h2 {
 p {
   @apply text-[var(--color-text)] leading-relaxed text-base;
 }
-a {
-  @apply text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors;
-}
-button {
-  @apply bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-colors px-4 py-2 rounded;
-}
+
 
 @layer components {
   .card {
-    @apply rounded-xl shadow bg-[--color-bg-card] transition-shadow hover:shadow-lg text-[var(--color-text)] cursor-pointer;
+    @apply rounded-xl shadow bg-[--color-bg-card] transition-shadow text-[var(--color-text)] cursor-pointer;
+  }
+  .card:hover {
+    @apply shadow-lg;
+  }
+
+  .btn-container {
+    @apply flex flex-col sm:flex-row justify-center gap-4 mt-6;
+  }
+
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-[var(--color-text-btn-primary)] text-sm font-[600] px-6 py-3 rounded-md inline-flex items-center;
+  }
+  .btn-primary:hover {
+    @apply shadow-lg  transform scale-105 duration-200 transition-all;
+  }
+
+  .btn-secondary {
+    @apply bg-[var(--color-secondary)] text-[var(--color-text)] rounded font-semibold px-6 py-3 inline-flex items-center;
+  }
+  .btn-secondary:hover {
+    @apply bg-[var(--color-primary)] transition-colors;
+  }
+
+  .btn-outline {
+    @apply border border-[var(--color-primary)] text-[var(--color-primary)] px-6 py-3 rounded font-semibold inline-flex items-center;
+  }
+  .btn-outline:hover {
+    @apply bg-[var(--color-primary)] text-[var(--color-text)] transition-colors;
   }
 }
