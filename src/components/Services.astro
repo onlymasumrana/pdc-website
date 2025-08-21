@@ -1,0 +1,53 @@
+---
+// src/components/Services.astro
+const services = [
+  {
+    title: 'Website Design & Development',
+    desc: 'Accessible websites with AI-powered auditing.',
+    link: 'example.com',
+  },
+  {
+    title: 'Mobile App Design',
+    desc: 'Universal apps for all users.',
+    link: 'example.com',
+  },
+  {
+    title: 'Accessibility Auditing',
+    desc: 'WCAG compliance checks.',
+    link: 'example.com',
+  },
+  {
+    title: 'AI-Powered Branding',
+    desc: 'Brand identity optimized for inclusivity.',
+    link: 'example.com',
+  },
+  {
+    title: 'UI/UX Design',
+    desc: 'Human-centered design experiences.',
+    link: 'example.com',
+  },
+  {
+    title: 'Creative Consulting',
+    desc: 'Strategy & guidance for inclusive products.',
+    link: 'example.com',
+  },
+];
+---
+
+<section class="px-6 py-12">
+  <h2 class="text-2xl font-bold text-center mb-8 text-primary">
+    Design for Everyone
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {
+      services.map((s) => (
+        <a
+          href={s.link}
+          class="p-6 bg-muted rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg">{s.title}</h3>
+          <p class="text-sm mt-2">{s.desc}</p>
+        </a>
+      ))
+    }
+  </div>
+</section>
