@@ -1,32 +1,112 @@
 ---
 // src/components/Portfolio.astro
+import { Image } from 'astro:assets';
+import Card from './Card.astro';
+
+const portfolios = [
+  {
+    link: 'example.com',
+    image:
+      'https://images.unsplash.com/photo-1621414154392-4eb9ee0b6f57?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    title: 'AI powered Travel Platform',
+    description:
+      'Travel booking platform designed for users with diverse needs and abilities.',
+    categories: ['SaaS', 'Travel', 'AI'],
+    cta: [
+      {
+        icon: '',
+        text: 'View Case Study',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
+  },
+  {
+    link: 'example.com',
+    image:
+      'https://cdn.pixabay.com/photo/2025/08/03/15/10/cat-9752539_960_720.jpg',
+    title: 'E-commerce Platform',
+    description:
+      'E-commerce platform designed for users with diverse needs and abilities.',
+    categories: ['E-Commerce', 'Website'],
+    cta: [
+      {
+        icon: '',
+        text: 'View Case Study',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
+  },
+  {
+    link: 'example.com',
+    image:
+      'https://images.unsplash.com/photo-1511275539165-cc46b1ee89bf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    title: 'Personal Website',
+    description: 'Personal website designed for showcasing portfolios.',
+    categories: ['Personal', 'Portfolio'],
+    cta: [
+      {
+        icon: '',
+        text: 'View Case Study',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
+  },
+];
 ---
 
 <section class="px-6 py-12">
-  <header class="section-header">
-    <h2 class="section-title text-center">
-      Success Stories
-    </h2>
+  <header class="section-header text-center mb-8">
+    <h2 class="section-title">Success Stories</h2>
     <p class="section-subtitle">
       Projects that prove accessibility and great design go hand in hand
     </p>
   </header>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <a href="example.com" class="p-6 bg-muted rounded-lg shadow"
-      >Finance Platform</a
-    >
-    <a href="example.com" class="p-6 bg-muted rounded-lg shadow"
-      >Travel Platform</a
-    >
-    <a href="example.com" class="p-6 bg-muted rounded-lg shadow"
-      >Creative Marketplace</a
-    >
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {
+      portfolios.map((portfolio) => (
+        <Card>
+          <img
+            slot="card-image"
+            src={portfolio.image}
+            alt={portfolio.title}
+            class="card-image w-full h-auto object-cover"
+          />
+
+          <h4 slot="card-header" class="card-title">
+            {portfolio.title}
+          </h4>
+
+          <div slot="card-content">
+            <p>{portfolio.description}</p>
+            <div>
+              <p class="font-semibold">Categories:</p>
+              <ul class="list-disc pl-4">
+                {portfolio.categories.map((category) => (
+                  <li>{category}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div slot="card-footer">
+            {portfolio.cta.map((action) => (
+              <a
+                href={action.link}
+                class={`card-cta ${action.variant === 'primary' ? 'btn-primary' : ''}`}>
+                {action.text}
+              </a>
+            ))}
+          </div>
+        </Card>
+      ))
+    }
   </div>
-  <div class="text-center mt-8">
-    <a
-      href="example.com"
-      class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition"
-      >View All Projects</a
-    >
+
+  <div class="text-center mt-8 btn-container">
+    <a href="example.com" class="btn btn-primary">View All Projects</a>
   </div>
 </section>

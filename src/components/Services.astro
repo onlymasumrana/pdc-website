@@ -1,5 +1,6 @@
 ---
 // src/components/Services.astro
+import Card from './Card.astro';
 const services = [
   {
     link: 'example.com',
@@ -109,7 +110,7 @@ const services = [
 ---
 
 <section class="px-6 py-12">
-  <header class="section-header">
+  <header class="section-header text-center mb-8">
     <h2 class="section-title">Design for Everyone</h2>
     <p class="section-subtitle w-3/4 mx-auto">
       AI-powered solutions that work for all users
@@ -119,30 +120,33 @@ const services = [
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {
       services.map((service) => (
-        <article class="card px-8 py-6 flex flex-col justify-between">
-          <h4 class="">{service.title}</h4>
-          <p class="">{service.description}</p>
+        <Card>
+          <h4 slot="card-header" class="card-title">
+            {service.title}
+          </h4>
 
-          <ul class="">
-            {service.features.map((feature) => (
-              <li>{feature}</li>
-            ))}
-          </ul>
+          <div slot="card-content">
+            <p>{service.description}</p>
+            <div>
+              <p class="font-semibold my-2">Key Features:</p>
+              <ul class="list-disc pl-4">
+                {service.features.map((feature) => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-          <div class="mt-4">
-            {service.cta?.map((action) => (
+          <div slot="card-footer" class="flex flex-col justify-center items-center">
+            {service.cta.map((action) => (
               <a
                 href={action.link}
-                class={`inline-flex justify-center items-center px-4 py-2 rounded text-xs font-medium ${
-                  action.variant === 'primary'
-                    ? 'bg-orange-100 text-orange-600'
-                    : 'bg-gray-100 text-gray-600'
-                }`}>
+                class={`card-cta ${action.variant === 'primary' ? 'btn-primary' : ''}`}>
                 {action.text}
               </a>
             ))}
           </div>
-        </article>
+        </Card>
       ))
     }
   </div>
