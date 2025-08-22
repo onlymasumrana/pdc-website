@@ -62,7 +62,7 @@ ul {
   @apply list-none list-inside text-sm;
 }
 li {
-  @apply first:mt-4 last:mb-4 my-1;
+  @apply my-1;
 }
 
 @layer components {
