@@ -24,5 +24,37 @@ import Footer from '../components/Footer.astro';
       <slot />
     </main>
     <Footer />
+
+    <!-- theme switcher -->
+    <div
+      class="fixed bottom-4 right-4 z-50 p-2 bg-background border border-border rounded-md shadow-sm">
+      <label for="themeSelect" class="block text-xs font-medium mb-1"
+        >Theme:</label
+      >
+      <select
+        id="themeSelect"
+        class="text-sm px-2 py-1 rounded border border-border bg-background text-foreground"
+        onchange="document.documentElement.setAttribute('data-theme', this.value); localStorage.setItem('theme', this.value);">
+        <option value="cyberpunk">Cyberpunk</option>
+        <option value="terminal-light">Terminal Light</option>
+        <option value="terminal-dark">Terminal-Dark</option>
+        <option value="node-light">Node Light</option>
+
+        <option value="vue-light">Vue Light</option>
+        <option value=""></option>
+      </select>
+    </div>
+
+    <script>
+      // Set initial theme
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+
+      // Safely set the select value with proper type casting
+      const themeSelect = document.getElementById('themeSelect');
+      if (themeSelect && themeSelect instanceof HTMLSelectElement) {
+        themeSelect.value = savedTheme;
+      }
+    </script>
   </body>
 </html>
