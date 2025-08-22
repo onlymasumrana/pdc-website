@@ -4,148 +4,222 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #ffffff;
-  --color-text: #303030;
+  /* Base colors */
+  --color-background: #ffffff;
+  --color-background-muted: #ffffff;
+  --color-foreground: #303030;
+  --color-foreground-muted: #303030;
+  --color-border: #e5e5e5;
+  --color-card: #f5f5f5;
+  
+  /* Brand colors */
   --color-primary: #ff6b6b;
+  --color-primary-hover: #ff5252;
   --color-secondary: #ffd43b;
-  --color-muted: #f5f5f5;
-  --color-border: #f5f5f5;
-  --color-bg-card: #f5f5f5;
-  --color-bg-btn-primary: #ff6b6b;
-  --color-bg-btn-secondary: #ff6b6b;
-  --color-bg-btn-outline: #ff6b6b;
-  --color-text-btn-primary: #f5f5f5;
-  --color-text-btn-secondary: #f5f5f5;
-  --color-text-btn-outline: #f5f5f5;
+  --color-secondary-hover: #ffc107;
+
+  /* Button colors */
+
+  /* Primary buttons  */
+  --color-button-background-primary: #ff6b6b;
+  --color-button-background-primary-hover: #ff5252;
+  --color-button-primary-text: #ffffff;
+  --color-button-primary-text-hover: #ffffff;
+
+  /* Secondary buttons */
+  --color-button-background-secondary: #ffd43b;
+  --color-button-background-secondary-hover: #ffc107;
+  --color-button-secondary-text: #303030;
+  --color-button-secondary-text-hover: #303030;
+
+  /* Outline buttons */
+  --color-button-background-outline: transparent;
+  --color-button-background-outline-hover: #ff6b6b;
+  --color-button-outline-text: #ff6b6b;
+  --color-button-outline-text-hover: #303030;
+  --color-button-outline-border: #ff6b6b;
 }
 
 [data-theme='dark'] {
-  --color-bg: #1a1a1a;
-  --color-text: #ffffff;
-  --color-primary: #ff8787;
-  --color-secondary: #ffe066;
-  --color-muted: #2a2a2a;
-  --color-border: #2a2a2a;
-  --color-bg-card: #2a2a2a;
-  --color-bg-btn-primary: #ff8787;
-  --color-bg-btn-secondary: #ff8787;
-  --color-bg-btn-outline: #ff8787;
-  --color-text-btn-primary: #212121;
-  --color-text-btn-secondary: #212121;
-  --color-text-btn-outline: #212121;
 }
 
+/* ===== BASE STYLES ===== */
 body {
-  @apply bg-[var(--color-bg)] text-[var(--color-text)] font-sans;
+  @apply bg-[var(--color-background)] text-[var(--color-foreground)] font-sans transition-colors duration-200;
 }
 
-/* mb-2 md:mb-3 lg:mb-4 */
 h1 {
-  @apply font-bold text-4xl/[1.25] md:text-5xl/[1.25] lg:text-6xl/[1.25];
+  @apply font-bold text-4xl md:text-5xl lg:text-6xl;
 }
 
-/* mb-1 md:mb-2 lg:mb-3 */
 h2 {
   @apply font-bold text-2xl md:text-3xl lg:text-4xl;
 }
 
-/* mb-1 md:mb-2 lg:mb-3 */
 h3 {
-  @apply font-semibold text-xl md:text-2xl lg:text-2xl;
+  @apply font-semibold text-xl md:text-2xl lg:text-3xl;
 }
 
-/* mb-1 md:mb-2 lg:mb-3 */
 h4 {
-  @apply font-semibold text-lg md:text-lg lg:text-lg;
+  @apply font-semibold text-lg md:text-xl lg:text-2xl;
 }
 
 p {
-  @apply text-[var(--color-text)] text-base;
+  @apply text-[var(--color-foreground)] text-base;
 }
 
 ul {
-  @apply list-none list-inside text-sm;
+  @apply list-none list-inside space-y-1;
 }
+
 li {
-  @apply my-1;
+  @apply text-sm;
 }
 
+/* ===== COMPONENTS ===== */
 @layer components {
+  /* Button Container */
   .btn-container {
-    @apply flex flex-col sm:flex-row justify-center;
+    @apply flex flex-col sm:flex-row justify-center gap-3;
   }
 
+  /* Base Button */
   .btn {
-    @apply inline-flex items-center justify-center rounded-md text-base md:text-sm px-5 py-3;
+    @apply inline-flex items-center justify-center rounded-md font-medium px-5 py-3 text-base transition-all duration-200 ease-in-out;
+  }
+  .btn:focus {
+    @apply outline-none ring-2 ring-offset-2 ring-[var(--color-primary)];
   }
 
-  .btn:hover {
-    @apply transform scale-105;
-  }
-
+  /* Primary Button */
   .btn-primary {
-    @apply bg-[var(--color-primary)] text-[var(--color-text-btn-primary)];
+    @apply bg-[var(--color-button-background-primary)] text-[var(--color-button-primary-text)];
   }
   .btn-primary:hover {
-    @apply shadow-lg transition-all;
+    @apply bg-[var(--color-button-background-primary-hover)] text-[var(--color-button-primary-text-hover)] shadow-lg transform scale-105;
   }
 
+  /* Secondary Button */
   .btn-secondary {
-    @apply bg-[var(--color-secondary)] text-[var(--color-text)] rounded font-semibold px-6 py-3 inline-flex items-center justify-center;
+    @apply bg-[var(--color-button-background-secondary)] text-[var(--color-button-secondary-text)];
   }
   .btn-secondary:hover {
-    @apply bg-[var(--color-primary)] transition-colors;
+    @apply bg-[var(--color-button-background-secondary-hover)]
+    text-[var(--color-button-secondary-text-hover)] shadow-lg transform scale-105;
   }
 
+  /* Outline Button */
   .btn-outline {
-    @apply border border-[var(--color-primary)] text-[var(--color-primary)] px-6 py-3 rounded font-semibold inline-flex items-center justify-center;
+    @apply border border-[var(--color-button-outline-border)] bg-[var(--color-button-background-outline)] text-[var(--color-button-outline-text)];
   }
   .btn-outline:hover {
-    @apply bg-[var(--color-primary)] text-[var(--color-text)] transition-colors;
+    @apply bg-[var(--color-button-background-outline-hover)] text-[var(--color-button-outline-text-hover)] border-transparent shadow-lg transform scale-105;
   }
 
+  /* Section */
+  .section {
+    @apply py-6 md:py-8 lg:py-10;
+  }
+
+  /* Section Header */
   .section-header {
-    @apply text-center mb-6 md:mb-8 lg:mb-10;
-  }
-  .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 lg:mb-4;
-  }
-  .section-subtitle {
-    @apply text-lg text-center;
+    @apply text-center mb-4 md:mb-6 lg:mb-8;
   }
 
+  /* Section Title */
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-4;
+  }
+
+  /* Section Subtitle */
+  .section-subtitle {
+    @apply text-lg text-[var(--color-muted)] max-w-2xl mx-auto;
+  }
+
+  /* Card */
   .card {
-    @apply rounded-lg shadow bg-[--color-bg-card] transition-shadow text-[var(--color-text)] cursor-pointer;
+    @apply rounded-lg shadow-md bg-[var(--color-card)] border border-[var(--color-border)] transition-all duration-200;
   }
   .card:hover {
-    @apply shadow-lg scale-105 transition-all;
+    @apply shadow-xl cursor-pointer scale-105;
   }
 
+  /* Card Image Container */
   .card-image-container {
-    @apply overflow-hidden h-48 rounded-t-lg;
+    @apply overflow-hidden rounded-t-lg;
   }
 
+  /* Card Image */
   .card-image {
-    @apply w-full object-cover rounded-t-lg;
+    @apply w-full h-48 object-cover transition-transform duration-300;
   }
- 
+  .card-image:hover {
+    @apply scale-105;
+  }
+
+  /* Card Body */
+  .card-body {
+    @apply px-8 py-6;
+  }
+
+  /* Card Content */
   .card-content {
     @apply p-0.5;
   }
-  
+
+  /* Card Header */
   .card-header {
-    @apply border-b border-[var(--color-border)];
+    /* border-b  */
+    /* @apply ; */
   }
 
-  /* mb-1 md:mb-2 lg:mb-3 */
+  /* Card Title */
   .card-title {
-    @apply font-semibold text-lg md:text-lg lg:text-lg ;
+    @apply font-semibold text-lg text-[var(--color-foreground)];
   }
-  
+
+  /* Card Description */
+  .card-description {
+    @apply text-sm text-[var(--color-muted)];
+  }
+
+  /* Card Footer */
   .card-footer {
-    @apply border-t border-[var(--color-border)] text-sm;
+    /* border-t  */
+    @apply mt-4;
   }
+
+  /* Card CTA */
   .card-cta {
-    @apply text-xs font-medium hover:underline inline-flex justify-center items-center px-6 py-3 rounded;
+    @apply text-sm font-medium inline-flex justify-center items-center gap-2 transition-colors duration-200;
+  }
+  .card-cta:hover {
+    /* @apply underline; */
+  }
+
+  .card-cta-primary {
+    @apply bg-[var(--color-button-background-primary)] text-[var(--color-button-primary-text)] px-4 py-2 rounded-md;
+  }
+  .card-cta-primary:hover {
+    @apply bg-[var(--color-button-background-primary-hover)] text-[var(--color-button-primary-text-hover)] shadow-lg transform;
+  }
+
+  .card-cta-secondary {
+    @apply bg-[var(--color-button-background-secondary)] text-[var(--color-button-secondary-text)] px-4 py-2 rounded-md;
+  }
+  .card-cta-secondary:hover {
+    @apply bg-[var(--color-button-background-secondary-hover)] text-[var(--color-button-secondary-text-hover)] shadow-lg transform;
+  }
+
+  .card-cta-outline {
+    @apply border border-[var(--color-button-outline-border)] bg-[var(--color-button-background-outline)] text-[var(--color-button-outline-text)] px-4 py-2 rounded-md;
+  }
+  .card-cta-outline:hover {
+    @apply bg-[var(--color-button-background-outline-hover)] text-[var(--color-button-outline-text-hover)] border-transparent shadow-lg transform;
+  }
+
+  /* Text Gradient Utility */
+  .text-gradient {
+    @apply bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent;
   }
 }

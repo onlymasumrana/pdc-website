@@ -34,7 +34,7 @@ const portfolios = [
         icon: '',
         text: 'View Case Study',
         link: 'example.com',
-        variant: 'primary',
+        variant: 'secondary',
       },
     ],
   },
@@ -50,22 +50,22 @@ const portfolios = [
         icon: '',
         text: 'View Case Study',
         link: 'example.com',
-        variant: 'primary',
+        variant: 'outline',
       },
     ],
   },
 ];
 ---
 
-<section class="px-6 py-12">
-  <header class="section-header text-center mb-8">
-    <h2 class="section-title">Success Stories</h2>
+<section class="section">
+  <header class="section-header">
+    <h2 class="section-title text-gradient">Success Stories</h2>
     <p class="section-subtitle">
       Projects that prove accessibility and great design go hand in hand
     </p>
   </header>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {
       portfolios.map((portfolio) => (
         <Card>
@@ -73,18 +73,18 @@ const portfolios = [
             slot="card-image"
             src={portfolio.image}
             alt={portfolio.title}
-            class="card-image w-full h-auto object-cover"
+            class="card-image"
           />
 
           <h4 slot="card-header" class="card-title">
             {portfolio.title}
           </h4>
 
-          <div slot="card-content">
-            <p>{portfolio.description}</p>
+          <div slot="card-content" class="space-y-3">
+            <p class="text-foreground">{portfolio.description}</p>
             <div>
-              <p class="font-semibold">Categories:</p>
-              <ul class="list-disc pl-4">
+              <p class="font-semibold text-foreground">Cats:</p>
+              <ul class="list-disc pl-4 text-foreground">
                 {portfolio.categories.map((category) => (
                   <li>{category}</li>
                 ))}
@@ -92,11 +92,19 @@ const portfolios = [
             </div>
           </div>
 
-          <div slot="card-footer">
+          <div slot="card-footer" class="flex flex-col gap-2">
             {portfolio.cta.map((action) => (
               <a
                 href={action.link}
-                class={`card-cta ${action.variant === 'primary' ? 'btn-primary' : ''}`}>
+                class={`card-cta ${
+                  action.variant === 'primary'
+                    ? 'card-cta-primary'
+                    : action.variant === 'secondary'
+                      ? 'card-cta-secondary'
+                      : action.variant === 'outline'
+                        ? 'card-cta-outline'
+                        : ''
+                }`}>
                 {action.text}
               </a>
             ))}
@@ -106,7 +114,7 @@ const portfolios = [
     }
   </div>
 
-  <div class="text-center mt-8 btn-container">
-    <a href="example.com" class="btn btn-primary">View All Projects</a>
+  <div class="text-center mt-8 md:mt-10 lg:mt-12">
+    <a href="/portfolio" class="btn btn-primary">View All Projects</a>
   </div>
 </section>
