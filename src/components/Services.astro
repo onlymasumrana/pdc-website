@@ -2,51 +2,147 @@
 // src/components/Services.astro
 const services = [
   {
+    link: 'example.com',
+    icon: '',
     title: 'Website Design & Development',
-    desc: 'Accessible websites with AI-powered auditing.',
-    link: 'example.com',
+    description:
+      'Upload your design or website draft and get instant AI-powered analysis with accessibility recommendations.',
+    features: [
+      'Screen Reader Compatible',
+      'Keyboard Navigation',
+      'High Contrast Support',
+    ],
+    cta: [
+      {
+        icon: '',
+        text: '100% accessibility compliant',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
   },
   {
-    title: 'Mobile App Design',
-    desc: 'Universal apps for all users.',
     link: 'example.com',
+    icon: '',
+    title: 'Mobile App Design & Development',
+    description:
+      'Universal mobile apps designed for all users, including those with disabilities.',
+    features: ['Voice Control', 'Large Touch Targets', 'Adaptive Interfaces'],
+    cta: [
+      {
+        icon: '',
+        text: 'Cross-platform accessibility',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
   },
   {
+    link: 'example.com',
+    icon: '',
     title: 'Accessibility Auditing',
-    desc: 'WCAG compliance checks.',
-    link: 'example.com',
+    description:
+      'Comprehensive accessibility audits and remediation services for existing digital products.',
+    features: ['Automated Testing', 'Manual Review', 'Remediation Plans'],
+    cta: [
+      {
+        icon: '',
+        text: '100% accessibility compliant',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
   },
   {
+    link: 'example.com',
+    icon: '',
     title: 'AI-Powered Branding',
-    desc: 'Brand identity optimized for inclusivity.',
-    link: 'example.com',
+    description:
+      'Intelligent branding solutions that consider accessibility and inclusivity from the start.',
+    features: [
+      'Color Blind Friendly',
+      'Cultural Sensitivity',
+      'Universal Symbols',
+    ],
+    cta: [
+      {
+        icon: '',
+        text: 'Exclusive design principles',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
   },
   {
+    link: 'example.com',
+    icon: '',
     title: 'UI/UX Design',
-    desc: 'Human-centered design experiences.',
-    link: 'example.com',
+    description:
+      'User experiences designed for everyone, regardless of ability or technical expertise.',
+    features: ['Clear Navigation', 'Consistent Layouts', 'Error Prevention'],
+    cta: [
+      {
+        icon: '',
+        text: 'Universal design approach',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
   },
   {
-    title: 'Creative Consulting',
-    desc: 'Strategy & guidance for inclusive products.',
     link: 'example.com',
+    icon: '',
+    title: 'Creative Consulting',
+    description:
+      'Strategic guidance for creating inclusive digital experiences that reach all audiences.',
+    features: ['WCAG Compliance', 'User Testing', 'Inclusive Research'],
+    cta: [
+      {
+        icon: '',
+        text: 'Accessibility expertise',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
   },
 ];
 ---
 
 <section class="px-6 py-12">
-  <h2 class=" font-bold text-center mb-8 text-primary">
-    Design for Everyone
-  </h2>
+  <header class="section-header">
+    <h2 class="section-title">Design for Everyone</h2>
+    <p class="section-subtitle">
+      Inclusive design and AI-powered solutions that work for all users
+    </p>
+  </header>
+
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     {
-      services.map((s) => (
-        <a
-          href={s.link}
-          class="p-6 bg-muted rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg">{s.title}</h3>
-          <p class="text-sm mt-2">{s.desc}</p>
-        </a>
+      services.map((service) => (
+        <article class="card px-8 py-6 flex flex-col justify-between">
+          <h4 class="">{service.title}</h4>
+          <p class="">{service.description}</p>
+
+          <ul class="">
+            {service.features.map((feature) => (
+              <li>{feature}</li>
+            ))}
+          </ul>
+
+          <div class="mt-4">
+            {service.cta?.map((action) => (
+              <a
+                href={action.link}
+                class={`inline-flex justify-center items-center px-4 py-2 rounded text-xs font-medium ${
+                  action.variant === 'primary'
+                    ? 'bg-orange-100 text-orange-600'
+                    : 'bg-gray-100 text-gray-600'
+                }`}>
+                {action.text}
+              </a>
+            ))}
+          </div>
+        </article>
       ))
     }
   </div>
