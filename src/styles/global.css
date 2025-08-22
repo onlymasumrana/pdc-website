@@ -28,7 +28,7 @@
   --color-bg-btn-primary: #ff8787;
   --color-bg-btn-secondary: #ff8787;
   --color-bg-btn-outline: #ff8787;
-   --color-text-btn-primary: #212121;
+  --color-text-btn-primary: #212121;
   --color-text-btn-secondary: #212121;
   --color-text-btn-outline: #212121;
 }
@@ -48,24 +48,31 @@ p {
   @apply text-[var(--color-text)] leading-relaxed text-base;
 }
 
-
 @layer components {
   .card {
     @apply rounded-xl shadow bg-[--color-bg-card] transition-shadow text-[var(--color-text)] cursor-pointer;
   }
   .card:hover {
-    @apply shadow-lg;
+    @apply shadow-lg scale-105 transition-all;
   }
 
   .btn-container {
     @apply flex flex-col sm:flex-row justify-center gap-4 mt-6;
   }
 
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-base md:text-sm font-[600] px-5 py-3;
+  }
+
+  .btn:hover {
+    @apply transform scale-105;
+  }
+
   .btn-primary {
-    @apply bg-[var(--color-primary)] text-[var(--color-text-btn-primary)] text-sm font-[600] px-5 py-3 rounded-md inline-flex items-center justify-center;
+    @apply bg-[var(--color-primary)] text-[var(--color-text-btn-primary)];
   }
   .btn-primary:hover {
-    @apply shadow-lg  transform scale-105 duration-200 transition-all;
+    @apply shadow-lg transition-all;
   }
 
   .btn-secondary {
