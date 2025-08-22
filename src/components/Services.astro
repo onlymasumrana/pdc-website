@@ -1,5 +1,5 @@
 ---
-// src/components/Services.astro
+ // src/components/Services.astro
 const services = [
   {
     link: 'example.com',
@@ -109,7 +109,7 @@ const services = [
 ---
 
 <section class="px-6 py-12">
-  <header class="section-header">
+  <header class="section-header text-center mb-8">
     <h2 class="section-title">Design for Everyone</h2>
     <p class="section-subtitle w-3/4 mx-auto">
       AI-powered solutions that work for all users
@@ -117,36 +117,37 @@ const services = [
   </header>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {
-      services.map((service) => (
-        <article class="card px-8 py-6 flex flex-col justify-between">
-          <div class="card-body">
-            <div class="card-header">
-              <h4 class="card-title">{service.title}</h4>
-            </div>
-            <div class="flex-grow p-0.5">
-              <p class="">{service.description}</p>
-              <p class="font-semibold my-2">Key Features:</p>
-              <ul class="list-disc pl-2">
-                {service.features.map((feature) => (
-                  <li>{feature}</li>
-                ))}
-              </ul>
-            </div>
-            <div class="card-footer flex justify-center items-center pt-4">
-              {service.cta?.map((action) => (
-                <a
-                  href={action.link}
-                  class={`card-cta ${
-                    action.variant === 'primary' ? 'btn-primary' : ''
-                  }`}>
-                  {action.text}
-                </a>
+    {services.map((service) => (
+      <article class="card px-8 py-6 flex flex-col justify-between h-full">
+        
+        <header class="card-header">
+          <h4 class="card-title">{service.title}</h4>
+        </header>
+
+        <section class="card-content space-y-2 flex-grow">
+          <p>{service.description}</p>
+
+          <div>
+            <p class="font-semibold">Key Features:</p>
+            <ul class="list-disc pl-4">
+              {service.features.map((feature) => (
+                <li>{feature}</li>
               ))}
-            </div>
+            </ul>
           </div>
-        </article>
-      ))
-    }
+        </section>
+
+        <footer class="card-footer flex justify-center items-center pt-4 gap-2">
+          {service.cta?.map((action) => (
+            <a
+              href={action.link}
+              class={`card-cta ${action.variant === 'primary' ? 'btn-primary' : ''}`}
+            >
+              {action.text}
+            </a>
+          ))}
+        </footer>
+      </article>
+    ))}
   </div>
 </section>
