@@ -4,9 +4,9 @@ import { Image } from 'astro:assets';
 import logoForLightTheme from '../assets/pdc-logo-for-light-theme.svg';
 ---
 
-<section class="shadow">
-  <header class="flex justify-between items-center px-5 py-4 mx-auto">
-    <a href="example.com" class="font-bold text-xl text-primary">
+<section class="shadow sticky top-0 z-50 bg-background">
+  <header class="flex justify-between items-center py-4">
+    <a href="/" class="font-bold text-xl">
       <Image
         src={logoForLightTheme}
         alt="Premium Design Company Logo"
@@ -15,13 +15,18 @@ import logoForLightTheme from '../assets/pdc-logo-for-light-theme.svg';
       />
     </a>
     <nav class="hidden md:flex gap-6">
-      <a href="example.com">Home</a>
-      <a href="example.com">Services</a>
-      <a href="example.com">Works</a>
-      <a href="example.com">Contact</a>
+      <a href="/" class="hover:text-primary transition-colors">Home</a>
+      <a href="/services" class="hover:text-primary transition-colors"
+        >Services</a
+      >
+      <a href="/works" class="hover:text-primary transition-colors">Works</a>
+      <a href="/contact" class="hover:text-primary transition-colors">Contact</a
+      >
     </nav>
-    <div class="btn-container hidden md:block">
-      <a href="example.com" class="btn btn-primary">Access Free Consultation</a>
+    <div class="hidden md:block">
+      <a href="/consultation" class="btn btn-primary"
+        >Access Free Consultation</a
+      >
     </div>
   </header>
 </section>

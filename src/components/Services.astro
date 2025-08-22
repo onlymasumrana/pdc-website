@@ -109,27 +109,25 @@ const services = [
 ];
 ---
 
-<section class="px-6 py-12">
-  <header class="section-header text-center mb-8">
-    <h2 class="section-title">Design for Everyone</h2>
-    <p class="section-subtitle w-3/4 mx-auto">
-      AI-powered solutions that work for all users
-    </p>
+<section class="section">
+  <header class="section-header">
+    <h2 class="section-title text-gradient">Design for Everyone</h2>
+    <p class="section-subtitle">AI-powered solutions that work for all users</p>
   </header>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {
       services.map((service) => (
         <Card>
-          <h4 slot="card-header" class="card-title">
+          <h4 slot="card-header" class="card-title mb-2">
             {service.title}
           </h4>
 
           <div slot="card-content">
-            <p>{service.description}</p>
-            <div>
-              <p class="font-semibold my-2">Key Features:</p>
-              <ul class="list-disc pl-4">
+            <p class="text-foreground">{service.description}</p>
+            <div class="mt-4">
+              <p class="font-semibold my-2 text-foreground">Key Features:</p>
+              <ul class="list-disc pl-4 text-foreground">
                 {service.features.map((feature) => (
                   <li>{feature}</li>
                 ))}
@@ -137,11 +135,19 @@ const services = [
             </div>
           </div>
 
-          <div slot="card-footer" class="flex flex-col justify-center items-center">
+          <div slot="card-footer" class="card-footer flex flex-col gap-2">
             {service.cta.map((action) => (
               <a
                 href={action.link}
-                class={`card-cta ${action.variant === 'primary' ? 'btn-primary' : ''}`}>
+                class={`card-cta ${
+                  action.variant === 'primary'
+                    ? 'card-cta-primary'
+                    : action.variant === 'secondary'
+                      ? 'card-cta-secondary'
+                      : action.variant === 'outline'
+                        ? 'card-cta-outline'
+                        : ''
+                }`}>
                 {action.text}
               </a>
             ))}
