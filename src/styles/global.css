@@ -76,7 +76,7 @@ li {
   }
 
   .btn {
-    @apply inline-flex items-center justify-center rounded-md text-base md:text-sm font-[600] px-5 py-3;
+    @apply inline-flex items-center justify-center rounded-md text-base md:text-sm px-5 py-3;
   }
 
   .btn:hover {
@@ -120,6 +120,19 @@ li {
   .card:hover {
     @apply shadow-lg scale-105 transition-all;
   }
+
+  .card-image-container {
+    @apply overflow-hidden h-48 rounded-t-lg;
+  }
+
+  .card-image {
+    @apply w-full object-cover rounded-t-lg;
+  }
+ 
+  .card-body {
+    @apply p-0.5;
+  }
+  
   .card-header {
     @apply border-b border-[var(--color-border)];
   }
@@ -128,9 +141,7 @@ li {
   .card-title {
     @apply font-semibold text-lg md:text-lg lg:text-lg ;
   }
-  .card-body {
-    @apply p-0.5;
-  }
+  
   .card-footer {
     @apply border-t border-[var(--color-border)] text-sm;
   }

@@ -1,17 +1,53 @@
 ---
 // src/components/Portfolio.astro
+import { Image } from 'astro:assets';
+
 const portfolios = [
   {
     link: 'example.com',
-    image: '',
-    title: 'Website Design & Development',
+    image:
+      'https://images.unsplash.com/photo-1621414154392-4eb9ee0b6f57?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    title: 'AI powered Travel Platform',
     description:
-      'Upload your design or website draft and get instant AI-powered analysis with accessibility recommendations.',
-    categories: ['SaaS', 'Travel', 'Marketplace'],
+      'Travel booking platform designed for users with diverse needs and abilities.',
+    categories: ['SaaS', 'Travel', 'AI'],
     cta: [
       {
         icon: '',
-        text: 'View Project',
+        text: 'View Case Study',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
+  },
+  {
+    link: 'example.com',
+    image:
+      'https://cdn.pixabay.com/photo/2025/08/03/15/10/cat-9752539_960_720.jpg',
+    title: 'E-commerce Platform',
+    description:
+      'E-commerce platform designed for users with diverse needs and abilities.',
+    categories: ['E-Commerce', 'Website'],
+    cta: [
+      {
+        icon: '',
+        text: 'View Case Study',
+        link: 'example.com',
+        variant: 'primary',
+      },
+    ],
+  },
+  {
+    link: 'example.com',
+    image:
+      'https://images.unsplash.com/photo-1511275539165-cc46b1ee89bf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    title: 'Personal Website',
+    description: 'Personal website designed for showcasing portfolios.',
+    categories: ['Personal', 'Portfolio'],
+    cta: [
+      {
+        icon: '',
+        text: 'View Case Study',
         link: 'example.com',
         variant: 'primary',
       },
@@ -30,41 +66,44 @@ const portfolios = [
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {
       portfolios.map((portfolio) => (
-        <article class="card px-8 py-6 flex flex-col justify-between">
-          <div class="card-header">
-            <h4 class="card-title">{portfolio.title}</h4>
+        <article class="card flex flex-col justify-between">
+          <div class="card-image-container">
+            <img
+              src={portfolio.image}
+              alt={portfolio.title}
+              class="card-image"
+            />
           </div>
-          <div class="card-body flex-grow">
-            <p class="">{portfolio.description}</p>
-            <p class="font-semibold my-2">Project Cats:</p>
-            <ul class="list-disc pl-2">
-              {portfolio.categories.map((category) => (
-                <li>{category}</li>
+          <div class="px-8 py-6 card-body flex flex-col justify-between">
+            <div class="card-header">
+              <h4 class="card-title">{portfolio.title}</h4>
+            </div>
+            <div class="flex-grow p-0.5">
+              <p class="">{portfolio.description}</p>
+              <p class="font-semibold my-2">Project Cats:</p>
+              <ul class="list-disc pl-2">
+                {portfolio.categories.map((category) => (
+                  <li>{category}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="card-footer flex justify-center items-center pt-4">
+              {portfolio.cta?.map((action) => (
+                <a
+                  href={action.link}
+                  class={`card-cta ${
+                    action.variant === 'primary' ? 'btn-primary' : ''
+                  }`}>
+                  {action.text}
+                </a>
               ))}
-            </ul>
-          </div>
-          <div class="card-footer flex justify-center items-center pt-4">
-            {portfolio.cta?.map((action) => (
-              <a
-                href={action.link}
-                class={`card-cta ${
-                  action.variant === 'primary'
-                    ? 'btn-primary'
-                    : ''
-                }`}>
-                {action.text}
-              </a>
-            ))}
+            </div>
           </div>
         </article>
       ))
     }
   </div>
-  <div class="text-center mt-8">
-    <a
-      href="example.com"
-      class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition"
-      >View All Projects</a
-    >
+  <div class="text-center mt-8 btn-container">
+    <a href="example.com" class="btn btn-primary">View All Projects</a>
   </div>
 </section>
