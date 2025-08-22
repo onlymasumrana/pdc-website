@@ -13,6 +13,7 @@ export default {
         secondary: "var(--color-secondary)",
         muted: "var(--color-muted)",
         card: "var(--color-bg-card)",
+        border: "var(--color-border)",
       },
       screens: {
         sm: "640px",

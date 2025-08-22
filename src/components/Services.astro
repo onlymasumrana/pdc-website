@@ -120,20 +120,22 @@ const services = [
     {
       services.map((service) => (
         <article class="card px-8 py-6 flex flex-col justify-between">
-          <h4 class="">{service.title}</h4>
-          <p class="">{service.description}</p>
-
-          <ul class="">
-            {service.features.map((feature) => (
-              <li>{feature}</li>
-            ))}
-          </ul>
-
-          <div class="mt-4">
+          <div class="card-header">
+            <h4 class="card-title">{service.title}</h4>
+          </div>
+          <div class="card-body flex-grow">
+            <p class="">{service.description}</p>
+            <ul class="list-disc pl-2">
+              {service.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="card-footer flex justify-center items-center pt-4">
             {service.cta?.map((action) => (
               <a
                 href={action.link}
-                class={`inline-flex justify-center items-center px-4 py-2 rounded text-xs font-medium ${
+                class={`card-cta ${
                   action.variant === 'primary'
                     ? 'bg-orange-100 text-orange-600'
                     : 'bg-gray-100 text-gray-600'
