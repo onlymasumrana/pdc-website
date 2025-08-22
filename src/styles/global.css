@@ -38,20 +38,25 @@
 body {
   @apply bg-[var(--color-bg)] text-[var(--color-text)] font-sans;
 }
+
+/* mb-2 md:mb-3 lg:mb-4 */
 h1 {
-  @apply font-bold text-4xl/[1.25] md:text-5xl/[1.25] lg:text-6xl/[1.25] mb-2 md:mb-3 lg:mb-4;
+  @apply font-bold text-4xl/[1.25] md:text-5xl/[1.25] lg:text-6xl/[1.25];
 }
 
+/* mb-1 md:mb-2 lg:mb-3 */
 h2 {
-  @apply font-bold text-2xl md:text-3xl lg:text-4xl mb-1 md:mb-2 lg:mb-3;
+  @apply font-bold text-2xl md:text-3xl lg:text-4xl;
 }
 
+/* mb-1 md:mb-2 lg:mb-3 */
 h3 {
-  @apply font-semibold text-xl md:text-2xl lg:text-2xl mb-1 md:mb-2 lg:mb-3;
+  @apply font-semibold text-xl md:text-2xl lg:text-2xl;
 }
 
+/* mb-1 md:mb-2 lg:mb-3 */
 h4 {
-  @apply font-semibold text-lg md:text-lg lg:text-lg mb-1 md:mb-2 lg:mb-3;
+  @apply font-semibold text-lg md:text-lg lg:text-lg;
 }
 
 p {
@@ -66,28 +71,6 @@ li {
 }
 
 @layer components {
-  .card {
-    @apply rounded-lg shadow bg-[--color-bg-card] transition-shadow text-[var(--color-text)] cursor-pointer;
-  }
-  .card:hover {
-    @apply shadow-lg scale-105 transition-all;
-  }
-  .card-header {
-    @apply border-b border-[var(--color-border)];
-  }
-  .card-title {
-    @apply font-semibold text-lg md:text-lg lg:text-lg mb-1 md:mb-2 lg:mb-3;
-  }
-  .card-body {
-    @apply p-1 md:p-2;
-  }
-  .card-footer {
-    @apply border-t border-[var(--color-border)] text-sm;
-  }
-  .card-cta {
-    @apply text-sm font-medium hover:underline w-full inline-flex justify-center items-center px-6 py-3 rounded;
-  }
-
   .btn-container {
     @apply flex flex-col sm:flex-row justify-center;
   }
@@ -125,9 +108,33 @@ li {
     @apply text-center mb-6 md:mb-8 lg:mb-10;
   }
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 lg:mb-4;
   }
   .section-subtitle {
     @apply text-lg text-center;
+  }
+
+  .card {
+    @apply rounded-lg shadow bg-[--color-bg-card] transition-shadow text-[var(--color-text)] cursor-pointer;
+  }
+  .card:hover {
+    @apply shadow-lg scale-105 transition-all;
+  }
+  .card-header {
+    @apply border-b border-[var(--color-border)];
+  }
+
+  /* mb-1 md:mb-2 lg:mb-3 */
+  .card-title {
+    @apply font-semibold text-lg md:text-lg lg:text-lg ;
+  }
+  .card-body {
+    @apply p-0.5;
+  }
+  .card-footer {
+    @apply border-t border-[var(--color-border)] text-sm;
+  }
+  .card-cta {
+    @apply text-sm font-medium hover:underline w-full inline-flex justify-center items-center px-6 py-3 rounded;
   }
 }
