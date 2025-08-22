@@ -37,7 +37,7 @@ body {
   @apply bg-[var(--color-bg)] text-[var(--color-text)] font-sans;
 }
 h1 {
-  @apply text-[var(--color-primary)] font-bold text-4xl/[1.5] md:text-5xl/[1.5] lg:text-6xl/[1.5] mb-2 md:mb-3 lg:mb-4;
+  @apply text-[var(--color-primary)] font-bold text-4xl/[1.25] md:text-5xl/[1.25] lg:text-6xl/[1.25] mb-2 md:mb-3 lg:mb-4;
 }
 
 h2 {
