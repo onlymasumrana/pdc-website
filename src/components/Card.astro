@@ -1,0 +1,38 @@
+---
+// src/components/Card.astro
+// This ia a reusable card component
+const { link } = Astro.props;
+---
+
+<article class="card px-8 py-6 flex flex-col h-full">
+  <!-- Image Slot (optional) -->
+  {
+    Astro.slots.has('card-image') && (
+      <div class="card-image-container">
+        <slot name="card-image" />
+      </div>
+    )
+  }
+
+  <!-- Card Body -->
+  <div class="card-container flex flex-col justify-between flex-grow">
+    <!-- Header -->
+    <header class="card-header mb-2">
+      <slot name="card-header" />
+    </header>
+
+    <!-- Content -->
+    <section class="card-content space-y-2 flex-grow">
+      <slot name="card-content" />
+    </section>
+
+    <!-- Footer (optional) -->
+    {
+      Astro.slots.has('card-footer') && (
+        <div class="card-footer mt-2">
+          <slot name="card-footer" />
+        </div>
+      )
+    }
+  </div>
+</article>

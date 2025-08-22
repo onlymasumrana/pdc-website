@@ -1,5 +1,6 @@
 ---
- // src/components/Services.astro
+// src/components/Services.astro
+import Card from './Card.astro';
 const services = [
   {
     link: 'example.com',
@@ -117,37 +118,36 @@ const services = [
   </header>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {services.map((service) => (
-      <article class="card px-8 py-6 flex flex-col justify-between h-full">
-        
-        <header class="card-header">
-          <h4 class="card-title">{service.title}</h4>
-        </header>
+    {
+      services.map((service) => (
+        <Card>
+          <h4 slot="card-header" class="card-title">
+            {service.title}
+          </h4>
 
-        <section class="card-content space-y-2 flex-grow">
-          <p>{service.description}</p>
-
-          <div>
-            <p class="font-semibold">Key Features:</p>
-            <ul class="list-disc pl-4">
-              {service.features.map((feature) => (
-                <li>{feature}</li>
-              ))}
-            </ul>
+          <div slot="card-content">
+            <p>{service.description}</p>
+            <div>
+              <p class="font-semibold my-2">Key Features:</p>
+              <ul class="list-disc pl-4">
+                {service.features.map((feature) => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </section>
 
-        <footer class="card-footer flex justify-center items-center pt-4 gap-2">
-          {service.cta?.map((action) => (
-            <a
-              href={action.link}
-              class={`card-cta ${action.variant === 'primary' ? 'btn-primary' : ''}`}
-            >
-              {action.text}
-            </a>
-          ))}
-        </footer>
-      </article>
-    ))}
+          <div slot="card-footer" class="flex flex-col justify-center items-center">
+            {service.cta.map((action) => (
+              <a
+                href={action.link}
+                class={`card-cta ${action.variant === 'primary' ? 'btn-primary' : ''}`}>
+                {action.text}
+              </a>
+            ))}
+          </div>
+        </Card>
+      ))
+    }
   </div>
 </section>
