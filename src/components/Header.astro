@@ -4,14 +4,21 @@ import { Image } from 'astro:assets';
 import logoForLightTheme from '../assets/pdc-logo-for-light-theme.svg';
 ---
 
-<header class="flex justify-between items-center px-4 py-3 shadow-sm">
-  <a href="example.com" class="font-bold text-xl text-primary">
-    <Image src={logoForLightTheme} alt="Premium Design Company Logo" width={150} height={50} />
-  </a>
-  <nav class="hidden md:flex gap-6">
-    <a href="example.com">Home</a>
-    <a href="example.com">Services</a>
-    <a href="example.com">Works</a>
-    <a href="example.com">Contact</a>
-  </nav>
-</header>
+<section class="shadow">
+  <header class="flex justify-between items-center px-4 py-4 max-w-6xl mx-auto">
+    <a href="example.com" class="font-bold text-xl text-primary">
+      <Image
+        src={logoForLightTheme}
+        alt="Premium Design Company Logo"
+        width={150}
+        height={50}
+      />
+    </a>
+    <nav class="hidden md:flex gap-6">
+      <a href="example.com">Home</a>
+      <a href="example.com">Services</a>
+      <a href="example.com">Works</a>
+      <a href="example.com">Contact</a>
+    </nav>
+  </header>
+</section>
