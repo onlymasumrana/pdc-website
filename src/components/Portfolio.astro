@@ -65,46 +65,51 @@ const portfolios = [
     </p>
   </header>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
     {
       portfolios.map((portfolio) => (
         <Card>
+          {/* Image - Ensure it fits the card properly */}
           <img
             slot="card-image"
             src={portfolio.image}
             alt={portfolio.title}
-            class="card-image"
+            width="400"
+            height="250"
+            class="w-full h-48 object-cover"
           />
 
-          <h4 slot="card-header" class="card-title">
+          {/* Header */}
+          <h4
+            slot="card-header"
+            class="text-xl font-semibold text-foreground mb-2">
             {portfolio.title}
           </h4>
 
-          <div slot="card-content" class="space-y-3">
-            <p class="text-foreground">{portfolio.description}</p>
+          {/* Content */}
+          <div slot="card-content" class="space-y-4">
+            <p class="text-muted">{portfolio.description}</p>
             <div>
-              <p class="font-semibold text-foreground">Cats:</p>
-              <ul class="list-disc pl-4 text-foreground">
+              <p class="font-medium text-foreground mb-2">Categories:</p>
+              <div class="flex flex-wrap gap-2">
                 {portfolio.categories.map((category) => (
-                  <li>{category}</li>
+                  <span class="badge badge-primary">{category}</span>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
 
-          <div slot="card-footer" class="flex flex-col gap-2">
+          {/* Footer */}
+          <div slot="card-footer" class="space-y-2">
             {portfolio.cta.map((action) => (
               <a
                 href={action.link}
-                class={`card-cta ${
-                  action.variant === 'primary'
-                    ? 'card-cta-primary'
-                    : action.variant === 'secondary'
-                      ? 'card-cta-secondary'
-                      : action.variant === 'outline'
-                        ? 'card-cta-outline'
-                        : ''
-                }`}>
+                class={`
+                  btn btn-sm w-full justify-center
+                  ${action.variant === 'primary' ? 'btn-primary' : ''}
+                  ${action.variant === 'secondary' ? 'btn-secondary' : ''}
+                  ${action.variant === 'outline' ? 'btn-outline' : ''}
+                `}>
                 {action.text}
               </a>
             ))}
@@ -114,7 +119,8 @@ const portfolios = [
     }
   </div>
 
-  <div class="text-center mt-8 md:mt-10 lg:mt-12">
-    <a href="/portfolio" class="btn btn-primary">View All Projects</a>
+  {/* View All Projects Button */}
+  <div class="text-center mt-12">
+    <a href="/portfolio" class="btn btn-primary btn-lg">View All Projects</a>
   </div>
 </section>
