@@ -1,0 +1,146 @@
+---
+// src/pages/consultation.astro
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  'Web Design',
+  'Web Development',
+  'Mobile App Design',
+  'Mobile App Development',
+  'Web App Design',
+  'Web App Development',
+  'Landing Page Design',
+  'Landing Page Development',
+  'Other… (Write in Project Brief)',
+];
+
+const budgetOptions = [
+  'Less than $300',
+  '$300 - $500',
+  '$500 - $1K',
+  '$1K - $5K',
+  '$5K - $10K',
+  '$10K+',
+];
+
+const projectLengthOptions = [
+  'Less than one month',
+  '1 to 3 months',
+  '3 to 6 months',
+  'More than 6 months',
+  "Don't know yet",
+];
+---
+
+<BaseLayout>
+  <main class="section">
+    <div class="max-w-2xl mx-auto card p-8 mb-16">
+      <header class="section-header">
+        <h1 class="section-title text-center">Request a Free Consultation</h1>
+        <p class="section-subtitle text-center">
+          Tell us briefly about your project and we'll get back to you via
+          email.
+        </p>
+      </header>
+
+      <!-- Form (emails submissions) -->
+      <form
+        method="POST"
+        action="https://formspree.io/f/mnnzekna"
+        class="space-y-6 mt-8">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name" class="form-label">Your Name *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="form-input"
+            placeholder="Type your name here"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email" class="form-label">Your Email *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="form-input"
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <!-- Service selection -->
+        <div class="form-group">
+          <label class="form-label">Services Needed *</label>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 gap-3 border border-border p-4 md:p-6 rounded-md bg-form-input-bg">
+            {
+              services.map((service) => (
+                <label class="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    name="services"
+                    value={service}
+                    class="form-checkbox-box"
+                  />
+                  <span class="text-sm form-checkbox-text">{service}</span>
+                </label>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Project details -->
+        <div class="form-group">
+          <label for="details" class="form-label">Project Brief *</label>
+          <textarea
+            id="details"
+            name="details"
+            rows="4"
+            required
+            class="form-textarea"
+            placeholder="Tell us a bit about your project..."></textarea>
+        </div>
+
+        <!-- Budget -->
+        <div class="form-group">
+          <label for="budget" class="form-label">Your Budget *</label>
+          <select id="budget" name="budget" required class="form-select">
+            <option value="">Select Budget Range</option>
+            {
+              budgetOptions.map((option) => (
+                <option value={option}>{option}</option>
+              ))
+            }
+          </select>
+        </div>
+
+        <!-- Timeline -->
+        <div class="form-group">
+          <label for="timeline" class="form-label">Est. Project Length *</label>
+          <select id="length" name="length" required class="form-select">
+            <option value="">Select Project Length</option>
+            {
+              projectLengthOptions.map((option) => (
+                <option value={option}>{option}</option>
+              ))
+            }
+          </select>
+        </div>
+
+        <!-- Submit -->
+        <div class="pt-4 flex justify-center">
+          <button type="submit" class="btn btn-primary btn-lg w-full sm:w-auto">
+            Send Consultation Access Request
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</BaseLayout>
