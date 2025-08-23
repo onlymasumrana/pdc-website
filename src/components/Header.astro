@@ -1,19 +1,23 @@
 ---
 // src/components/Header.astro
 import { Image } from 'astro:assets';
-import logoForLightTheme from '../assets/pdc-logo-for-light-theme.svg';
+// import logoForLightTheme from '../assets/pdc-logo-for-light-theme.svg';
+import logo from '../assets/logo.png';
 ---
 
 <section class="shadow sticky top-0 z-50 bg-background px-5">
   <header class="flex justify-between items-center py-4">
-    <a href="/" class="font-bold text-xl">
-      <Image
-        src={logoForLightTheme}
-        alt="Premium Design Company Logo"
-        width={150}
-        height={50}
-      />
-    </a>
+    <div>
+      <a href="/" class="flex items-center gap-2">
+        <Image
+          src={logo}
+          alt="Premium Design Company Logo"
+          width={30}
+          height={30}
+        />
+        <p class="font-bold text-xl m-0 text-gradient pb-0.5">Premium Design Company</p>
+      </a>
+    </div>
     <nav class="hidden md:flex gap-6">
       <a href="/" class="hover:text-primary transition-colors">Home</a>
       <a href="/services" class="hover:text-primary transition-colors"

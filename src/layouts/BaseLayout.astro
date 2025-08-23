@@ -4,10 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon-2.png" /> -->
     <meta name="description" content="Premium Design Company" />
     <meta
       name="keywords"
@@ -15,7 +17,6 @@ import Footer from '../components/Footer.astro';
     />
     <meta name="author" content="Premium Design Company" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <title>Premium Design Company</title>
   </head>
   <body class="bg-background text-foreground">
@@ -47,7 +48,7 @@ import Footer from '../components/Footer.astro';
 
     <script>
       // Set initial theme
-      const savedTheme = localStorage.getItem('theme') || 'light';
+      const savedTheme = localStorage.getItem('theme') || 'vue-light';
       document.documentElement.setAttribute('data-theme', savedTheme);
 
       // Safely set the select value with proper type casting
