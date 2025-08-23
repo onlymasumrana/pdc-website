@@ -1,36 +1,54 @@
 ---
 // src/components/Header.astro
 import { Image } from 'astro:assets';
-// import logoForLightTheme from '../assets/pdc-logo-for-light-theme.svg';
 import logo from '../assets/logo.png';
 ---
 
-<section class="shadow sticky top-0 z-50 bg-background px-5">
-  <header class="flex justify-between items-center py-4">
-    <div>
-      <a href="/" class="flex items-center gap-2">
+<header
+  class="sticky top-0 z-50 bg-background/95 backdrop-blur-3xl border-b border-border">
+  <div class="container-custom">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3">
         <Image
           src={logo}
           alt="Premium Design Company Logo"
-          width={30}
-          height={30}
+          width={32}
+          height={32}
+          class="flex-shrink-0"
         />
-        <p class="font-bold text-xl m-0 text-gradient pb-0.5">Premium Design Company</p>
+        <span class="font-bold text-xl text-gradient">Premium Design</span>
       </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/" class="nav-link nav-link-active">Home</a>
+        <a href="/services" class="nav-link">Services</a>
+        <a href="/works" class="nav-link">Works</a>
+        <a href="/contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop CTA Button -->
+      <div class="hidden md:block">
+        <a href="/consultation" class="btn btn-primary btn-sm">
+          Free Consultation
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden p-2" aria-label="Open menu">
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
-    <nav class="hidden md:flex gap-6">
-      <a href="/" class="hover:text-primary transition-colors">Home</a>
-      <a href="/services" class="hover:text-primary transition-colors"
-        >Services</a
-      >
-      <a href="/works" class="hover:text-primary transition-colors">Works</a>
-      <a href="/contact" class="hover:text-primary transition-colors">Contact</a
-      >
-    </nav>
-    <div class="hidden md:block">
-      <a href="/consultation" class="btn btn-primary"
-        >Access Free Consultation</a
-      >
-    </div>
-  </header>
-</section>
+  </div>
+</header>

@@ -2,14 +2,24 @@
 // src/layouts/BaseLayout.astro
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+// Define available themes in a single source of truth
+const availableThemes = [
+  { value: '', label: 'Default' },
+  { value: 'cyberpunk', label: 'Cyberpunk' },
+  { value: 'vue-light', label: 'Vue Light' },
+  { value: 'terminal-dark', label: 'Terminal Dark' },
+  
+];
+// Get initial theme
+const initialTheme = 'vue-light';
 ---
 
-<html lang="en" data-theme="">
+<html lang="en" data-theme={initialTheme}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon-2.png" /> -->
     <meta name="description" content="Premium Design Company" />
     <meta
       name="keywords"
@@ -19,42 +29,62 @@ import Footer from '../components/Footer.astro';
     <meta name="generator" content={Astro.generator} />
     <title>Premium Design Company</title>
   </head>
-  <body class="bg-background text-foreground">
+  <body class="min-h-screen flex flex-col bg-background text-foreground">
     <Header />
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+    <main class="flex-grow container-custom py-8">
       <slot />
     </main>
     <Footer />
 
-    <!-- theme switcher -->
+    <!-- Theme Switcher -->
     <div
-      class="fixed bottom-4 right-4 z-50 p-2 bg-background border border-border rounded-md shadow-sm">
-      <label for="themeSelect" class="block text-xs font-medium mb-1"
-        >Theme:</label
-      >
+      class="fixed bottom-4 right-4 z-50 p-3 bg-card-bg border border-border rounded-lg shadow-lg backdrop-blur-sm glass">
+      <label
+        for="themeSelect"
+        class="block text-xs font-medium text-foreground-muted mb-1 sr-only">
+        Select Theme:
+      </label>
       <select
         id="themeSelect"
-        class="text-sm px-2 py-1 rounded border border-border bg-background text-foreground"
-        onchange="document.documentElement.setAttribute('data-theme', this.value); localStorage.setItem('theme', this.value);">
-        <option value="cyberpunk">Cyberpunk</option>
-        <option value="terminal-light">Terminal Light</option>
-        <option value="terminal-dark">Terminal-Dark</option>
-        <option value="node-light">Node Light</option>
-
-        <option value="vue-light">Vue Light</option>
-        <option value=""></option>
+        class="w-full text-sm px-3 py-2 rounded-md border border-border bg-form-input-bg text-form-input-text focus:outline-none focus:ring-2 focus:ring-focus-ring cursor-pointer"
+        onchange="handleThemeChange(this.value)">
+        {
+          availableThemes.map((theme) => (
+            <option value={theme.value}>{theme.label}</option>
+          ))
+        }
       </select>
     </div>
 
-    <script>
-      // Set initial theme
-      const savedTheme = localStorage.getItem('theme') || 'vue-light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
+    <script is:inline>
+      // Single source of truth for themes (must match the Astro array defined above)
+      const themes = [
+        { value: '', label: 'Close to Tanvir Vai\'s design' },
+        { value: 'cyberpunk', label: 'Cyberpunk' },
+        { value: 'vue-light', label: 'Vue Light' },
+        { value: 'terminal-dark', label: 'Terminal Dark' },
+      ];
 
-      // Safely set the select value with proper type casting
+      // Set initial theme from localStorage or default
+      const getSavedTheme = () => {
+        const saved = localStorage.getItem('theme');
+        // Validate the saved theme exists in our list
+        return themes.some((t) => t.value === saved) ? saved : 'vue-light';
+      };
+
+      const initialTheme = getSavedTheme();
+      document.documentElement.setAttribute('data-theme', initialTheme);
+
+      // Update the select element
       const themeSelect = document.getElementById('themeSelect');
-      if (themeSelect && themeSelect instanceof HTMLSelectElement) {
-        themeSelect.value = savedTheme;
+      if (themeSelect) {
+        themeSelect.value = initialTheme;
+      }
+
+      // Handler for theme change
+      function handleThemeChange(themeValue) {
+        document.documentElement.setAttribute('data-theme', themeValue);
+        localStorage.setItem('theme', themeValue);
       }
     </script>
   </body>
