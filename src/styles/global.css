@@ -38,16 +38,16 @@
   --color-focus-ring: var(--color-primary);
 
   /* Buttons */
-  --color-button-background-primary: var(--color-primary);
-  --color-button-background-primary-hover: var(--color-primary-hover);
+  --color-button-primary-background: var(--color-primary);
+  --color-button-primary-background-hover: var(--color-primary-hover);
   --color-button-primary-text: #ffffff;
   --color-button-primary-text-hover: var(--color-button-primary-text);
-  --color-button-background-secondary: var(--color-secondary);
-  --color-button-background-secondary-hover: var(--color-secondary-hover);
+  --color-button-secondary-background: var(--color-secondary);
+  --color-button-secondary-background-hover: var(--color-secondary-hover);
   --color-button-secondary-text: var(--color-foreground);
   --color-button-secondary-text-hover: var(--color-button-secondary-text);
-  --color-button-background-outline: transparent;
-  --color-button-background-outline-hover: var(--color-primary);
+  --color-button-outline-background: transparent;
+  --color-button-outline-background-hover: var(--color-primary);
   --color-button-outline-text: var(--color-primary);
   --color-button-outline-text-hover: #ffffff;
   --color-button-outline-border: var(--color-primary);
@@ -87,16 +87,16 @@
   --color-focus-ring: var(--color-primary);
 
   /* Buttons */
-  --color-button-background-primary: var(--color-primary);
-  --color-button-background-primary-hover: var(--color-primary-hover);
+  --color-button-primary-background: var(--color-primary);
+  --color-button-primary-background-hover: var(--color-primary-hover);
   --color-button-primary-text: var(--color-background);
   --color-button-primary-text-hover: var(--color-button-primary-text);
-  --color-button-background-secondary: var(--color-secondary);
-  --color-button-background-secondary-hover: var(--color-secondary-hover);
+  --color-button-secondary-background: var(--color-secondary);
+  --color-button-secondary-background-hover: var(--color-secondary-hover);
   --color-button-secondary-text: var(--color-background);
   --color-button-secondary-text-hover: var(--color-button-secondary-text);
-  --color-button-background-outline: transparent;
-  --color-button-background-outline-hover: var(--color-primary);
+  --color-button-outline-background: transparent;
+  --color-button-outline-background-hover: var(--color-primary);
   --color-button-outline-text: var(--color-primary);
   --color-button-outline-text-hover: var(--color-background);
   --color-button-outline-border: var(--color-primary);
@@ -136,16 +136,16 @@
   --color-focus-ring: var(--color-primary);
 
   /* Buttons */
-  --color-button-background-primary: var(--color-primary);
-  --color-button-background-primary-hover: var(--color-primary-hover);
+  --color-button-primary-background: var(--color-primary);
+  --color-button-primary-background-hover: var(--color-primary-hover);
   --color-button-primary-text: #ffffff;
   --color-button-primary-text-hover: var(--color-button-primary-text);
-  --color-button-background-secondary: var(--color-secondary);
-  --color-button-background-secondary-hover: var(--color-secondary-hover);
+  --color-button-secondary-background: var(--color-secondary);
+  --color-button-secondary-background-hover: var(--color-secondary-hover);
   --color-button-secondary-text: #ffffff;
   --color-button-secondary-text-hover: var(--color-button-secondary-text);
-  --color-button-background-outline: transparent;
-  --color-button-background-outline-hover: var(--color-primary);
+  --color-button-outline-background: transparent;
+  --color-button-outline-background-hover: var(--color-primary);
   --color-button-outline-text: var(--color-primary);
   --color-button-outline-text-hover: #ffffff;
   --color-button-outline-border: var(--color-primary);
@@ -185,16 +185,16 @@
   --color-focus-ring: var(--color-primary);
 
   /* Buttons */
-  --color-button-background-primary: var(--color-primary);
-  --color-button-background-primary-hover: var(--color-primary-hover);
+  --color-button-primary-background: var(--color-primary);
+  --color-button-primary-background-hover: var(--color-primary-hover);
   --color-button-primary-text: var(--color-background);
   --color-button-primary-text-hover: var(--color-button-primary-text);
-  --color-button-background-secondary: var(--color-secondary);
-  --color-button-background-secondary-hover: var(--color-secondary-hover);
+  --color-button-secondary-background: var(--color-secondary);
+  --color-button-secondary-background-hover: var(--color-secondary-hover);
   --color-button-secondary-text: var(--color-background);
   --color-button-secondary-text-hover: var(--color-button-secondary-text);
-  --color-button-background-outline: transparent;
-  --color-button-background-outline-hover: var(--color-primary);
+  --color-button-outline-background: transparent;
+  --color-button-outline-background-hover: var(--color-primary);
   --color-button-outline-text: var(--color-primary);
   --color-button-outline-text-hover: var(--color-background);
   --color-button-outline-border: var(--color-primary);
@@ -307,27 +307,47 @@
   
   /* Primary Button */
   .btn-primary {
-    @apply bg-button-primary-background text-button-primary-text hover:bg-button-primary-background-hover hover:text-button-primary-text-hover;
+    @apply bg-button-primary-background text-button-primary-text;
+  }
+
+  .btn-primary:hover {
+    @apply bg-button-primary-background-hover text-button-primary-text-hover;
   }
   
   /* Secondary Button */
   .btn-secondary {
-    @apply bg-button-secondary-background text-button-secondary-text hover:bg-button-secondary-background-hover hover:text-button-secondary-text-hover;
+    @apply bg-button-secondary-background text-button-secondary-text;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-button-secondary-background-hover text-button-secondary-text-hover;
   }
   
   /* Outline Button */
   .btn-outline {
-    @apply bg-button-outline-background border border-button-outline-border text-button-outline-text hover:bg-button-outline-background-hover hover:text-button-outline-text-hover;
+    @apply bg-button-outline-background border border-button-outline-border text-button-outline-text;
+  }
+
+  .btn-outline:hover {
+    @apply bg-button-outline-background-hover text-button-outline-text-hover;
   }
   
   /* Ghost Button */
   .btn-ghost {
-    @apply hover:bg-background-muted hover:text-foreground;
+    /* @apply hover:bg-background-muted hover:text-foreground; */
+  }
+
+  .btn-ghost:hover {
+    @apply bg-background-muted text-foreground;
   }
   
   /* Link Button */
   .btn-link {
-    @apply text-link underline-offset-4 hover:text-link-hover hover:underline;
+    @apply text-link underline-offset-4;
+  }
+
+  .btn-link:hover {
+    @apply text-link-hover underline;
   }
   
   /* === Forms === */
@@ -365,7 +385,11 @@
   
   /* === Navigation === */
   .nav-link {
-    @apply text-foreground-muted hover:text-foreground transition-colors duration-200;
+    @apply text-foreground-muted transition-colors duration-200;
+  }
+
+  .nav-link:hover {
+    @apply text-foreground;
   }
   
   .nav-link-active {
@@ -499,11 +523,6 @@
   /* === Text balance === */
   .text-balance {
     text-wrap: balance;
-  }
-  
-  /* === Glass morphism === */
-  .glass {
-    @apply bg-background/20 backdrop-blur-md border border-border/20;
   }
 
   /* Text Gradient Utility */
