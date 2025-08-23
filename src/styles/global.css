@@ -25,15 +25,18 @@
   --color-accent-hover: #339af0;
   --color-tertiary: #845ef7;
   --color-tertiary-hover: #7048e8;
+  
   /* Status */
   --color-success: #22c55e;
   --color-warning: #facc15;
   --color-danger: #ef4444;
   --color-info: #3b82f6;
+
   /* Links/Focus */
   --color-link: var(--color-accent);
   --color-link-hover: var(--color-accent-hover);
   --color-focus-ring: var(--color-primary);
+
   /* Buttons */
   --color-button-background-primary: var(--color-primary);
   --color-button-background-primary-hover: var(--color-primary-hover);
@@ -52,6 +55,7 @@
 
 /* === Cyberpunk === */
 [data-theme='cyberpunk'] {
+  /* Base */
   --color-background: #0d0221;
   --color-background-muted: #170c2c;
   --color-foreground: #f4f4f9;
@@ -70,13 +74,19 @@
   --color-accent-hover: #e0b60c;
   --color-tertiary: #ff8c00;
   --color-tertiary-hover: #e67a00;
+
+  /* Status */
   --color-success: #3ef48f;
   --color-warning: #ffe600;
   --color-danger: #ff0054;
   --color-info: #00f0ff;
+
+  /* Links/Focus */
   --color-link: var(--color-accent);
   --color-link-hover: var(--color-primary);
   --color-focus-ring: var(--color-primary);
+
+  /* Buttons */
   --color-button-background-primary: var(--color-primary);
   --color-button-background-primary-hover: var(--color-primary-hover);
   --color-button-primary-text: var(--color-background);
@@ -94,6 +104,7 @@
 
 /* === Vue Light === */
 [data-theme='vue-light'] {
+  /* Base */
   --color-background: #f0fdf4;
   --color-background-muted: #bbf7d0;
   --color-foreground: #166534;
@@ -112,13 +123,19 @@
   --color-accent-hover: #d97706;
   --color-tertiary: #9333ea;
   --color-tertiary-hover: #7e22ce;
+
+  /* Status */
   --color-success: #22c55e;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
   --color-info: #3b82f6;
+
+  /* Links/Focus */
   --color-link: var(--color-secondary);
   --color-link-hover: var(--color-secondary-hover);
   --color-focus-ring: var(--color-primary);
+
+  /* Buttons */
   --color-button-background-primary: var(--color-primary);
   --color-button-background-primary-hover: var(--color-primary-hover);
   --color-button-primary-text: #ffffff;
@@ -136,6 +153,7 @@
 
 /* === Terminal Dark === */
 [data-theme='terminal-dark'] {
+  /* Base */
   --color-background: #0f172a;
   --color-background-muted: #1e293b;
   --color-foreground: #d1fae5;
@@ -154,13 +172,19 @@
   --color-accent-hover: #3b82f6;
   --color-tertiary: #a78bfa;
   --color-tertiary-hover: #8b5cf6;
+
+  /* Status */
   --color-success: #34d399;
   --color-warning: #f59e0b;
   --color-danger: #f87171;
   --color-info: #60a5fa;
+
+  /* Links/Focus */
   --color-link: var(--color-accent);
   --color-link-hover: var(--color-accent-hover);
   --color-focus-ring: var(--color-primary);
+
+  /* Buttons */
   --color-button-background-primary: var(--color-primary);
   --color-button-background-primary-hover: var(--color-primary-hover);
   --color-button-primary-text: var(--color-background);
