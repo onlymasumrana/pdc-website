@@ -1,0 +1,84 @@
+---
+// src/pages/contact.astro
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <main class="section">
+    <div class="max-w-2xl mx-auto card p-8 mb-16">
+      <header class="section-header">
+        <h1 class="section-title text-center leading-[1.25]">Get In Touch</h1>
+        <p class="section-subtitle text-center">
+          Have a question or want to discuss a project? We'd love to hear from
+          you and we'll get back to you promptly.
+        </p>
+      </header>
+
+      <!-- Form (emails submissions) -->
+      <form
+        method="POST"
+        action="https://formspree.io/f/xovnaawz"
+        class="space-y-6 mt-8">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name" class="form-label">Your Name *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="form-input"
+            placeholder="Enter your full name"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email" class="form-label">Your Email *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="form-input"
+            placeholder="your.email@example.com"
+          />
+        </div>
+
+        <!-- Subject -->
+        <div class="form-group">
+          <label for="subject" class="form-label">Subject *</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            class="form-input"
+            placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
+          />
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label for="message" class="form-label">Message *</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            required
+            class="form-textarea"
+            placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div class="pt-4 flex justify-center">
+          <button type="submit" class="btn btn-primary btn-lg w-full sm:w-auto">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</BaseLayout>

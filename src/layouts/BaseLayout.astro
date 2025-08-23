@@ -5,16 +5,14 @@ import Footer from '../components/Footer.astro';
 
 // Define available themes in a single source of truth
 const availableThemes = [
-  { value: '', label: "Close to Tanvir Vai's design" },
+  { value: '', label: "Close to Tanvir Vai's Figma Design" },
   { value: 'cyberpunk', label: 'Cyberpunk' },
   { value: 'vue-light', label: 'Vue Light' },
   { value: 'terminal-dark', label: 'Terminal Dark' },
 ];
-// Get initial theme
-const initialTheme = 'cyberpunk'; // Default theme if none saved in the local storage
 ---
 
-<html lang="en" data-theme={initialTheme}>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,8 +43,7 @@ const initialTheme = 'cyberpunk'; // Default theme if none saved in the local st
       </label>
       <select
         id="themeSelect"
-        class="w-full text-sm px-3 py-2 rounded-md border border-border bg-form-input-bg text-form-input-text focus:outline-none focus:ring-2 focus:ring-focus-ring cursor-pointer"
-        onchange="handleThemeChange(this.value)">
+        class="w-full text-sm px-3 py-2 rounded-md border border-border bg-form-input-bg text-form-input-text focus:outline-none focus:ring-2 focus:ring-focus-ring cursor-pointer">
         {
           availableThemes.map((theme) => (
             <option value={theme.value}>{theme.label}</option>
@@ -56,27 +53,36 @@ const initialTheme = 'cyberpunk'; // Default theme if none saved in the local st
     </div>
 
     <script is:inline>
-      // Set initial theme from localStorage or default
+      // Copy paste available themes array (defined above on top of the document) to here, since Astro variables aren't accessible in inline scripts :(
+      const themes = [
+        { value: '', label: "Close to Tanvir Vai's Figma Design" },
+        { value: 'cyberpunk', label: 'Cyberpunk' },
+        { value: 'vue-light', label: 'Vue Light' },
+        { value: 'terminal-dark', label: 'Terminal Dark' },
+      ];
+
+      // Set initial theme from localStorage or default to cyberpunk
       const getSavedTheme = () => {
         const saved = localStorage.getItem('theme');
-        // Validate the saved theme exists in our availableThemes array
-        return availableThemes.some((t) => t.value === saved)
-          ? saved
-          : 'cyberpunk';
+        // Validate the saved theme exists in our themes array
+        return themes.some((t) => t.value === saved) ? saved : 'cyberpunk';
       };
 
       // Initialize theme
-      const initialTheme = getSavedTheme();
-      document.documentElement.setAttribute('data-theme', initialTheme);
+      const currentTheme = getSavedTheme();
+      document.documentElement.setAttribute('data-theme', currentTheme);
 
-      // Set select value
+      // Set select value to match current theme
       const themeSelect = document.getElementById('themeSelect');
-      if (themeSelect) themeSelect.value = initialTheme;
+      if (themeSelect) {
+        themeSelect.value = currentTheme;
 
-      // Theme change handler
-      function handleThemeChange(themeValue) {
-        document.documentElement.setAttribute('data-theme', themeValue);
-        localStorage.setItem('theme', themeValue);
+        // Add event listener
+        themeSelect.addEventListener('change', (e) => {
+          const themeValue = e.target.value;
+          document.documentElement.setAttribute('data-theme', themeValue);
+          localStorage.setItem('theme', themeValue);
+        });
       }
     </script>
   </body>
