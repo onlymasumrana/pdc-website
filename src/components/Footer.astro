@@ -2,25 +2,32 @@
 // src/components/Footer.astro
 ---
 
-<footer class="bg-background-muted text-center section">
-  <div>
-    <p class="mb-4 text-foreground">
-      © 2025 Premium Design. Accessible, Inclusive, AI-Powered.
-    </p>
-    <div class="flex gap-4 justify-center">
-      <a
-        href="https://example.com"
-        class="text-foreground hover:text-primary transition-colors">Facebook</a
-      >
-      <a
-        href="https://example.com"
-        class="text-foreground hover:text-primary transition-colors"
-        >Instagram</a
-      >
-      <a
-        href="https://example.com"
-        class="text-foreground hover:text-primary transition-colors">Twitter</a
-      >
+<footer class="bg-background-muted border-t border-border">
+  <div class="container-custom py-8 md:py-12">
+    <div class="text-center">
+      <p class="text-foreground mb-4">
+        © 2025 Premium Design. All rights reserved.
+      </p>
+      <nav class="flex gap-6 justify-center">
+        <a
+          href="https://example.com"
+          class="nav-link"
+          aria-label="Follow us on Facebook">
+          Facebook
+        </a>
+        <a
+          href="https://example.com"
+          class="nav-link"
+          aria-label="Follow us on Instagram">
+          Instagram
+        </a>
+        <a
+          href="https://example.com"
+          class="nav-link"
+          aria-label="Follow us on Twitter">
+          Twitter
+        </a>
+      </nav>
     </div>
   </div>
 </footer>
