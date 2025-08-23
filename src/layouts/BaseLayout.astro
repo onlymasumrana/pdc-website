@@ -5,14 +5,13 @@ import Footer from '../components/Footer.astro';
 
 // Define available themes in a single source of truth
 const availableThemes = [
-  { value: '', label: 'Default' },
+  { value: '', label: "Close to Tanvir Vai's design" },
   { value: 'cyberpunk', label: 'Cyberpunk' },
   { value: 'vue-light', label: 'Vue Light' },
   { value: 'terminal-dark', label: 'Terminal Dark' },
-  
 ];
 // Get initial theme
-const initialTheme = 'vue-light';
+const initialTheme = 'cyberpunk'; // Default theme if none saved in the local storage
 ---
 
 <html lang="en" data-theme={initialTheme}>
@@ -57,31 +56,24 @@ const initialTheme = 'vue-light';
     </div>
 
     <script is:inline>
-      // Single source of truth for themes (must match the Astro array defined above)
-      const themes = [
-        { value: '', label: 'Close to Tanvir Vai\'s design' },
-        { value: 'cyberpunk', label: 'Cyberpunk' },
-        { value: 'vue-light', label: 'Vue Light' },
-        { value: 'terminal-dark', label: 'Terminal Dark' },
-      ];
-
       // Set initial theme from localStorage or default
       const getSavedTheme = () => {
         const saved = localStorage.getItem('theme');
-        // Validate the saved theme exists in our list
-        return themes.some((t) => t.value === saved) ? saved : 'vue-light';
+        // Validate the saved theme exists in our availableThemes array
+        return availableThemes.some((t) => t.value === saved)
+          ? saved
+          : 'cyberpunk';
       };
 
+      // Initialize theme
       const initialTheme = getSavedTheme();
       document.documentElement.setAttribute('data-theme', initialTheme);
 
-      // Update the select element
+      // Set select value
       const themeSelect = document.getElementById('themeSelect');
-      if (themeSelect) {
-        themeSelect.value = initialTheme;
-      }
+      if (themeSelect) themeSelect.value = initialTheme;
 
-      // Handler for theme change
+      // Theme change handler
       function handleThemeChange(themeValue) {
         document.documentElement.setAttribute('data-theme', themeValue);
         localStorage.setItem('theme', themeValue);
