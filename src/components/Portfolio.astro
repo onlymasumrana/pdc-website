@@ -16,6 +16,8 @@ const portfolios = [
         icon: '',
         text: 'View Case Study',
         link: 'https://dribbble.com/shots/3872227-Food-Search-App',
+        target: '_blank',
+        rel: 'noopener noreferrer',
         variant: 'primary',
       },
     ],
@@ -32,6 +34,8 @@ const portfolios = [
         icon: '',
         text: 'View Case Study',
         link: 'example.com',
+        target: '',
+        rel: '',
         variant: 'secondary',
       },
     ],
@@ -47,6 +51,8 @@ const portfolios = [
         icon: '',
         text: 'View Case Study',
         link: 'example.com',
+        target: '',
+        rel: '',
         variant: 'outline',
       },
     ],
@@ -101,7 +107,8 @@ const portfolios = [
             {portfolio.cta.map((button) => (
               <a
                 href={button.link}
-                target="_blank"
+                target={button.target}
+                rel={button.rel}
                 class={`
                   btn btn-sm w-full justify-center
                   ${button.variant === 'primary' ? 'btn-primary' : ''}

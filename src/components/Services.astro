@@ -18,6 +18,8 @@ const services = [
         icon: '',
         text: '100% accessibility compliant',
         link: 'example.com',
+        target: '',
+        rel: '',
         variant: 'primary',
       },
     ],
@@ -34,6 +36,8 @@ const services = [
         icon: '',
         text: 'Cross-platform accessibility',
         link: 'example.com',
+        target: '',
+        rel: '',
         variant: 'primary',
       },
     ],
@@ -50,6 +54,8 @@ const services = [
         icon: '',
         text: '100% accessibility compliant',
         link: 'example.com',
+        target: '',
+        rel: '',
         variant: 'primary',
       },
     ],
@@ -70,6 +76,8 @@ const services = [
         icon: '',
         text: 'Exclusive design principles',
         link: 'example.com',
+        target: '',
+        rel: '',
         variant: 'primary',
       },
     ],
@@ -86,6 +94,8 @@ const services = [
         icon: '',
         text: 'Universal design approach',
         link: 'example.com',
+        target: '',
+        rel: '',
         variant: 'primary',
       },
     ],
@@ -102,6 +112,8 @@ const services = [
         icon: '',
         text: 'Accessibility expertise',
         link: 'example.com',
+        target: '',
+        rel: '',
         variant: 'primary',
       },
     ],
@@ -139,16 +151,18 @@ const services = [
           </div>
 
           <div slot="card-footer" class="space-y-2">
-            {service.cta.map((action) => (
+            {service.cta.map((button) => (
               <a
-                href={action.link}
+                href={button.link}
+                target={button.target}
+                rel={button.rel}
                 class={`
                   btn btn-sm w-full justify-center
-                  ${action.variant === 'primary' ? 'btn-primary' : ''}
-                  ${action.variant === 'secondary' ? 'btn-secondary' : ''}
-                  ${action.variant === 'outline' ? 'btn-outline' : ''}
+                  ${button.variant === 'primary' ? 'btn-primary' : ''}
+                  ${button.variant === 'secondary' ? 'btn-secondary' : ''}
+                  ${button.variant === 'outline' ? 'btn-outline' : ''}
                 `}>
-                {action.text}
+                {button.text}
               </a>
             ))}
           </div>
