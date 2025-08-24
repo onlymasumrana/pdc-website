@@ -207,7 +207,7 @@
   }
 
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth scroll-pt-20; /* Adjust scroll padding based on the nav height */;
   }
 
   body {
