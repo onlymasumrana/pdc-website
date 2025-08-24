@@ -6,20 +6,89 @@
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
     <!-- Stat Item 1 -->
     <div class="card text-center">
-      <h2 class="text-gradient text-4xl md:text-5xl font-bold mb-2">100%</h2>
+      <h2
+        class="text-gradient text-4xl md:text-5xl font-bold mb-2"
+        data-count="100">
+        0%
+      </h2>
       <p class="text-muted">Accessibility Compliant</p>
     </div>
 
     <!-- Stat Item 2 -->
     <div class="card text-center">
-      <h2 class="text-gradient text-4xl md:text-5xl font-bold mb-2">97%</h2>
+      <h2
+        class="text-gradient text-4xl md:text-5xl font-bold mb-2"
+        data-count="97">
+        0%
+      </h2>
       <p class="text-muted">User Satisfaction</p>
     </div>
 
     <!-- Stat Item 3 -->
     <div class="card text-center">
-      <h2 class="text-gradient text-4xl md:text-5xl font-bold mb-2">500+</h2>
+      <h2
+        class="text-gradient text-4xl md:text-5xl font-bold mb-2"
+        data-count="500">
+        0+
+      </h2>
       <p class="text-muted">Projects Completed</p>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  function animateCounter(element, finalValue, duration = 2000) {
+    const startValue = 0;
+    const startTime = performance.now();
+    const suffix = element.textContent.match(/[%+]/)?.[0] || '';
+
+    function updateCounter(currentTime) {
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const currentValue = Math.floor(
+        startValue + easeOutQuart * (finalValue - startValue)
+      );
+
+      element.textContent = currentValue + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      }
+    }
+
+    requestAnimationFrame(updateCounter);
+  }
+
+  function initCounters() {
+    const counterElements = document.querySelectorAll('[data-count]');
+
+    // Create Intersection Observer to trigger animation when in viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            const finalValue = parseInt(element.getAttribute('data-count'));
+            animateCounter(element, finalValue);
+            observer.unobserve(element); // Stop observing after animation
+          }
+        });
+      },
+      { threshold: 0.5 }
+    ); // Trigger when 50% of element is visible
+
+    counterElements.forEach((element) => {
+      observer.observe(element);
+    });
+  }
+
+  // Initialize when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCounters);
+  } else {
+    initCounters();
+  }
+</script>
