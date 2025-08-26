@@ -3,38 +3,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === Global Theme Tokens (single source of truth) === */
+/* === Neutral Light Theme === */
 :root {
   /* Base */
   --color-background: #ffffff;
-  --color-background-muted: #f9f9f9;
-  --color-foreground: #303030;
-  --color-foreground-muted: #6b7280;
+  --color-background-muted: #f5f5f5;
+  --color-foreground: #151515;
+  --color-foreground-muted: #363636;
   --color-muted: var(--color-foreground-muted);
-  --color-border: #e5e5e5;
-  --color-card-bg: #f5f5f5;
+  --color-border: #b8b8b8;
+  --color-card-bg: #e9e9e9;
   --color-card-text: var(--color-foreground);
   --color-card: var(--color-card-bg);
   --color-form-input-bg: #ffffff;
   --color-form-input-text: var(--color-foreground);
-  --color-primary: #ff6b6b;
-  --color-primary-hover: #ff5252;
-  --color-secondary: #ffd43b;
-  --color-secondary-hover: #ffc107;
-  --color-accent: #4dabf7;
-  --color-accent-hover: #339af0;
-  --color-tertiary: #845ef7;
-  --color-tertiary-hover: #7048e8;
+
+  /* Brand */
+  --color-primary: #131313;
+  --color-primary-hover: #353535;
+  --color-secondary: #616161;
+  --color-secondary-hover: #646464;
+  --color-accent: #a3a3a3;
+  --color-accent-hover: #d4d4d4;
+  --color-tertiary: #8b8b8b;
+  --color-tertiary-hover: #a3a3a3;
 
   /* Status */
-  --color-success: #22c55e;
-  --color-warning: #facc15;
-  --color-danger: #ef4444;
-  --color-info: #3b82f6;
+  --color-success: #15803d;
+  --color-warning: #d97706;
+  --color-danger: #b91c1c;
+  --color-info: #1d4ed8;
 
   /* Links/Focus */
-  --color-link: var(--color-accent);
-  --color-link-hover: var(--color-accent-hover);
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-hover);
   --color-focus-ring: var(--color-primary);
 
   /* Buttons */
@@ -44,12 +46,63 @@
   --color-button-primary-text-hover: var(--color-button-primary-text);
   --color-button-secondary-background: var(--color-secondary);
   --color-button-secondary-background-hover: var(--color-secondary-hover);
-  --color-button-secondary-text: var(--color-foreground);
+  --color-button-secondary-text: #ffffff;
   --color-button-secondary-text-hover: var(--color-button-secondary-text);
   --color-button-outline-background: transparent;
   --color-button-outline-background-hover: var(--color-primary);
   --color-button-outline-text: var(--color-primary);
   --color-button-outline-text-hover: #ffffff;
+  --color-button-outline-border: var(--color-primary);
+}
+
+/* === Neutral Dark Theme === */
+[data-theme='neutral-dark'] {
+  /* Base */
+  --color-background: #171717;
+  --color-background-muted: #262626;
+  --color-foreground: #f5f5f5;
+  --color-foreground-muted: #a3a3a3;
+  --color-muted: var(--color-foreground-muted);
+  --color-border: #404040;
+  --color-card-bg: #262626;
+  --color-card-text: var(--color-foreground);
+  --color-form-input-bg: #404040;
+  --color-form-input-text: var(--color-foreground);
+
+  /* Brand */
+  --color-primary: #ffffff;
+  --color-primary-hover: #e9e9e9;
+  --color-secondary: #bbbbbb;
+  --color-secondary-hover: #d4d4d4;
+  --color-accent: #737373;
+  --color-accent-hover: #a3a3a3;
+  --color-tertiary: #8b8b8b;
+  --color-tertiary-hover: #a3a3a3;
+
+  /* Status */
+  --color-success: #4ade80;
+  --color-warning: #facc15;
+  --color-danger: #f87171;
+  --color-info: #60a5fa;
+
+  /* Links/Focus */
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-hover);
+  --color-focus-ring: var(--color-primary);
+
+  /* Buttons */
+  --color-button-primary-background: var(--color-primary);
+  --color-button-primary-background-hover: var(--color-primary-hover);
+  --color-button-primary-text: var(--color-background);
+  --color-button-primary-text-hover: var(--color-button-primary-text);
+  --color-button-secondary-background: var(--color-secondary);
+  --color-button-secondary-background-hover: var(--color-secondary-hover);
+  --color-button-secondary-text: var(--color-background);
+  --color-button-secondary-text-hover: var(--color-button-secondary-text);
+  --color-button-outline-background: transparent;
+  --color-button-outline-background-hover: var(--color-primary);
+  --color-button-outline-text: var(--color-primary);
+  --color-button-outline-text-hover: var(--color-background);
   --color-button-outline-border: var(--color-primary);
 }
 
@@ -66,6 +119,8 @@
   --color-card-text: var(--color-foreground);
   --color-form-input-bg: var(--color-foreground);
   --color-form-input-text: var(--color-background-muted);
+
+  /* Brand */
   --color-primary: #2de2e6;
   --color-primary-hover: #1ac8cc;
   --color-secondary: #ff3864;
@@ -115,6 +170,8 @@
   --color-card-text: var(--color-foreground);
   --color-form-input-bg: #ffffff;
   --color-form-input-text: var(--color-foreground);
+
+  /* Brand */
   --color-primary: #10b981;
   --color-primary-hover: #059669;
   --color-secondary: #3b82f6;
@@ -164,6 +221,8 @@
   --color-card-text: var(--color-foreground);
   --color-form-input-bg: var(--color-background-muted);
   --color-form-input-text: var(--color-foreground);
+
+  /* Brand */
   --color-primary: #10b981;
   --color-primary-hover: #34d399;
   --color-secondary: #14b8a6;
@@ -207,7 +266,7 @@
   }
 
   html {
-    @apply scroll-smooth scroll-pt-20; /* Adjust scroll padding based on the nav height */;
+    @apply scroll-smooth scroll-pt-20; /* Adjust scroll padding based on the nav height */
   }
 
   body {
@@ -311,7 +370,11 @@
   .card-glass {
     /* bg-background/80 border-border/50 */
     @apply backdrop-blur-md border rounded-lg p-6;
-    background-color: color-mix(in srgb, var(--color-background) 80%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--color-background) 80%,
+      transparent
+    );
     border-color: color-mix(in srgb, var(--color-border) 50%, transparent);
   }
 
@@ -389,7 +452,7 @@
   .form-group {
     @apply space-y-2;
   }
-  
+
   .form-input {
     @apply flex h-10 w-full rounded-md border border-border bg-form-input-bg px-3 py-2 text-form-input-text placeholder-muted;
   }
@@ -485,7 +548,11 @@
   .badge-secondary {
     /* bg-secondary/20 */
     @apply text-secondary;
-    background-color: color-mix(in srgb, var(--color-secondary) 20%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--color-secondary) 20%,
+      transparent
+    );
   }
 
   .badge-success {
@@ -578,7 +645,11 @@
   .modal-backdrop {
     /* bg-background/80 */
     @apply fixed inset-0 z-50 backdrop-blur-sm;
-    background-color: color-mix(in srgb, var(--color-background) 80%, transparent)
+    background-color: color-mix(
+      in srgb,
+      var(--color-background) 80%,
+      transparent
+    );
   }
 
   /* === Modal Content === */
