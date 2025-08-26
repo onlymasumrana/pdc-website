@@ -16,6 +16,25 @@
     <a href="/consultation" class="btn btn-primary btn-lg">
       Access Free Consultation
     </a>
-    <a href="#work" class="btn btn-outline btn-lg"> View Our Work </a>
+    <a
+      href="/works"
+      class="btn btn-outline btn-lg"
+      onclick="handleWorksClick(event)">
+      View Our Work
+    </a>
   </div>
+
+  <script is:inline>
+    function handleWorksClick(event) {
+      // If already on homepage, scroll to works section
+      if (window.location.pathname === '/') {
+        event.preventDefault();
+        const worksSection = document.querySelector('#works');
+        if (worksSection) {
+          worksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+      // Otherwise, the regular href="/works" will navigate to works page
+    }
+  </script>
 </section>
