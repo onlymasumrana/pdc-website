@@ -311,6 +311,8 @@
   .card-glass {
     /* bg-background/80 border-border/50 */
     @apply backdrop-blur-md border rounded-lg p-6;
+    background-color: color-mix(in srgb, var(--color-background) 80%, transparent);
+    border-color: color-mix(in srgb, var(--color-border) 50%, transparent);
   }
 
   /* === Buttons === */
@@ -477,31 +479,37 @@
   .badge-primary {
     /* bg-primary/20 */
     @apply text-primary;
+    background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
 
   .badge-secondary {
     /* bg-secondary/20 */
     @apply text-secondary;
+    background-color: color-mix(in srgb, var(--color-secondary) 20%, transparent);
   }
 
   .badge-success {
     /* bg-success/20 */
     @apply text-success;
+    background-color: color-mix(in srgb, var(--color-success) 20%, transparent);
   }
 
   .badge-warning {
     /* bg-warning/20 */
     @apply text-warning;
+    background-color: color-mix(in srgb, var(--color-warning) 20%, transparent);
   }
 
   .badge-danger {
     /* bg-danger/20 */
     @apply text-danger;
+    background-color: color-mix(in srgb, var(--color-danger) 20%, transparent);
   }
 
   .badge-info {
     /* bg-info/20 */
     @apply text-info;
+    background-color: color-mix(in srgb, var(--color-info) 20%, transparent);
   }
 
   /* === Alerts === */
@@ -512,21 +520,29 @@
   .alert-info {
     /* border-info/20 bg-info/10 */
     @apply text-info;
+    background-color: color-mix(in srgb, var(--color-info) 10%, transparent);
+    border-color: color-mix(in srgb, var(--color-info) 20%, transparent);
   }
 
   .alert-success {
     /* border-success/20 bg-success/10 */
     @apply text-success;
+    background-color: color-mix(in srgb, var(--color-success) 10%, transparent);
+    border-color: color-mix(in srgb, var(--color-success) 20%, transparent);
   }
 
   .alert-warning {
     /* border-warning/20 bg-warning/10 */
     @apply text-warning;
+    background-color: color-mix(in srgb, var(--color-warning) 10%, transparent);
+    border-color: color-mix(in srgb, var(--color-warning) 20%, transparent);
   }
 
   .alert-danger {
     /* border-danger/20 bg-danger/10 */
     @apply text-danger;
+    background-color: color-mix(in srgb, var(--color-danger) 10%, transparent);
+    border-color: color-mix(in srgb, var(--color-danger) 20%, transparent);
   }
 
   /* === Code Blocks === */
@@ -562,6 +578,7 @@
   .modal-backdrop {
     /* bg-background/80 */
     @apply fixed inset-0 z-50 backdrop-blur-sm;
+    background-color: color-mix(in srgb, var(--color-background) 80%, transparent)
   }
 
   /* === Modal Content === */
