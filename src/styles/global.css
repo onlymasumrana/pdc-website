@@ -317,7 +317,7 @@
 
   /* === Buttons === */
   .btn {
-    @apply inline-flex items-center justify-center rounded-md font-medium transition-all duration-200;
+    @apply inline-flex items-center justify-center rounded font-medium transition-all duration-200;
   }
 
   .btn:focus-visible {
@@ -337,7 +337,7 @@
   }
 
   .btn-lg {
-    @apply h-11 px-8 text-lg;
+    @apply px-5 py-2.5 text-lg;
   }
 
   /* Primary Button */
@@ -460,7 +460,7 @@
 
   /* === Navigation === */
   .nav-link {
-    @apply text-foreground-muted transition-colors duration-200;
+    @apply text-foreground-muted text-xl transition-colors duration-200;
   }
 
   .nav-link:hover {
