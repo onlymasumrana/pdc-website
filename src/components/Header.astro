@@ -22,7 +22,11 @@ import logo from '../assets/logo.png';
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-8">
-        <a href="/" class="nav-link nav-link-active">Home</a>
+        <a
+          href="/"
+          class="nav-link nav-link-active"
+          onclick="handleHomeClick(event)">Home</a
+        >
         <a
           href="/services"
           class="nav-link"
@@ -60,6 +64,15 @@ import logo from '../assets/logo.png';
 </header>
 
 <script is:inline>
+  function handleHomeClick(event) {
+    // If already on homepage, scroll to top
+    if (window.location.pathname === '/') {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // Otherwise, the regular href="/" will navigate to homepage
+  }
+
   function handleServicesClick(event) {
     // If already on homepage, scroll to services section
     if (window.location.pathname === '/') {
