@@ -13,6 +13,7 @@ export default {
         'foreground-muted': 'var(--color-foreground-muted)',
         muted: 'var(--color-muted)',
         border: 'var(--color-border)',
+        'border-muted': 'var(--color-border-muted)',
 
         // Cards & Forms
         card: 'var(--color-card)',
