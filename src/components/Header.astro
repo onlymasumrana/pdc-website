@@ -2,6 +2,18 @@
 // src/components/Header.astro
 import { Image } from 'astro:assets';
 import logo from '../assets/logo.png';
+
+// Get current page path
+const { url } = Astro;
+const currentPath = url.pathname;
+
+// Function to check if a link is active
+const isActiveLink = (linkPath: string): boolean => {
+  if (linkPath === '/') {
+    return currentPath === '/';
+  }
+  return currentPath.startsWith(linkPath);
+};
 ---
 
 <header
@@ -25,18 +37,24 @@ import logo from '../assets/logo.png';
       <nav class="hidden md:flex items-center gap-8">
         <a
           href="/"
-          class="nav-link nav-link-active"
+          class={`nav-link ${isActiveLink('/') ? 'nav-link-active' : ''}`}
           onclick="handleHomeClick(event)">Home</a
         >
         <a
           href="/services"
-          class="nav-link"
+          class={`nav-link ${isActiveLink('/services') ? 'nav-link-active' : ''}`}
           onclick="handleServicesClick(event)">Services</a
         >
-        <a href="/works" class="nav-link" onclick="handleWorksClick(event)"
-          >Works</a
+        <a
+          href="/works"
+          class={`nav-link ${isActiveLink('/works') ? 'nav-link-active' : ''}`}
+          onclick="handleWorksClick(event)">Works</a
         >
-        <a href="/contact" class="nav-link">Contact</a>
+        <a
+          href="/contact"
+          class={`nav-link ${isActiveLink('/contact') ? 'nav-link-active' : ''}`}
+          >Contact</a
+        >
         <a href="/consultation" class="btn btn-primary btn-lg">
           Free Consultation
         </a>
@@ -77,27 +95,29 @@ import logo from '../assets/logo.png';
   </div>
 
   <!-- Mobile Navigation -->
-  <nav id="mobile-nav" class="md:hidden relative border-t border-border-muted hidden">
+  <nav
+    id="mobile-nav"
+    class="md:hidden relative border-t border-border-muted hidden">
     <div
       class="absolute top-0 left-0 w-screen px-12 pb-12 pt-6 space-y-6 bg-background-muted border-b border-border">
       <a
         href="/"
-        class="block py-2 text-xl nav-link nav-link-active"
+        class={`block py-2 text-xl nav-link ${isActiveLink('/') ? 'nav-link-active' : ''}`}
         onclick="handleMobileHomeClick(event)">Home</a
       >
       <a
         href="/services"
-        class="block py-2 text-xl nav-link"
+        class={`block py-2 text-xl nav-link ${isActiveLink('/services') ? 'nav-link-active' : ''}`}
         onclick="handleMobileServicesClick(event)">Services</a
       >
       <a
         href="/works"
-        class="block py-2 text-xl nav-link"
+        class={`block py-2 text-xl nav-link ${isActiveLink('/works') ? 'nav-link-active' : ''}`}
         onclick="handleMobileWorksClick(event)">Works</a
       >
       <a
         href="/contact"
-        class="block py-2 text-xl nav-link"
+        class={`block py-2 text-xl nav-link ${isActiveLink('/contact') ? 'nav-link-active' : ''}`}
         onclick="closeMobileMenu()">Contact</a
       >
       <a
@@ -121,7 +141,7 @@ import logo from '../assets/logo.png';
       mobileNav.classList.remove('hidden');
       menuIcon.classList.add('hidden');
       closeIcon.classList.remove('hidden');
-      // document.body.style.overflow = 'hidden'; //making this hidden will prevent scrolling, commented out for testing purposes
+      // document.body.style.overflow = 'hidden'; //making this hidden will prevent scrolling (uhm actually i like to scroll when menu is open :P)
     } else {
       mobileNav.classList.add('hidden');
       menuIcon.classList.remove('hidden');
@@ -205,5 +225,31 @@ import logo from '../assets/logo.png';
         }
       }
     }
+
+    // Update active states based on current page
+    updateActiveNavStates();
   });
+
+  // Update active navigation states
+  function updateActiveNavStates() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach((link) => {
+      // Reset all active states
+      link.classList.remove('nav-link-active');
+
+      // Check if this link matches the current path
+      const linkPath = link.getAttribute('href');
+
+      // Special handling for homepage
+      if (linkPath === '/' && currentPath === '/') {
+        link.classList.add('nav-link-active');
+      }
+      // For other pages
+      else if (linkPath !== '/' && currentPath.startsWith(linkPath)) {
+        link.classList.add('nav-link-active');
+      }
+    });
+  }
 </script>
