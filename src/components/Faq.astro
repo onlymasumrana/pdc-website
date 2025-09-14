@@ -1,0 +1,40 @@
+---
+const faqs = [
+  {
+    question: "What is your service about?",
+    answer: "We provide high-quality design and development services tailored to startups, SaaS, and growing businesses.",
+  },
+  {
+    question: "How does the pricing work?",
+    answer: "Our pricing is flexible and subscription-based, so you can cancel anytime without long-term contracts.",
+  },
+  {
+    question: "Do you offer refunds?",
+    answer: "Yes, we offer a 14-day money-back guarantee if you're not satisfied with our service.",
+  },
+  {
+    question: "Can I switch plans later?",
+    answer: "Absolutely! You can upgrade or downgrade your plan at any time from your dashboard.",
+  },
+];
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-6 max-w-3xl">
+    <h2 class="text-3xl md:text-4xl font-bold text-center  mb-12">
+      Frequently Asked Questions
+    </h2>
+
+    <div class="space-y-4">
+      {faqs.map((faq, idx) => (
+        <details class="group border rounded-xl  p-6 shadow-sm">
+          <summary class="flex justify-between items-center cursor-pointer font-medium ">
+            {faq.question}
+            <span class="transition-transform duration-300 group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 ">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
