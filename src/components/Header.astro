@@ -63,7 +63,7 @@ const isActiveLink = (linkPath: string): boolean => {
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden p-2 rounded text-foreground border border-border-muted"
+        class="md:hidden p-2 rounded text-foreground"
         aria-label="Toggle mobile menu"
         onclick="toggleMobileMenu()">
         <svg
@@ -97,9 +97,9 @@ const isActiveLink = (linkPath: string): boolean => {
   <!-- Mobile Navigation -->
   <nav
     id="mobile-nav"
-    class="md:hidden relative border-t border-border-muted hidden">
+    class="md:hidden relative  hidden">
     <div
-      class="absolute top-0 left-0 w-screen px-12 pb-12 pt-6 space-y-6 bg-background-muted border-b border-border">
+      class="absolute top-0 left-0 w-screen px-12 pb-12 pt-6 space-y-6 bg-background-muted">
       <a
         href="/"
         class={`block py-2 text-xl nav-link ${isActiveLink('/') ? 'nav-link-active' : ''}`}
