@@ -1,4 +1,63 @@
 ---
+const cards = [
+  {
+    img: "https://cdn.dribbble.com/userupload/22237908/file/original-c6de19bbb279f2a63e072dc7a8bc103d.png?resize=752x564&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
+  },
+  {
+    img: "https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
+  },
+  {
+    img: "https://cdn.dribbble.com/userupload/22237908/file/original-c6de19bbb279f2a63e072dc7a8bc103d.png?resize=752x564&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
+  },
+  {
+    img: "https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
+  },
+  {
+    img: "https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
+  },
+  {
+    img: "https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
+  },
+];
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {cards.map((card) => (
+    <div class="rounded-xl overflow-hidden shadow p-3">
+      <img src={card.img} alt={card.title} class="w-full h-48 object-cover" />
+      <div class="py-2">
+        <p class="text-sm">{card.category}</p>
+        <h3 class="text-lg font-semibold mt-1">{card.title}</h3>
+      </div>
+    </div>
+  ))}
+</div>
+
+
+
+
+
+
+
+<!-- ---
 // src/components/Portfolio.astro
 import { Image } from 'astro:assets';
 import Card from './Card.astro';
@@ -130,4 +189,4 @@ const portfolios = [
   <div class="text-center mt-12">
     <a href="/portfolio" class="btn btn-primary btn-lg">View All Projects</a>
   </div>
-</section>
+</section> -->
