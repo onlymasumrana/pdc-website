@@ -1,136 +1,58 @@
 ---
-// src/components/Portfolio.astro
-import { Image } from 'astro:assets';
-import Card from './Card.astro';
-
-const portfolios = [
+const cards = [
   {
-    image:
-      'https://cdn.dribbble.com/userupload/22237908/file/original-c6de19bbb279f2a63e072dc7a8bc103d.png?resize=752x564&vertical=center',
-    title: 'Mobail App Design',
-    description:
-      'Mobail App Designed for users with diverse needs and abilities.',
-    categories: ['UI/UX Design', 'Mobile App'],
-    cta: [
-      {
-        icon: '',
-        text: 'View Case Study',
-        link: 'https://dribbble.com/shots/3872227-Food-Search-App',
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        variant: 'primary',
-      },
-    ],
+    img: "https://cdn.dribbble.com/userupload/22237908/file/original-c6de19bbb279f2a63e072dc7a8bc103d.png?resize=752x564&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
   },
   {
-    image:
-      'https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center',
-    title: 'Hotel Booking',
-    description:
-      'Hotel Booking platform designed for users with diverse needs and abilities.',
-    categories: ['Booking', 'Website'],
-    cta: [
-      {
-        icon: '',
-        text: 'View Case Study',
-        link: 'example.com',
-        target: '',
-        rel: '',
-        variant: 'secondary',
-      },
-    ],
+    img: "https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
   },
   {
-    image:
-      'https://cdn.dribbble.com/userupload/21154280/file/original-c1907407807a50826805a5c16fc70128.png?resize=752x&vertical=center',
-    title: 'Personal Website',
-    description: 'Personal website designed for showcasing portfolios.',
-    categories: ['Personal', 'Portfolio'],
-    cta: [
-      {
-        icon: '',
-        text: 'View Case Study',
-        link: 'example.com',
-        target: '',
-        rel: '',
-        variant: 'outline',
-      },
-    ],
+    img: "https://cdn.dribbble.com/userupload/22237908/file/original-c6de19bbb279f2a63e072dc7a8bc103d.png?resize=752x564&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
+  },
+  {
+    img: "https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
+  },
+  {
+    img: "https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
+  },
+  {
+    img: "https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center",
+    category: "Fintech app",
+    title: "Smartlist Conceptual Design",
+    link: "#",
   },
 ];
 ---
 
-<section class="section">
-  <header class="section-header">
-    <h2 class="section-title text-gradient">Success Stories</h2>
-    <p class="section-subtitle">
-      Projects that prove accessibility and great design go hand in hand
-    </p>
-  </header>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {cards.map((card) => (
+    <div class="rounded-xl overflow-hidden shadow p-3">
+      <img src={card.img} alt={card.title} class="w-full h-48 object-cover" />
+      <div class="pt-2">
+        <p class="text-sm">{card.category}</p>
+        <h3 class="text-lg font-semibold mt-1">{card.title}</h3>
+      </div>
+    </div>
+  ))}
+</div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-    {
-      portfolios.map((portfolio) => (
-        <Card>
-          {/* Image - Ensure it fits the card properly */}
-          <img
-            slot="card-image"
-            src={portfolio.image}
-            alt={portfolio.title}
-            width="400"
-            height="250"
-            class="w-full h-48 object-cover rounded"
-          />
 
-          {/* Header */}
-          <h4
-            slot="card-header"
-            class="text-xl font-semibold text-foreground mb-2">
-            {portfolio.title}
-          </h4>
 
-          {/* Content */}
-          <div slot="card-content" class="space-y-4">
-            <p class="text-muted">{portfolio.description}</p>
-            <div>
-              <p class="font-medium text-foreground mb-2">Categories:</p>
-              <div class="flex flex-wrap gap-2">
-                {portfolio.categories.map((category) => (
-                  <span class="badge badge-primary">
-                    {category}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div slot="card-footer" class="space-y-2">
-            {portfolio.cta.map((button) => (
-              <a
-                href={button.link}
-                target={button.target}
-                rel={button.rel}
-                class={`
-                  btn btn-sm w-full justify-center
-                  ${button.variant === 'primary' ? 'btn-primary' : ''}
-                  ${button.variant === 'secondary' ? 'btn-secondary' : ''}
-                  ${button.variant === 'outline' ? 'btn-outline' : ''}
-                `}>
-                {button.text}
-              </a>
-            ))}
-          </div>
-        </Card>
-      ))
-    }
-  </div>
-
-  {/* View All Projects Button */}
-  <div class="text-center mt-12">
-    <a href="/portfolio" class="btn btn-primary btn-lg">View All Projects</a>
-  </div>
-</section>
 
 <!-- ---
 // src/components/Portfolio.astro
