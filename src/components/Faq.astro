@@ -2,39 +2,67 @@
 const faqs = [
   {
     question: "What is your service about?",
-    answer: "We provide high-quality design and development services tailored to startups, SaaS, and growing businesses.",
+    answer:
+      "We provide high-quality design and development services tailored to startups, SaaS, and growing businesses.",
   },
   {
     question: "How does the pricing work?",
-    answer: "Our pricing is flexible and subscription-based, so you can cancel anytime without long-term contracts.",
+    answer:
+      "Our pricing is flexible and subscription-based, so you can cancel anytime without long-term contracts.",
   },
   {
     question: "Do you offer refunds?",
-    answer: "Yes, we offer a 14-day money-back guarantee if you're not satisfied with our service.",
+    answer:
+      "Yes, we offer a 14-day money-back guarantee if you're not satisfied with our service.",
   },
   {
     question: "Can I switch plans later?",
-    answer: "Absolutely! You can upgrade or downgrade your plan at any time from your dashboard.",
+    answer:
+      "Absolutely! You can upgrade or downgrade your plan at any time from your dashboard.",
   },
 ];
 ---
 
-<section class="py-20">
-  <div class="container mx-auto px-6 max-w-3xl">
-    <h2 class="text-3xl md:text-4xl font-bold text-center  mb-12">
-      Frequently Asked Questions
-    </h2>
+<section class="section">
+  <div class="grid md:grid-cols-2 gap-12 items-center">
+    <!-- Left Side - Hero Text -->
+    <div>
+      <h2 class="mb-6 section-titel">
+        Elevate Your Brand with 
+        <span>Exceptional Design Solutions</span>
+      </h2>
+      <p class="section-subtitle mb-8">
+        We design innovative websites, applications, and brands that are
+        beautifully crafted for all users. Emphasizing accessibility,
+        inclusivity, and driven by cutting-edge AI technology.
+      </p>
+      <div class="flex gap-4">
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Contact Us
+        </a>
+        <a href="/portfolio" class="btn btn-outline btn-lg">
+          Our Portfolio
+        </a>
+      </div>
+    </div>
 
-    <div class="space-y-4">
-      {faqs.map((faq, idx) => (
-        <details class="group border rounded-xl  p-6 shadow-sm">
-          <summary class="flex justify-between items-center cursor-pointer font-medium ">
+    <!-- Right Side - FAQ -->
+    <div class="">
+      {faqs.map((faq) => (
+        <details class="group p-6">
+          <summary class="flex justify-between items-center cursor-pointer font-medium">
             {faq.question}
-            <span class="transition-transform duration-300 group-open:rotate-180">⌄</span>
+            <span class="transition-transform duration-300 group-open:rotate-180">
+             
+<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+  <path d="M6.3 8.7a1 1 0 0 1 1.4 0L12 13l4.3-4.3a1 1 0 0 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 0 1 0-1.4z" fill="currentColor"/>
+</svg>
+            </span>
           </summary>
-          <p class="mt-3 ">{faq.answer}</p>
+          <p class="mt-3">{faq.answer}</p>
         </details>
       ))}
     </div>
   </div>
 </section>
+
