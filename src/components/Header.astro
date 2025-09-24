@@ -17,19 +17,19 @@ const isActiveLink = (linkPath: string): boolean => {
 ---
 
 <header
-  class="sticky top-0 z-50 bg-background/95 backdrop-blur-3xl border-b border-border">
-  <div class="p-6">
+  class="md:py-1 sticky top-0 z-50 bg-background/95 backdrop-blur-3xl  bg-col rounded-t-lg md:mx-4 md:mt-4">
+  <div class="p-3 bg-background-muted  mx-3 md:mx-6 my-3 rounded">
     <div class="flex items-center justify-between">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3">
-        <Image
+        <!-- <Image
           src={logo}
           alt="Premium Design Company Logo"
           width={32}
           height={32}
           class="flex-shrink-0"
-        />
-        <span class="font-bold text-3xl pb-1 text-gradient">Premium Design</span
+        /> -->
+        <span class="font-medium md:font-bold leading-[1]  ">Premium <br> Design</span
         >
       </a>
 
@@ -55,15 +55,15 @@ const isActiveLink = (linkPath: string): boolean => {
           class={`nav-link ${isActiveLink('/contact') ? 'nav-link-active' : ''}`}
           >Contact</a
         >
-        <a href="/consultation" class="btn btn-primary btn-lg">
-          Free Consultation
-        </a>
       </nav>
+      <a href="/consultation" class="btn btn-primary  btn-sm hidden md:flex">
+          Contact Us
+        </a>
 
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden p-2 rounded text-foreground border border-border-muted"
+        class="md:hidden p-2 rounded text-foreground"
         aria-label="Toggle mobile menu"
         onclick="toggleMobileMenu()">
         <svg
@@ -97,9 +97,9 @@ const isActiveLink = (linkPath: string): boolean => {
   <!-- Mobile Navigation -->
   <nav
     id="mobile-nav"
-    class="md:hidden relative border-t border-border-muted hidden">
+    class="md:hidden relative  hidden">
     <div
-      class="absolute top-0 left-0 w-screen px-12 pb-12 pt-6 space-y-6 bg-background-muted border-b border-border">
+      class="absolute top-0 left-0 w-screen px-12 pb-12 pt-6 space-y-6 bg-background-muted">
       <a
         href="/"
         class={`block py-2 text-xl nav-link ${isActiveLink('/') ? 'nav-link-active' : ''}`}
