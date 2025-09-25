@@ -1,21 +1,61 @@
 ---
-// src/components/Testimonials.astro
+const testimonials = [
+  {
+    text: "Seamless integrations and super intuitive UI. Exactly what our growing business needed.",
+    name: "Sarah",
+    role: "Project Manager",
+    image: "/assets/Profiel picture.png",
+  },
+  {
+    text: "Seamless integrations and super intuitive UI. Exactly what our growing business needed.",
+    name: "Sarah",
+    role: "Project Manager",
+    image: "/assets/Profiel picture.png",
+  },
+  {
+    text: "Seamless integrations and super intuitive UI. Exactly what our growing business needed.",
+    name: "Sarah",
+    role: "Project Manager",
+    image: "/assets/Profiel picture.png",
+  },
+  {
+    text: "Seamless integrations and super intuitive UI. Exactly what our growing business needed.",
+    name: "Sarah",
+    role: "Project Manager",
+    image: "/assets/Profiel picture.png",
+  },
+  {
+    text: "Seamless integrations and super intuitive UI. Exactly what our growing business needed.",
+    name: "Sarah",
+    role: "Project Manager",
+    image: "/assets/Profiel picture.png",
+  },
+];
 ---
 
 <section class="section">
-  <header class="section-header">
-    <h2 class="section-title text-primary">Trusted by Teams, Loved by Users</h2>
-  </header>
+  <div>
+    <div class="grid grid-cols-6">
+      <p class="text-sm font-medium uppercase tracking-wider col-span-1 pl-5">Testimonial</p>
+    <h2 class="section-title col-span-3 ">
+      <span class="text-foreground">Trusted</span> <span class="text-muted">by happy people globally</span> 
+    </h2>
+    </div>
 
-  <blockquote class="card text-center max-w-2xl mx-auto">
-    <p class="text-lg italic text-foreground">
-      "Masum was truly a joy to work and be with. He took ownership of the work
-      and had great attention to detail. Not just we got the job done, we had a
-      great time working together. I genuinely wish him the best for all his
-      future endeavours."
-    </p>
-    <footer class="mt-4 text-muted font-medium">
-      - Chris
-    </footer>
-  </blockquote>
+    <!-- Testimonials Grid -->
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      {testimonials.map((item) => (
+        <div class="bg-background rounded-lg p-6 text-left">
+          <p class="">"{item.text}"</p>
+          <div class="flex items-center gap-3 mt-10">
+            <img src={item.image} alt={item.name} class="w-10 h-10 rounded-full object-cover"/>
+            <div>
+              <h4 class="text-foreground font-semibold">{item.name}</h4>
+              <p class="text-muted">{item.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 </section>
