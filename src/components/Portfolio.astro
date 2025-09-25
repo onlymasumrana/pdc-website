@@ -43,15 +43,15 @@ const cards = [
   <!-- Heading -->
   <div class="mb-3 md:mb-6 flex flex-col md:flex-row md:gap-10">
     <p class="text-sm font-medium uppercase tracking-wider">
-      <span style="color: rgb(255, 106, 0); font-size: 20px;">✷</span>PRICING
+      <span style="color: rgb(255, 106, 0); font-size: 20px;">✷</span>PORTFOLIO
     </p>
 
-   <div>
-     <h2 class="section-title flex flex-wrap gap-2">
-      <span class="text-muted">Remarkable</span>
-      <span class="text-foreground">projects</span>
-    </h2>
-     <a href="#" class="btn btn-sm btn-primary">
+    <div>
+      <h2 class="section-title flex flex-wrap gap-2">
+        <span class="text-muted">Remarkable</span>
+        <span class="text-foreground">projects</span>
+      </h2>
+      <a href="#" class="btn btn-sm btn-primary">
         Projects
         <div
           class="bg-background rounded inline-flex items-center justify-center ml-2 p-1"
@@ -73,24 +73,33 @@ const cards = [
           </svg>
         </div>
       </a>
-   </div>
+    </div>
   </div>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    {
-      cards.map((card) => (
-        <div class="rounded-xl overflow-hidden shadow p-3">
-          <img
-            src={card.img}
-            alt={card.title}
-            class="w-full h-48 object-cover"
-          />
-          <div class="pt-2">
-            <p class="text-sm">{card.category}</p>
-            <h3 class="text-lg font-semibold mt-1">{card.title}</h3>
+  <div>
+    <div class="hidden md:flex flex-wrap gap-4 ml-1 md:ml-9">
+      <a href="#" class="underline">All</a>
+      <a href="#">UI/UX design</a>
+      <a href="#">Web development</a>
+      <a href="#">E-commerce development</a>
+      <a href="#">Branding</a>
+      <a href="#">No-code (Webflow, Framer)</a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        cards.map((card) => (
+          <div class="rounded-xl overflow-hidden shadow p-3">
+            <img
+              src={card.img}
+              alt={card.title}
+              class="w-full h-48 object-cover"
+            />
+            <div class="pt-2">
+              <p class="text-sm">{card.category}</p>
+              <h3 class="text-lg font-semibold mt-1">{card.title}</h3>
+            </div>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
   </div>
 </section>
