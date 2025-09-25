@@ -1,0 +1,18 @@
+---
+const images = [
+    "/assets/BG (2).png",
+    "/assets/BG (1).png",
+    "/assets/BG.png",
+    "/assets/BG (2).png"
+]
+---
+<section class="bg-[var(--color-background)] rounded-b mb-2 px-2">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+    {images.map((img) => (
+      <img 
+        src={img} 
+        alt=""
+      />
+    ))}
+  </div>
+</section>
