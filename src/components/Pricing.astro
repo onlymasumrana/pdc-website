@@ -6,53 +6,92 @@ const plans = [
     price: "$35",
     yearly: "$420 Billed Yearly",
     buttonText: "Contact Us",
-    buttonStyle: "btn btn-primary btn-sm mt-2",
+    buttonStyle: "btn btn-primary  btn-sm mt-2",
     features: ["Unlimited projects", "Advanced analytics", "All integrations", "Email & chat support"],
   },
   {
     title: "Business",
-    description: "Great for growing teams",
+    description: "Perfect for small businesses",
     price: "$59",
     yearly: "$708 Billed Yearly",
     buttonText: "Contact Us",
-    buttonStyle: "btn btn-outline btn-sm mt-2",
+    buttonStyle: "btn btn-secondary btn-sm mt-2",
     features: ["Unlimited projects", "Priority analytics", "All integrations", "24/7 Support"],
   },
   {
     title: "Enterprise",
-    description: "For large organisations",
+    description: "Perfect for small businesses",
     price: "$99",
     yearly: "$1188 Billed Yearly",
     buttonText: "Contact Us",
-    buttonStyle: "btn btn-outline btn-sm mt-2",
-    features: ["Unlimited everything", "Dedicated analytics", "Custom integrations", "Dedicated account manager"],
+    buttonStyle: "btn btn-secondary btn-sm mt-2",
+    features: ["Unlimited everything", "Dedicated analytics", "Custom integrations"],
   },
 ];
 ---
 
-<section class="section flex flex-col md:flex-row gap-5 justify-between">
-  {plans.map((plan) => (
-    <div class="rounded-2xl bg-[var(--color-background)]  pr-32 pl-10 py-5 shadow-lg">
+<section class="section">
+   <!-- Heading -->
+    <div class="mb-3 md:mb-6 flex flex-col md:flex-row md:gap-10">
+      <p class="text-sm font-medium uppercase tracking-wider "><span style="color: rgb(255, 106, 0); font-size: 20px;">✷</span>PRICING</p>
+
+      <div>
+        <h2 class="section-title flex flex-wrap gap-2">
+          <span class="text-foreground">Affordable</span>
+          <span class="text-muted">pricing plan</span>
+        </h2>
+
+        <!-- Toggle Buttons -->
+        <div
+          class="inline-flex rounded-full border bg-background p-1 shadow-sm w-fit mb-8"
+        >
+          <button
+            data-type="quotes"
+            class="px-4 py-2 text-sm font-medium rounded-full bg-primary text-button-primary-text"
+          >
+            Request a quotes
+          </button>
+          <button
+            data-type="call"
+            class="px-4 py-2 text-sm font-medium rounded-full button-secondary-text"
+          >
+            Book a call
+          </button>
+        </div>
+      </div>
+    </div>
+
+  <div class="flex flex-col md:flex-row gap-5 justify-between">
+    {plans.map((plan) => (
+    <div class="rounded-2xl bg-background pr-44 pl-10 py-5">
       <h2 class="font-bold">{plan.title}</h2>
       <p class="mt-1">{plan.description}</p>
 
-      <a href="/consultation" class={plan.buttonStyle}>
-        {plan.buttonText}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          viewBox="0 0 24 24"
+       <a href="/consultation" class={plan.buttonStyle}>
+          Contact Us
+          <div
+          class="bg-background rounded inline-flex items-center justify-center ml-2 p-1"
         >
-          <path
-            d="M7 17L17 7M9 7h8v8"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-        </svg>
-      </a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="text-foreground"
+          >
+            <path
+              d="M7 17L17 7M9 7h8v8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        </a>
+
+
+
 
       <div class="mt-6">
         <p class="text-3xl font-semibold">
@@ -72,4 +111,5 @@ const plans = [
       </ul>
     </div>
   ))}
+  </div>
 </section>
