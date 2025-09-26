@@ -35,13 +35,14 @@ const testimonials = [
 
 <section class="section">
   <div>
-    <div class="grid grid-cols-6">
-      <p class="text-sm font-medium uppercase tracking-wider col-span-1 pl-5">Testimonial</p>
-    <h2 class="section-title col-span-3 ">
-      <span class="text-foreground">Trusted</span> <span class="text-muted">by happy people globally</span> 
-    </h2>
+     <!-- Heading -->
+    <div class="mb-3 md:mb-6 flex flex-col md:flex-row md:gap-10">
+      <p class="text-sm font-medium uppercase tracking-wider "><span style="color: rgb(255, 106, 0); font-size: 20px;">✷</span>Testimonial</p>
+        <h2 class="section-title">
+          <span class="text-foreground">Trusted </span>
+          <span class="text-muted">by happy people globally</span>
+        </h2>
     </div>
-
     <!-- Testimonials Grid -->
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       {testimonials.map((item) => (
