@@ -1,68 +1,83 @@
 ---
 const faqs = [
   {
-    question: "What is your service about?",
+    question: "What is the purpose of this product?",
     answer:
-      "We provide high-quality design and development services tailored to startups, SaaS, and growing businesses.",
+      "Our product revolutionizes user engagement with cutting-edge design and flawless functionality, ensuring an unparalleled experience for every user across all platforms.",
   },
   {
-    question: "How does the pricing work?",
+    question: "How do I set up my account?",
     answer:
-      "Our pricing is flexible and subscription-based, so you can cancel anytime without long-term contracts.",
+      "To set up your account, simply sign up with your email, verify it, and complete your profile. You’ll be ready to start using our services right away.",
   },
   {
-    question: "Do you offer refunds?",
+    question: "Can I change my subscription plan?",
     answer:
-      "Yes, we offer a 14-day money-back guarantee if you're not satisfied with our service.",
+      "Yes, you can easily upgrade or downgrade your subscription anytime from the account settings page.",
   },
   {
-    question: "Can I switch plans later?",
+    question: "What should I do if I encounter a technical issue?",
     answer:
-      "Absolutely! You can upgrade or downgrade your plan at any time from your dashboard.",
+      "If you face any technical issues, please reach out to our support team via chat or email. We’re always here to help you quickly resolve any problem.",
+  },
+  {
+    question: "How can I contact customer support?",
+    answer:
+      "You can contact us anytime through live chat, email, or our support page. Our team is available 24/7.",
   },
 ];
 ---
 
-<section class="section">
-  <div class="grid md:grid-cols-2 gap-12 items-center">
-    <!-- Left Side - Hero Text -->
-    <div>
-      <h2 class="mb-6 section-titel">
-        Elevate Your Brand with 
-        <span>Exceptional Design Solutions</span>
+<section class="section p-4">
+  <div class="flex flex-col md:flex-row">
+    <!-- Heading -->
+    <div class="mb-10 md:w-1/3">
+      <p class="text-sm font-medium flex items-center"><span style="color: rgb(255, 106, 0); font-size: 20px;">✷</span> FAQ</p>
+      <h2 class="text-section-title">
+        <span class="muted">Your possible</span> <br/> 
+        <span class="foreground">question answer</span> 
       </h2>
-      <p class="section-subtitle mb-8">
-        We design innovative websites, applications, and brands that are
-        beautifully crafted for all users. Emphasizing accessibility,
-        inclusivity, and driven by cutting-edge AI technology.
-      </p>
-      <div class="flex gap-4">
-        <a href="/contact" class="btn btn-primary btn-lg">
-          Contact Us
-        </a>
-        <a href="/portfolio" class="btn btn-outline btn-lg">
-          Our Portfolio
-        </a>
-      </div>
     </div>
 
-    <!-- Right Side - FAQ -->
-    <div class="">
+    <!-- FAQ List -->
+    <div class="space-y-4 md:w-2/3">
       {faqs.map((faq) => (
-        <details class="group p-6">
-          <summary class="flex justify-between items-center cursor-pointer font-medium">
+        <details class="group rounded-2xl p-5 bg-background">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none">
             {faq.question}
-            <span class="transition-transform duration-300 group-open:rotate-180">
-             
-<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
-  <path d="M6.3 8.7a1 1 0 0 1 1.4 0L12 13l4.3-4.3a1 1 0 0 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 0 1 0-1.4z" fill="currentColor"/>
-</svg>
-            </span>
+            <!-- plus/minus toggle -->
+            <span class="ml-2 text-xl before:content-['+'] group-open:before:content-['-']"></span>
           </summary>
-          <p class="mt-3">{faq.answer}</p>
+          <p class="mt-3 text-sm leading-relaxed">
+            {faq.answer}
+          </p>
         </details>
       ))}
+
+      <!-- Footer -->
+      <div class="mt-12 text-sm flex justify-between pb-2 border-b">
+        <p>
+          STILL HAVE QUESTIONS? WE’RE ALWAYS HERE <br />
+          TO HELP YOU OUT ANYTIME.
+        </p>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="44"
+            height="44"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="text-foreground"
+          >
+            <path
+              d="M7 17L17 7M9 7h8v8"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+      </div>
     </div>
   </div>
 </section>
+
 
