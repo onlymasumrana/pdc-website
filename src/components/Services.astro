@@ -1,4 +1,68 @@
 ---
+const services = [
+  {
+    title: "AI Development",
+    description:
+      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+  },
+  {
+    title: "UI/UX Design",
+    description:
+      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+  },
+  {
+    title: "Web Development",
+    description:
+      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+  },
+  {
+    title: "E-commerce Development",
+    description:
+      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+  },
+  {
+    title: "Branding",
+    description:
+      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+  },
+  {
+    title: "No-code (Webflow, Framer)",
+    description:
+      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+  },
+];
+---
+
+<section class="section">
+  <div class="">
+     <!-- Heading -->
+    <div class="mb-3 md:mb-6 flex flex-col md:flex-row md:gap-10">
+      <p class="text-sm font-medium uppercase tracking-wider "><span style="color: rgb(255, 106, 0); font-size: 20px;">✷</span>SERVICES</p>
+        <h2 class="section-title flex flex-wrap gap-2">
+          <span class="text-foreground">Elevate your brand </span>
+          <span class="text-muted">with exceptional design solutions</span>
+        </h2>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {
+        services.map((service, index) => (
+          <div
+            class={`bg-background rounded-2xl shadow p-6 hover:shadow-md transition 
+            ${index >= 4 ? "md:col-span-2" : "col-span-1"}`}
+          >
+            <div class="text-muted text-xl mb-16">+</div>
+            <h3 class="font-semibold text-lg text-foreground mb-2">
+              {service.title}
+            </h3>
+            <p class="text-muted text-sm leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- 
 // src/components/Services.astro
 import Card from './Card.astro';
 const services = [
@@ -119,7 +183,7 @@ const services = [
     ],
   },
 ];
----
+
 
 <section class="section">
   <header class="section-header">
@@ -169,5 +233,7 @@ const services = [
         </Card>
       ))
     }
+  </div>
+</section> -->
   </div>
 </section>
