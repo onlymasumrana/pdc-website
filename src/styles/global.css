@@ -9,7 +9,7 @@
   --color-background: #ffffff;
   --color-background-muted: #f5f5f5;
   --color-foreground: #151515;
-  --color-foreground-muted: #363636;
+  --color-foreground-muted: #3636369a;
   --color-muted: var(--color-foreground-muted);
   --color-border: #b8b8b8;
   --color-border-muted: #b8b8b850;
@@ -526,7 +526,7 @@
 
   /* === Navigation === */
   .nav-link {
-    @apply text-foreground-muted text-xl transition-colors duration-200;
+    @apply text-foreground-muted text-base font-medium transition-colors duration-200;
   }
 
   .nav-link:hover {

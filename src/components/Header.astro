@@ -35,47 +35,58 @@ const isActiveLink = (linkPath: string): boolean => {
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden items-center gap-8 md:flex">
-        <a
-          href="/"
-          class={`nav-link ${isActiveLink('/') ? 'nav-link-active' : ''}`}
-          onclick="handleHomeClick(event)">Home</a
-        >
-        <a
-          href="/services"
-          class={`nav-link ${isActiveLink('/services') ? 'nav-link-active' : ''}`}
-          onclick="handleServicesClick(event)">Services</a
-        >
-        <a
-          href="/works"
-          class={`nav-link ${isActiveLink('/works') ? 'nav-link-active' : ''}`}
-          onclick="handleWorksClick(event)">Works</a
-        >
-        <a
-          href="/contact"
-          class={`nav-link ${isActiveLink('/contact') ? 'nav-link-active' : ''}`}
-          >Contact</a
-        >
-        <a href="/consultation" class="btn btn-md btn-primary hidden md:flex">
-          Contact Us
-          <div
-            class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="text-foreground">
-              <path
-                d="M7 17L17 7M9 7h8v8"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
-        </a>
+      <nav class="hidden uppercase md:flex md:items-center">
+        <div class="items-center gap-8 md:flex">
+          <!-- <a
+            href="/"
+            class={`nav-link ${isActiveLink('/') ? 'nav-link-active' : ''}`}
+            onclick="handleHomeClick(event)">Home</a
+          > -->
+          <a
+            href="/about"
+            class={`nav-link ${isActiveLink('/about') ? 'nav-link-active' : ''}`}
+            onclick="handleHomeClick(event)">About</a
+          >
+          <a
+            href="/services"
+            class={`nav-link ${isActiveLink('/services') ? 'nav-link-active' : ''}`}
+            onclick="handleServicesClick(event)">Services</a
+          >
+          <a
+            href="/projects"
+            class={`nav-link ${isActiveLink('/projects') ? 'nav-link-active' : ''}`}
+            onclick="handleWorksClick(event)">Projects</a
+          >
+          <a
+            href="/blogs"
+            class={`nav-link ${isActiveLink('/blogs') ? 'nav-link-active' : ''}`}
+            >Blogs</a
+          >
+        </div>
+        <div class="ml-10">
+          <a
+            href="/contact"
+            class="btn btn-primary hidden p-2 pl-4 text-sm md:flex">
+            Contact Us
+            <div
+              class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="text-foreground">
+                <path
+                  d="M7 17L17 7M9 7h8v8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </a>
+        </div>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -128,8 +139,8 @@ const isActiveLink = (linkPath: string): boolean => {
           onclick="handleMobileServicesClick(event)">Services</a
         >
         <a
-          href="/works"
-          class={`block py-2 text-xl nav-link ${isActiveLink('/works') ? 'nav-link-active' : ''}`}
+          href="/projects"
+          class={`block py-2 text-xl nav-link ${isActiveLink('/projects') ? 'nav-link-active' : ''}`}
           onclick="handleMobileWorksClick(event)">Works</a
         >
         <a
@@ -229,7 +240,7 @@ const isActiveLink = (linkPath: string): boolean => {
         worksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-    // Otherwise, the regular href="/works" will navigate to works page
+    // Otherwise, the regular href="/projects" will navigate to works page
   }
 
   // Handle direct URL hashes on homepage
