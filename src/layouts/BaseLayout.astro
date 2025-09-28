@@ -27,24 +27,25 @@ const availableThemes = [
     <meta name="generator" content={Astro.generator} />
     <title>Premium Design Company</title>
   </head>
-  <body class="min-h-screen flex flex-col bg-background-muted text-foreground">
+  <body
+    class="flex min-h-screen flex-col bg-background-muted p-4 text-foreground">
     <Header />
-    <main class="flex-grow container-custom p-4">
+    <main class="container-custom flex-grow">
       <slot />
     </main>
     <!-- <Footer /> -->
 
     <!-- Theme Switcher -->
     <div
-      class="fixed bottom-4 right-4 z-50 p-3 bg-card-bg border border-border rounded-lg shadow-lg backdrop-blur-sm glass">
+      class="glass fixed bottom-4 right-4 z-50 rounded-lg border border-border bg-card-bg p-3 shadow-lg backdrop-blur-sm">
       <label
         for="themeSelect"
-        class="block text-xs font-medium text-foreground-muted mb-1 sr-only">
+        class="sr-only mb-1 block text-xs font-medium text-foreground-muted">
         Select Theme:
       </label>
       <select
         id="themeSelect"
-        class="w-full text-sm px-3 py-2 rounded-md border border-border bg-form-input-bg text-form-input-text focus:outline-none focus:ring-2 focus:ring-focus-ring cursor-pointer">
+        class="w-full cursor-pointer rounded-md border border-border bg-form-input-bg px-3 py-2 text-sm text-form-input-text focus:outline-none focus:ring-2 focus:ring-focus-ring">
         {
           availableThemes.map((theme) => (
             <option value={theme.value}>{theme.label}</option>
