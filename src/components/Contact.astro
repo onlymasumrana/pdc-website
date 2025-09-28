@@ -1,28 +1,40 @@
+---
+const services = [
+  'AI Development',
+  'UI/UX Design',
+  'Web Development',
+  'E-commerce Development',
+  'Branding',
+  'No-code (Webflow, Framer)',
+];
+
+const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
+---
+
 <section class="section">
   <div class="">
     <!-- Heading -->
-    <div class="mb-3 md:mb-6 flex flex-col md:flex-row md:gap-10">
-      <p class="text-sm font-medium uppercase tracking-wider "><span style="color: rgb(255, 106, 0); font-size: 20px;">✷</span> GET IN TOUCH</p>
+    <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
+      <p class="text-sm font-medium uppercase tracking-wider">
+        <span class="text-xl text-[#ff6a00]">✷</span> GET IN TOUCH
+      </p>
 
       <div>
         <h2 class="section-title flex flex-wrap">
           <span class="text-foreground">Have any </span>
           <span class="text-muted">idea to build?</span>
         </h2>
-          <!-- Toggle Buttons -->
+        <!-- Toggle Buttons -->
         <div
-          class="inline-flex rounded-full border bg-background p-1 shadow-sm w-fit mb-8"
-        >
+          class="mb-8 inline-flex w-fit rounded-full border bg-background p-1 shadow-sm">
           <button
             data-type="quotes"
-            class="px-4 py-2 text-sm font-medium rounded-full bg-primary text-button-primary-text"
-          >
+            class="rounded-full bg-primary px-4 py-2 text-sm font-medium text-button-primary-text">
             Request a quotes
           </button>
           <button
             data-type="call"
-            class="px-4 py-2 text-sm font-medium rounded-full button-secondary-text"
-          >
+            class="button-secondary-text rounded-full px-4 py-2 text-sm font-medium">
             Book a call
           </button>
         </div>
@@ -30,22 +42,20 @@
     </div>
 
     <!-- Contact Form + Info -->
-    <div class="w-full bg-background md:col-span-6 p-3 md:p-6 rounded-lg">
-      <div class="flex flex-col md:flex-row gap-8">
+    <div class="w-full rounded-lg bg-background p-3 md:col-span-6 md:p-6">
+      <div class="flex flex-col gap-8 md:flex-row">
         <!-- Left Section (Contact Info - Desktop) -->
-        <div class="hidden md:flex flex-col justify-between flex-1">
+        <div class="hidden flex-1 flex-col justify-between md:flex">
           <h2
-            class="text-2xl md:text-3xl font-bold text-foreground leading-snug mb-6"
-          >
+            class="mb-6 text-2xl font-bold leading-snug text-foreground md:text-3xl">
             We love to hear from you!
           </h2>
           <div class="space-y-4">
             <!-- Email -->
             <div
-              class="flex justify-between w-2/3 shadow p-4 rounded bg-bg-background"
-            >
+              class="flex w-2/3 justify-between rounded border border-border-muted bg-background p-4">
               <div>
-                <h4 class="text-muted">Email Us</h4>
+                <p class="font-medium text-muted">Email Us</p>
                 <p class="text-foreground">support@premiumdesign.com</p>
               </div>
               <svg
@@ -54,8 +64,7 @@
                 height="20"
                 fill="none"
                 viewBox="0 0 24 24"
-                class="text-muted"
-              >
+                class="text-muted">
                 <path
                   d="M7 17L17 7M9 7h8v8"
                   stroke="currentColor"
@@ -66,10 +75,9 @@
             </div>
             <!-- Phone -->
             <div
-              class="flex justify-between w-2/3 shadow p-4 rounded bg-bg-background"
-            >
+              class="flex w-2/3 justify-between rounded border border-border-muted bg-background p-4">
               <div>
-                <h4 class="text-muted">Call Us</h4>
+                <p class="font-medium text-muted">Call Us</p>
                 <p class="text-foreground">+1234567890</p>
               </div>
               <svg
@@ -78,8 +86,7 @@
                 height="20"
                 fill="none"
                 viewBox="0 0 24 24"
-                class="text-muted"
-              >
+                class="text-muted">
                 <path
                   d="M7 17L17 7M9 7h8v8"
                   stroke="currentColor"
@@ -90,10 +97,9 @@
             </div>
             <!-- Address -->
             <div
-              class="flex justify-between w-2/3 shadow p-4 rounded bg-bg-background"
-            >
+              class="flex w-2/3 justify-between rounded border border-border-muted bg-background p-4">
               <div>
-                <h4 class="text-muted">Address</h4>
+                <p class="font-medium text-muted">Address</p>
                 <p class="text-foreground">
                   123 Business Street, San Francisco, CA
                 </p>
@@ -104,8 +110,7 @@
                 height="20"
                 fill="none"
                 viewBox="0 0 24 24"
-                class="text-muted"
-              >
+                class="text-muted">
                 <path
                   d="M7 17L17 7M9 7h8v8"
                   stroke="currentColor"
@@ -118,215 +123,222 @@
         </div>
 
         <!-- Right Section (Form) -->
-        <div class="rounded-2xl p-6 bg-background-muted flex-1">
-          <form class="space-y-6">
+        <div class="flex-1 rounded-2xl bg-background-muted p-6">
+          <form
+            method="POST"
+            action="https://formspree.io/f/xovnaawz"
+            class="space-y-6"
+            id="contact-form">
             <!-- Services -->
             <div>
-              <label class="block text-sm font-semibold mb-2">Service</label>
-              <div class="flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  class="px-3 py-1.5 text-sm rounded-md bg-background font-medium"
-                  >AI Development</button
-                >
-                <button
-                  type="button"
-                  class="px-3 py-1.5 text-sm rounded-md bg-background font-medium border"
-                  >UI/UX Design</button
-                >
-                <button
-                  type="button"
-                  class="px-3 py-1.5 text-sm rounded-md bg-background font-medium"
-                  >Web Development</button
-                >
-                <button
-                  type="button"
-                  class="px-3 py-1.5 text-sm rounded-md bg-background font-medium"
-                  >E-commerce Development</button
-                >
-                <button
-                  type="button"
-                  class="px-3 py-1.5 text-sm rounded-md bg-background font-medium"
-                  >Branding</button
-                >
-                <button
-                  type="button"
-                  class="px-3 py-1.5 text-sm rounded-md bg-background font-medium"
-                  >No-code (Webflow, Framer)</button
-                >
+              <label class="mb-2 block text-sm font-semibold">Service *</label>
+              <div class="flex flex-wrap gap-2" id="services-container">
+                {
+                  services.map((service) => (
+                    <button
+                      type="button"
+                      data-service={service}
+                      class="rounded-md border border-background bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border data-[selected=true]:border-border">
+                      {service}
+                    </button>
+                  ))
+                }
               </div>
+              <input
+                type="hidden"
+                name="service"
+                id="selected-service"
+                required
+              />
             </div>
 
             <!-- Budget -->
             <div>
-              <label class="block text-sm font-semibold mb-2">Budget</label>
-              <div class="flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  class="px-3 py-1.5 text-sm rounded-md bg-background font-medium"
-                  >Less than $10k</button
-                >
-                <button
-                  type="button"
-                  class="px-3 py-1.5 text-sm rounded-md bg-background font-medium"
-                  >$10k - $50k</button
-                >
-                <button
-                  type="button"
-                  class="px-3 py-1.5 text-sm rounded-md bg-background font-medium"
-                  >More than $50k</button
-                >
+              <label class="mb-2 block text-sm font-semibold">Budget *</label>
+              <div class="flex flex-wrap gap-2" id="budgets-container">
+                {
+                  budgets.map((budget) => (
+                    <button
+                      type="button"
+                      data-budget={budget}
+                      class="rounded-md border border-background bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border data-[selected=true]:border-border">
+                      {budget}
+                    </button>
+                  ))
+                }
               </div>
+              <input
+                type="hidden"
+                name="budget"
+                id="selected-budget"
+                required
+              />
             </div>
 
             <!-- Inputs -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label class="block text-sm">
-                Name
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <label class="block text-sm font-medium">
+                Name *
                 <input
                   type="text"
+                  id="name"
+                  name="name"
                   required
                   placeholder="Enter your name"
-                  class="w-full rounded-lg p-3 mt-1"
+                  class="focus:ring-primary/20 mt-1 w-full rounded-lg border border-border p-3 focus:outline-none focus:ring-2"
                 />
               </label>
-              <label class="block text-sm">
-                Email
+              <label class="block text-sm font-medium">
+                Email *
                 <input
                   type="email"
+                  id="email"
+                  name="email"
                   required
                   placeholder="Enter your email"
-                  class="w-full rounded-lg p-3 mt-1"
+                  class="focus:ring-primary/20 mt-1 w-full rounded-lg border border-border p-3 focus:outline-none focus:ring-2"
                 />
               </label>
             </div>
 
-            <!-- File Upload -->
-            <div>
-              <p class="text-sm font-medium">Attach a file</p>
-              <div
-                class="border-2 border-dashed rounded-lg p-4 text-center cursor-pointer bg-background mt-1"
-              >
-                <input type="file" class="hidden" id="file" />
-                <label for="file" class="cursor-pointer text-muted">
-                  Choose a file or drag and drop here
-                </label>
-              </div>
-            </div>
+            <!-- Subject -->
+            <label class="block text-sm font-medium">
+              Subject *
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
+                class="focus:ring-primary/20 mt-1 w-full rounded-lg border border-border p-3 focus:outline-none focus:ring-2"
+              />
+            </label>
 
             <!-- Message -->
-            <textarea
-              placeholder="Enter your message"
-              class="w-full rounded-lg p-3 h-28 border"></textarea>
+            <label class="block text-sm font-medium">
+              Message *
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
+                class="focus:ring-primary/20 mt-1 h-28 w-full rounded-lg border border-border p-3 focus:outline-none focus:ring-2"
+              ></textarea>
+            </label>
 
-            <!-- Button -->
-            <button
-              type="submit"
-              class="btn btn-md btn-primary inline-flex items-center"
-            >
-              Send inquiry
-              <div
-                class="bg-background rounded ml-2 p-1 flex items-center justify-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  class="text-foreground"
-                >
-                  <path
-                    d="M7 17L17 7M9 7h8v8"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-                </svg>
-              </div>
-            </button>
+            <!-- Submit Button -->
+            <div class="flex justify-end">
+              <button type="submit" class="btn btn-primary p-2 pl-4">
+                Send Inquiry
+                <div
+                  class="ml-2 flex items-center justify-center rounded bg-background p-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    class="text-foreground">
+                    <path
+                      d="M7 17L17 7M9 7h8v8"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
           </form>
-        </div>
-      </div>
-
-      <!-- Mobile Contact Info -->
-      <div class="md:hidden flex flex-col justify-between flex-1 mt-8">
-        <h2
-          class="text-2xl md:text-3xl font-bold text-foreground leading-snug mb-6"
-        >
-          We love to hear from you!
-        </h2>
-        <div class="space-y-4">
-          <!-- Email -->
-          <div class="flex justify-between shadow p-4 rounded bg-background">
-            <div>
-              <h4 class="text-muted">Email Us</h4>
-              <p class="text-foreground">support@premiumdesign.com</p>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="text-muted"
-            >
-              <path
-                d="M7 17L17 7M9 7h8v8"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
-          <!-- Phone -->
-          <div class="flex justify-between shadow p-4 rounded bg-bg-background">
-            <div>
-              <h4 class="text-muted">Call Us</h4>
-              <p class="text-foreground">+1234567890</p>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="text-muted"
-            >
-              <path
-                d="M7 17L17 7M9 7h8v8"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
-          <!-- Address -->
-          <div class="flex justify-between shadow p-4 rounded bg-bg-background">
-            <div>
-              <h4 class="text-muted">Address</h4>
-              <p class="text-foreground">
-                123 Business Street, San Francisco, CA
-              </p>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="text-muted"
-            >
-              <path
-                d="M7 17L17 7M9 7h8v8"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  // Handle service and budget selection
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form');
+    const selectedServiceInput = document.getElementById('selected-service');
+    const selectedBudgetInput = document.getElementById('selected-budget');
+
+    // Service selection
+    const serviceButtons = document.querySelectorAll('[data-service]');
+    serviceButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        const service = this.getAttribute('data-service');
+
+        // Remove selected state from all service buttons
+        serviceButtons.forEach((btn) => {
+          btn.removeAttribute('data-selected');
+        });
+
+        // Add selected state to clicked button
+        this.setAttribute('data-selected', 'true');
+
+        // Update hidden input value
+        selectedServiceInput.value = service;
+      });
+    });
+
+    // Budget selection
+    const budgetButtons = document.querySelectorAll('[data-budget]');
+    budgetButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        const budget = this.getAttribute('data-budget');
+
+        // Remove selected state from all budget buttons
+        budgetButtons.forEach((btn) => {
+          btn.removeAttribute('data-selected');
+        });
+
+        // Add selected state to clicked button
+        this.setAttribute('data-selected', 'true');
+
+        // Update hidden input value
+        selectedBudgetInput.value = budget;
+      });
+    });
+
+    // Form validation
+    form.addEventListener('submit', function (e) {
+      if (!selectedServiceInput.value || !selectedBudgetInput.value) {
+        e.preventDefault();
+        alert('Please select both a service and budget before submitting.');
+        return false;
+      }
+
+      // Additional validation if needed
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      if (!name || !email || !subject || !message) {
+        e.preventDefault();
+        alert('Please fill in all required fields.');
+        return false;
+      }
+    });
+
+    // Toggle buttons functionality
+    const toggleButtons = document.querySelectorAll('[data-type]');
+    toggleButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        const type = this.getAttribute('data-type');
+
+        // Remove active state from all toggle buttons
+        toggleButtons.forEach((btn) => {
+          btn.classList.remove('bg-primary', 'text-button-primary-text');
+          btn.classList.add('button-secondary-text');
+        });
+
+        // Add active state to clicked button
+        this.classList.add('bg-primary', 'text-button-primary-text');
+        this.classList.remove('button-secondary-text');
+      });
+    });
+  });
+</script>
