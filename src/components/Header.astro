@@ -1,7 +1,7 @@
 ---
 // src/components/Header.astro
-import { Image } from "astro:assets";
-import logo from "../assets/logo.png";
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 
 // Get current page path
 const { url } = Astro;
@@ -9,17 +9,16 @@ const currentPath = url.pathname;
 
 // Function to check if a link is active
 const isActiveLink = (linkPath: string): boolean => {
-  if (linkPath === "/") {
-    return currentPath === "/";
+  if (linkPath === '/') {
+    return currentPath === '/';
   }
   return currentPath.startsWith(linkPath);
 };
 ---
 
 <header
-  class="md:py-1 sticky top-0 z-50 bg-background backdrop-blur-3xl bg-col rounded-lg md:mx-4 md:mt-4"
->
-  <div class="p-3 mx-3 md:mx-6 my-3 rounded">
+  class="sticky top-0 z-50 m-4 mb-0 rounded border-b border-border-muted bg-background">
+  <div class="p-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3">
@@ -30,71 +29,78 @@ const isActiveLink = (linkPath: string): boolean => {
           height={32}
           class="flex-shrink-0"
         /> -->
-        <span class="font-medium md:font-bold leading-[1]"
+        <span class="font-medium leading-[1] md:font-bold"
           >Premium <br /> Design</span
         >
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a
-          href="/"
-          class={`nav-link ${isActiveLink("/") ? "nav-link-active" : ""}`}
-          onclick="handleHomeClick(event)">Home</a
-        >
-        <a
-          href="/services"
-          class={`nav-link ${isActiveLink("/services") ? "nav-link-active" : ""}`}
-          onclick="handleServicesClick(event)">Services</a
-        >
-        <a
-          href="/works"
-          class={`nav-link ${isActiveLink("/works") ? "nav-link-active" : ""}`}
-          onclick="handleWorksClick(event)">Works</a
-        >
-        <a
-          href="/contact"
-          class={`nav-link ${isActiveLink("/contact") ? "nav-link-active" : ""}`}
-          >Contact</a
-        >
-        <a href="/consultation" class="btn btn-md btn-primary hidden md:flex">
-          Contact Us
-          <div
-          class="bg-background rounded inline-flex items-center justify-center ml-2 p-1"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="none"
-            viewBox="0 0 24 24"
-            class="text-foreground"
+      <nav class="hidden uppercase md:flex md:items-center">
+        <div class="items-center gap-8 md:flex">
+          <!-- <a
+            href="/"
+            class={`nav-link ${isActiveLink('/') ? 'nav-link-active' : ''}`}
+            onclick="handleHomeClick(event)">Home</a
+          > -->
+          <a
+            href="/about"
+            class={`nav-link ${isActiveLink('/about') ? 'nav-link-active' : ''}`}
+            onclick="handleHomeClick(event)">About</a
           >
-            <path
-              d="M7 17L17 7M9 7h8v8"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
+          <a
+            href="/services"
+            class={`nav-link ${isActiveLink('/services') ? 'nav-link-active' : ''}`}
+            onclick="handleServicesClick(event)">Services</a
+          >
+          <a
+            href="/projects"
+            class={`nav-link ${isActiveLink('/projects') ? 'nav-link-active' : ''}`}
+            onclick="handleWorksClick(event)">Projects</a
+          >
+          <a
+            href="/blogs"
+            class={`nav-link ${isActiveLink('/blogs') ? 'nav-link-active' : ''}`}
+            >Blogs</a
+          >
         </div>
-        </a>
+        <div class="ml-10">
+          <a
+            href="/contact"
+            class="btn btn-primary hidden p-2 pl-4 text-sm md:flex">
+            Contact Us
+            <div
+              class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="text-foreground">
+                <path
+                  d="M7 17L17 7M9 7h8v8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </a>
+        </div>
       </nav>
 
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden p-2 rounded text-foreground"
+        class="rounded text-foreground md:hidden"
         aria-label="Toggle mobile menu"
-        onclick="toggleMobileMenu()"
-      >
+        onclick="toggleMobileMenu()">
         <svg
           id="menu-icon"
           class="h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
+          stroke="currentColor">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -103,11 +109,10 @@ const isActiveLink = (linkPath: string): boolean => {
         </svg>
         <svg
           id="close-icon"
-          class="h-6 w-6 hidden"
+          class="hidden h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
+          stroke="currentColor">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -119,37 +124,58 @@ const isActiveLink = (linkPath: string): boolean => {
   </div>
 
   <!-- Mobile Navigation -->
-  <nav id="mobile-nav" class="md:hidden relative hidden">
+  <nav id="mobile-nav" class="relative hidden md:hidden">
     <div
-      class="absolute top-0 left-0 w-screen px-12 pb-12 pt-6 space-y-6 bg-background-muted"
-    >
-      <a
-        href="/"
-        class={`block py-2 text-xl nav-link ${isActiveLink("/") ? "nav-link-active" : ""}`}
-        onclick="handleMobileHomeClick(event)">Home</a
-      >
-      <a
-        href="/services"
-        class={`block py-2 text-xl nav-link ${isActiveLink("/services") ? "nav-link-active" : ""}`}
-        onclick="handleMobileServicesClick(event)">Services</a
-      >
-      <a
-        href="/works"
-        class={`block py-2 text-xl nav-link ${isActiveLink("/works") ? "nav-link-active" : ""}`}
-        onclick="handleMobileWorksClick(event)">Works</a
-      >
-      <a
-        href="/contact"
-        class={`block py-2 text-xl nav-link ${isActiveLink("/contact") ? "nav-link-active" : ""}`}
-        onclick="closeMobileMenu()">Contact</a
-      >
-      <a
-        href="/consultation"
-        class="btn btn-primary btn-lg w-full justify-center mt-4"
-        onclick="closeMobileMenu()"
-      >
-        Free Consultation
-      </a>
+      class="absolute -top-1 left-0 w-full rounded-b border-b border-border-muted bg-background py-6">
+      <div class="space-y-4 px-12">
+        <!-- <a
+          href="/"
+          class={`block py-2 text-xl nav-link ${isActiveLink('/') ? 'nav-link-active' : ''}`}
+          onclick="handleMobileHomeClick(event)">Home</a
+        > -->
+        <a
+          href="/about"
+          class={`block py-2 text-xl nav-link ${isActiveLink('/about') ? 'nav-link-active' : ''}`}
+          >About</a
+        >
+        <a
+          href="/services"
+          class={`block py-2 text-xl nav-link ${isActiveLink('/services') ? 'nav-link-active' : ''}`}
+          onclick="handleMobileServicesClick(event)">Services</a
+        >
+        <a
+          href="/projects"
+          class={`block py-2 text-xl nav-link ${isActiveLink('/projects') ? 'nav-link-active' : ''}`}
+          onclick="handleMobileWorksClick(event)">Projects</a
+        >
+        <a
+          href="/blogs"
+          class={`block py-2 text-xl nav-link ${isActiveLink('/blogs') ? 'nav-link-active' : ''}`}
+          >Blogs</a
+        >
+      </div>
+      <div class="mt-8 px-6">
+        <a href="/contact" class="btn btn-primary p-2 pl-4 text-sm">
+          Contact Us
+          <div
+            class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="text-foreground">
+              <path
+                d="M7 17L17 7M9 7h8v8"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </a>
+      </div>
     </div>
   </nav>
 </header>
@@ -157,33 +183,33 @@ const isActiveLink = (linkPath: string): boolean => {
 <script is:inline>
   // Toggle mobile menu
   function toggleMobileMenu() {
-    const mobileNav = document.getElementById("mobile-nav");
-    const menuIcon = document.getElementById("menu-icon");
-    const closeIcon = document.getElementById("close-icon");
+    const mobileNav = document.getElementById('mobile-nav');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
 
-    if (mobileNav.classList.contains("hidden")) {
-      mobileNav.classList.remove("hidden");
-      menuIcon.classList.add("hidden");
-      closeIcon.classList.remove("hidden");
+    if (mobileNav.classList.contains('hidden')) {
+      mobileNav.classList.remove('hidden');
+      menuIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
       // document.body.style.overflow = 'hidden'; //making this hidden will prevent scrolling (uhm actually i like to scroll when menu is open :P)
     } else {
-      mobileNav.classList.add("hidden");
-      menuIcon.classList.remove("hidden");
-      closeIcon.classList.add("hidden");
-      document.body.style.overflow = "auto";
+      mobileNav.classList.add('hidden');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      document.body.style.overflow = 'auto';
     }
   }
 
   // Close mobile menu
   function closeMobileMenu() {
-    const mobileNav = document.getElementById("mobile-nav");
-    const menuIcon = document.getElementById("menu-icon");
-    const closeIcon = document.getElementById("close-icon");
+    const mobileNav = document.getElementById('mobile-nav');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
 
-    mobileNav.classList.add("hidden");
-    menuIcon.classList.remove("hidden");
-    closeIcon.classList.add("hidden");
-    document.body.style.overflow = "auto";
+    mobileNav.classList.add('hidden');
+    menuIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+    document.body.style.overflow = 'auto';
   }
 
   // Mobile navigation handlers
@@ -205,20 +231,20 @@ const isActiveLink = (linkPath: string): boolean => {
   // Original navigation handlers
   function handleHomeClick(event) {
     // If already on homepage, scroll to top
-    if (window.location.pathname === "/") {
+    if (window.location.pathname === '/') {
       event.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     // Otherwise, the regular href="/" will navigate to homepage
   }
 
   function handleServicesClick(event) {
     // If already on homepage, scroll to services section
-    if (window.location.pathname === "/") {
+    if (window.location.pathname === '/') {
       event.preventDefault();
-      const servicesSection = document.querySelector("#services");
+      const servicesSection = document.querySelector('#services');
       if (servicesSection) {
-        servicesSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
     // Otherwise, the regular href="/services" will navigate to services page
@@ -226,25 +252,25 @@ const isActiveLink = (linkPath: string): boolean => {
 
   function handleWorksClick(event) {
     // If already on homepage, scroll to works section
-    if (window.location.pathname === "/") {
+    if (window.location.pathname === '/') {
       event.preventDefault();
-      const worksSection = document.querySelector("#works");
+      const worksSection = document.querySelector('#works');
       if (worksSection) {
-        worksSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        worksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-    // Otherwise, the regular href="/works" will navigate to works page
+    // Otherwise, the regular href="/projects" will navigate to works page
   }
 
   // Handle direct URL hashes on homepage
-  document.addEventListener("DOMContentLoaded", function () {
-    if (window.location.pathname === "/") {
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.location.pathname === '/') {
       const hash = window.location.hash;
-      if (hash === "#services" || hash === "#works") {
+      if (hash === '#services' || hash === '#works') {
         const section = document.querySelector(hash);
         if (section) {
           setTimeout(() => {
-            section.scrollIntoView({ behavior: "smooth" });
+            section.scrollIntoView({ behavior: 'smooth' });
           }, 100);
         }
       }
@@ -257,24 +283,23 @@ const isActiveLink = (linkPath: string): boolean => {
   // Update active navigation states
   function updateActiveNavStates() {
     const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll(".nav-link");
+    const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach((link) => {
       // Reset all active states
-      link.classList.remove("nav-link-active");
+      link.classList.remove('nav-link-active');
 
       // Check if this link matches the current path
-      const linkPath = link.getAttribute("href");
+      const linkPath = link.getAttribute('href');
 
       // Special handling for homepage
-      if (linkPath === "/" && currentPath === "/") {
-        link.classList.add("nav-link-active");
+      if (linkPath === '/' && currentPath === '/') {
+        link.classList.add('nav-link-active');
       }
       // For other pages
-      else if (linkPath !== "/" && currentPath.startsWith(linkPath)) {
-        link.classList.add("nav-link-active");
+      else if (linkPath !== '/' && currentPath.startsWith(linkPath)) {
+        link.classList.add('nav-link-active');
       }
     });
   }
 </script>
-
