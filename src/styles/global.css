@@ -342,12 +342,12 @@
 @layer components {
   /* === Container === */
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto;
   }
 
   /* Section */
   .section {
-    @apply py-6 md:py-8 lg:py-10;
+    @apply my-6 md:my-8 lg:my-10;
   }
 
   /* Section Header */
