@@ -128,10 +128,15 @@ const isActiveLink = (linkPath: string): boolean => {
     <div
       class="absolute -top-1 left-0 w-full rounded-b border-b border-border-muted bg-background py-6">
       <div class="space-y-4 px-12">
-        <a
+        <!-- <a
           href="/"
           class={`block py-2 text-xl nav-link ${isActiveLink('/') ? 'nav-link-active' : ''}`}
           onclick="handleMobileHomeClick(event)">Home</a
+        > -->
+        <a
+          href="/about"
+          class={`block py-2 text-xl nav-link ${isActiveLink('/about') ? 'nav-link-active' : ''}`}
+          >About</a
         >
         <a
           href="/services"
@@ -141,20 +146,34 @@ const isActiveLink = (linkPath: string): boolean => {
         <a
           href="/projects"
           class={`block py-2 text-xl nav-link ${isActiveLink('/projects') ? 'nav-link-active' : ''}`}
-          onclick="handleMobileWorksClick(event)">Works</a
+          onclick="handleMobileWorksClick(event)">Projects</a
         >
         <a
-          href="/contact"
-          class={`block py-2 text-xl nav-link ${isActiveLink('/contact') ? 'nav-link-active' : ''}`}
-          onclick="closeMobileMenu()">Contact</a
+          href="/blogs"
+          class={`block py-2 text-xl nav-link ${isActiveLink('/blogs') ? 'nav-link-active' : ''}`}
+          >Blogs</a
         >
       </div>
-      <div class="mt-10 px-6">
-        <a
-          href="/consultation"
-          class="btn btn-primary btn-lg w-full"
-          onclick="closeMobileMenu()">
-          Free Consultation
+      <div class="mt-8 px-6">
+        <a href="/contact" class="btn btn-primary p-2 pl-4 text-sm">
+          Contact Us
+          <div
+            class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="text-foreground">
+              <path
+                d="M7 17L17 7M9 7h8v8"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
         </a>
       </div>
     </div>

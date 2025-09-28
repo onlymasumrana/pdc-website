@@ -526,7 +526,7 @@
 
   /* === Navigation === */
   .nav-link {
-    @apply text-foreground-muted text-base font-medium transition-colors duration-200;
+    @apply text-foreground text-base font-medium transition-colors duration-200;
   }
 
   .nav-link:hover {
@@ -534,7 +534,7 @@
   }
 
   .nav-link-active {
-    @apply text-foreground font-medium;
+    @apply text-foreground-muted font-medium;
   }
 
   /* === Badges === */
