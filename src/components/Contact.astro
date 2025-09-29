@@ -145,12 +145,10 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
                 ))
               }
             </div>
-            <input
-              type="hidden"
-              name="service"
-              id="selected-service"
-              required
-            />
+            <div id="service-error" class="mt-2 hidden">
+              <p class="text-sm text-red-500">Please select a service</p>
+            </div>
+            <input type="hidden" name="service" id="selected-service" />
           </div>
 
           <!-- Budget -->
@@ -168,7 +166,10 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
                 ))
               }
             </div>
-            <input type="hidden" name="budget" id="selected-budget" required />
+            <div id="budget-error" class="mt-2 hidden">
+              <p class="text-sm text-red-500">Please select a budget</p>
+            </div>
+            <input type="hidden" name="budget" id="selected-budget" />
           </div>
 
           <!-- Inputs -->
@@ -257,6 +258,8 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
     const form = document.getElementById('contact-form');
     const selectedServiceInput = document.getElementById('selected-service');
     const selectedBudgetInput = document.getElementById('selected-budget');
+    const serviceError = document.getElementById('service-error');
+    const budgetError = document.getElementById('budget-error');
 
     // Remove required attributes and handle validation manually
     selectedServiceInput.removeAttribute('required');
@@ -264,10 +267,31 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
 
     // Form submission validation
     form.addEventListener('submit', function (e) {
-      if (!selectedServiceInput.value || !selectedBudgetInput.value) {
+      let hasError = false;
+
+      // Reset errors
+      serviceError.classList.add('hidden');
+      budgetError.classList.add('hidden');
+
+      // Check service
+      if (!selectedServiceInput.value) {
+        serviceError.classList.remove('hidden');
+        hasError = true;
+      }
+
+      // Check budget
+      if (!selectedBudgetInput.value) {
+        budgetError.classList.remove('hidden');
+        hasError = true;
+      }
+
+      if (hasError) {
         e.preventDefault();
-        alert('Please select both a service and a budget');
-        return false;
+        // Scroll to first error
+        const firstError = document.querySelector('.text-red-500:not(.hidden)');
+        if (firstError) {
+          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
     });
 
@@ -285,8 +309,9 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
         // Add selected state to clicked button
         this.setAttribute('data-selected', 'true');
 
-        // Update hidden input value
+        // Update hidden input value and hide error
         selectedServiceInput.value = service;
+        serviceError.classList.add('hidden');
       });
     });
 
@@ -304,8 +329,9 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
         // Add selected state to clicked button
         this.setAttribute('data-selected', 'true');
 
-        // Update hidden input value
+        // Update hidden input value and hide error
         selectedBudgetInput.value = budget;
+        budgetError.classList.add('hidden');
       });
     });
 
