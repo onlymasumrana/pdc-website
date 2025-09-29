@@ -66,6 +66,7 @@ const isActiveLink = (linkPath: string): boolean => {
         <div class="ml-10">
           <a
             href="/contact"
+            onclick="handleContactClick(event)"
             class="btn btn-primary hidden p-2 pl-4 text-sm md:flex">
             Contact Us
             <div
@@ -155,7 +156,10 @@ const isActiveLink = (linkPath: string): boolean => {
         >
       </div>
       <div class="mt-8 px-6">
-        <a href="/contact" class="btn btn-primary p-2 pl-4 text-sm">
+        <a
+          href="/contact"
+          onclick="handleMobileContactClick(event)"
+          class="btn btn-primary p-2 pl-4 text-sm">
           Contact Us
           <div
             class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
@@ -228,6 +232,11 @@ const isActiveLink = (linkPath: string): boolean => {
     handleWorksClick(event);
   }
 
+  function handleMobileContactClick(event) {
+    closeMobileMenu();
+    handleContactClick(event);
+  }
+
   // Original navigation handlers
   function handleHomeClick(event) {
     // If already on homepage, scroll to top
@@ -257,6 +266,18 @@ const isActiveLink = (linkPath: string): boolean => {
       const worksSection = document.querySelector('#works');
       if (worksSection) {
         worksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    // Otherwise, the regular href="/projects" will navigate to works page
+  }
+
+  function handleContactClick(event) {
+    // If already on homepage, scroll to contact section
+    if (window.location.pathname === '/') {
+      event.preventDefault();
+      const contactSection = document.querySelector('#contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
     // Otherwise, the regular href="/projects" will navigate to works page
