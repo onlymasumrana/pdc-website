@@ -6,7 +6,7 @@ const plans = [
     price: '$35',
     yearly: '$420',
     buttonText: 'Get Pro Plan',
-    buttonStyle: 'btn btn-primary p-1 pl-3 text-sm',
+    buttonStyle: 'btn btn-primary p-2 pl-4 text-sm',
     clickHandler: 'handleContactClick(event)',
     features: [
       'Unlimited projects',
@@ -21,7 +21,7 @@ const plans = [
     price: '$70',
     yearly: '$708',
     buttonText: 'Get Business Plan',
-    buttonStyle: 'btn btn-outline p-1 pl-3 text-sm',
+    buttonStyle: 'btn btn-outline p-2 pl-4 text-sm',
     clickHandler: 'handleContactClick(event)',
     features: [
       'Unlimited projects',
@@ -36,7 +36,7 @@ const plans = [
     price: '$110',
     yearly: '$1188',
     buttonText: 'Get Enterprise Plan',
-    buttonStyle: 'btn btn-outline p-1 pl-3 text-sm',
+    buttonStyle: 'btn btn-outline p-2 pl-4 text-sm',
     clickHandler: 'handleContactClick(event)',
     features: [
       'Unlimited everything',
@@ -63,7 +63,7 @@ const plans = [
     {
       plans.map((plan) => (
         <div class="flex flex-col rounded bg-background p-8">
-          <h2 class="font-bold mb-4">{plan.title}</h2>
+          <h2 class="mb-4 font-bold">{plan.title}</h2>
           <p class="text-2xl font-semibold">
             {plan.price}
             <span class="text-base font-normal text-foreground-muted">
