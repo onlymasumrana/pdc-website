@@ -50,7 +50,7 @@ const services = [
       {
         services.map((service, index) => (
           <div
-            class={`rounded-2xl bg-background p-6 shadow transition hover:shadow-md ${index >= 4 ? 'md:col-span-2' : 'col-span-1'}`}>
+            class={`rounded bg-background p-6 shadow transition hover:shadow-md ${index >= 4 ? 'md:col-span-2' : 'col-span-1'}`}>
             <div class="mb-16 text-xl text-muted">+</div>
             <h3 class="mb-2 text-lg font-semibold text-foreground">
               {service.title}
