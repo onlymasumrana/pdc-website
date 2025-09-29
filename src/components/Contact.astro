@@ -109,7 +109,8 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
       <!-- Form section -->
       <div class="md:pb-8 md:pr-8">
         <!-- Toggle Buttons -->
-        <div class="mb-4 mt-8 flex justify-center px-4 md:justify-start md:px-0">
+        <div
+          class="mt-8 md:mt-4 py-4 shadow-sm md:shadow-none flex  border-border-muted px-4 md:justify-start md:border-none md:px-0">
           <div
             class="inline-flex w-fit rounded-full border bg-background p-1 shadow-sm">
             <button
@@ -127,7 +128,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
         <form
           method="POST"
           action="https://formspree.io/f/xovnaawz"
-          class="space-y-6 md:rounded md:bg-background-muted p-8 border-t border-border-muted md:border-none"
+          class="space-y-6 p-8 md:rounded md:bg-background-muted"
           id="contact-form">
           <!-- Services -->
           <div>
@@ -161,7 +162,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
                   <button
                     type="button"
                     data-budget={budget}
-                    class="data-[selected=true]:btn-secondary rounded-md border border-background bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
+                    class="data-[selected=true]:btn-secondary rounded-md border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
                     {budget}
                   </button>
                 ))
