@@ -8,11 +8,11 @@
   /* Base */
   --color-background: #ffffff;
   --color-background-muted: #f5f5f5;
-  --color-foreground: #151515;
-  --color-foreground-muted: #3636369a;
+  --color-foreground: #02152C;
+  --color-foreground-muted: #5B6776;
   --color-muted: var(--color-foreground-muted);
-  --color-border: #b8b8b8;
-  --color-border-muted: #b8b8b850;
+  --color-border: #5b677650;
+  --color-border-muted: #5b677625;
   --color-card-bg: #e9e9e9;
   --color-card-text: var(--color-foreground);
   --color-card: var(--color-card-bg);
@@ -20,10 +20,10 @@
   --color-form-input-text: var(--color-foreground);
 
   /* Brand */
-  --color-primary: #131313;
-  --color-primary-hover: #353535;
-  --color-secondary: #616161;
-  --color-secondary-hover: #646464;
+  --color-primary: #02152C;
+  --color-primary-hover: #0a435a;
+  --color-secondary: #5B6776;
+  --color-secondary-hover: #465e7a;
   --color-accent: #a3a3a3;
   --color-accent-hover: #d4d4d4;
   --color-tertiary: #8b8b8b;
