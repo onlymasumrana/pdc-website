@@ -3,10 +3,10 @@ const plans = [
   {
     title: 'Pro',
     description: 'Perfect for small businesses',
-    price: '$35',
+    price: '$45',
     yearly: '$420',
     buttonText: 'Get Pro Plan',
-    buttonStyle: 'btn btn-primary p-2 pl-4 text-sm',
+    buttonStyle: 'btn btn-outline p-2 pl-4 text-sm',
     clickHandler: 'handleContactClick(event)',
     features: [
       'Unlimited projects',
@@ -18,10 +18,11 @@ const plans = [
   {
     title: 'Business',
     description: 'Perfect for small businesses',
+    cardStyles: 'shadow-lg border',
     price: '$70',
     yearly: '$708',
     buttonText: 'Get Business Plan',
-    buttonStyle: 'btn btn-outline p-2 pl-4 text-sm',
+    buttonStyle: 'btn btn-primary p-2 pl-4 text-sm',
     clickHandler: 'handleContactClick(event)',
     features: [
       'Unlimited projects',
@@ -59,10 +60,14 @@ const plans = [
     </h2>
   </div>
 
-  <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
     {
       plans.map((plan) => (
-        <div class="flex flex-col rounded bg-background p-8">
+        <div
+          class={
+            `${plan.cardStyles ? plan.cardStyles : ''}` +
+            `flex flex-col rounded bg-background p-8`
+          }>
           <h2 class="mb-4 font-bold">{plan.title}</h2>
           <p class="text-2xl font-semibold">
             {plan.price}
@@ -72,7 +77,7 @@ const plans = [
           </p>
           <p class="mt-1">{plan.description}</p>
 
-          <hr class="my-6" />
+          <hr class="my-6 border-t border-border-muted bg-transparent" />
           <ul class="flex-grow space-y-3 px-1">
             {plan.features.map((feature) => (
               <li class="flex items-center gap-2">
@@ -81,7 +86,7 @@ const plans = [
             ))}
           </ul>
 
-          <hr class="my-6" />
+          <hr class="my-6 border-t border-border-muted bg-transparent" />
 
           <div class="flex justify-end">
             <a
