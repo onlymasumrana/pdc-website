@@ -1,4 +1,7 @@
 /* src/styles/global.css */
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,8 +11,8 @@
   /* Base */
   --color-background: #ffffff;
   --color-background-muted: #f5f5f5;
-  --color-foreground: #02152C;
-  --color-foreground-muted: #5B6776;
+  --color-foreground: #02152c;
+  --color-foreground-muted: #5b6776;
   --color-muted: var(--color-foreground-muted);
   --color-border: #5b677650;
   --color-border-muted: #5b677625;
@@ -20,9 +23,9 @@
   --color-form-input-text: var(--color-foreground);
 
   /* Brand */
-  --color-primary: #02152C;
+  --color-primary: #02152c;
   --color-primary-hover: #0a435a;
-  --color-secondary: #5B6776;
+  --color-secondary: #5b6776;
   --color-secondary-hover: #465e7a;
   --color-accent: #a3a3a3;
   --color-accent-hover: #d4d4d4;
@@ -57,7 +60,7 @@
 }
 
 /* === Neutral Dark Theme === */
-[data-theme='neutral-dark'] {
+[data-theme="neutral-dark"] {
   /* Base */
   --color-background: #171717;
   --color-background-muted: #262626;
@@ -109,7 +112,7 @@
 }
 
 /* === Cyberpunk === */
-[data-theme='cyberpunk'] {
+[data-theme="cyberpunk"] {
   /* Base */
   --color-background: #0d0221;
   --color-background-muted: #170c2c;
@@ -161,7 +164,7 @@
 }
 
 /* === Vue Light === */
-[data-theme='vue-light'] {
+[data-theme="vue-light"] {
   /* Base */
   --color-background: #f0fdf4;
   --color-background-muted: #bbf7d0;
@@ -212,7 +215,7 @@
 }
 
 /* === Terminal Dark === */
-[data-theme='terminal-dark'] {
+[data-theme="terminal-dark"] {
   /* Base */
   --color-background: #0f172a;
   --color-background-muted: #1e293b;
@@ -269,12 +272,13 @@
   }
 
   html {
-    @apply scroll-smooth scroll-pt-20; /* Adjust scroll padding based on the nav height */
+    @apply scroll-pt-20 scroll-smooth; /* Adjust scroll padding based on the nav height */
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background font-sans text-foreground antialiased;
     line-height: 1.6;
+    font-family: "DM Sans", "Montserrat", "Inter", sans-serif;
   }
 
   /* Typography */
@@ -331,7 +335,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-border rounded-full;
+    @apply rounded-full bg-border;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -342,7 +346,7 @@
 @layer components {
   /* === Container === */
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
   /* Section */
@@ -352,27 +356,27 @@
 
   /* Section Header */
   .section-header {
-    @apply text-center mb-4 md:mb-6 lg:mb-8;
+    @apply mb-4 text-center md:mb-6 lg:mb-8;
   }
 
   /* Section Title */
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold pb-4;
+    @apply pb-4 text-3xl font-bold md:text-4xl lg:text-5xl;
   }
 
   /* Section Subtitle */
   .section-subtitle {
-    @apply text-lg text-[var(--color-muted)] max-w-2xl mx-auto;
+    @apply mx-auto max-w-2xl text-lg text-[var(--color-muted)];
   }
 
   /* === Cards === */
   .card {
-    @apply bg-card-bg text-card-text rounded-lg border border-border p-6;
+    @apply rounded-lg border border-border bg-card-bg p-6 text-card-text;
   }
 
   .card-glass {
     /* bg-background/80 border-border/50 */
-    @apply backdrop-blur-md border rounded-lg p-6;
+    @apply rounded-lg border p-6 backdrop-blur-md;
     background-color: color-mix(
       in srgb,
       var(--color-background) 80%,
@@ -387,7 +391,7 @@
   }
 
   .btn:focus-visible {
-    @apply outline-none ring-2 ring-offset-2 ring-focus-ring;
+    @apply outline-none ring-2 ring-focus-ring ring-offset-2;
   }
 
   .btn:disabled {
@@ -426,7 +430,7 @@
 
   /* Outline Button */
   .btn-outline {
-    @apply bg-button-outline-background border border-button-outline-border text-button-outline-text;
+    @apply border border-button-outline-border bg-button-outline-background text-button-outline-text;
   }
 
   .btn-outline:hover {
@@ -461,7 +465,7 @@
   }
 
   .form-input:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    @apply cursor-not-allowed opacity-50;
   }
 
   .form-input:focus-visible {
@@ -473,7 +477,7 @@
   }
 
   .form-textarea:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    @apply cursor-not-allowed opacity-50;
   }
 
   .form-textarea:focus-visible {
@@ -485,7 +489,7 @@
   }
 
   .form-select:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    @apply cursor-not-allowed opacity-50;
   }
 
   .form-select:focus-visible {
@@ -513,7 +517,7 @@
   }
 
   .form-label {
-    @apply text-foreground font-medium mb-2 block;
+    @apply mb-2 block font-medium text-foreground;
   }
 
   .form-error {
@@ -526,7 +530,7 @@
 
   /* === Navigation === */
   .nav-link {
-    @apply text-foreground text-base font-medium transition-colors duration-200;
+    @apply text-base font-medium text-foreground transition-colors duration-200;
   }
 
   .nav-link:hover {
@@ -534,7 +538,7 @@
   }
 
   .nav-link-active {
-    @apply text-foreground-muted font-medium;
+    @apply font-medium text-foreground-muted;
   }
 
   /* === Badges === */
@@ -617,11 +621,11 @@
 
   /* === Code Blocks === */
   .code-block {
-    @apply rounded-md bg-background-muted p-4 font-mono text-sm border border-border;
+    @apply rounded-md border border-border bg-background-muted p-4 font-mono text-sm;
   }
 
   .code-inline {
-    @apply rounded bg-background-muted px-1.5 py-0.5 font-mono text-sm border border-border;
+    @apply rounded border border-border bg-background-muted px-1.5 py-0.5 font-mono text-sm;
   }
 
   /* === Dividers === */
@@ -641,7 +645,7 @@
 
   /* === Tooltips === */
   .tooltip {
-    @apply absolute z-50 overflow-hidden rounded-md border border-border bg-card-bg px-3 py-1.5 text-sm text-card-text shadow-md animate-in fade-in-0 zoom-in-95;
+    @apply animate-in fade-in-0 zoom-in-95 absolute z-50 overflow-hidden rounded-md border border-border bg-card-bg px-3 py-1.5 text-sm text-card-text shadow-md;
   }
 
   /* === Modal Backdrop === */
