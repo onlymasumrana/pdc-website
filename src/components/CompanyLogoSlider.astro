@@ -1,35 +1,33 @@
---- 
+---
 const logos = [
-  "/assets/impact.png",
-  "/assets/kodekloud.png",
-  "/assets/smartmail.png",
-  "/assets/wandr.png",
-  "/assets/impact.png"
-]; 
+  '/assets/impact.png',
+  '/assets/kodekloud.png',
+  '/assets/smartmail.png',
+  '/assets/wandr.png',
+  '/assets/impact.png',
+  '/assets/impact.png',
+  '/assets/kodekloud.png',
+  '/assets/smartmail.png',
+  '/assets/wandr.png',
+  '/assets/impact.png',
+];
 ---
 
 <section class="section">
-  <header class="section-header text-center mb-8">
-    <h2 class="section-title text-gradient text-2xl md:text-3xl font-bold">
-      Trusted by Leading Brands
-    </h2>
-    <p class="section-subtitle text-gray-400 text-sm md:text-base">
-      Our work is recognized by industry leaders worldwide
-    </p>
-  </header>
-
   <!-- Logo Slider -->
-  <div class="overflow-hidden relative p-4 px-2 max-w-[90vw] mx-auto">
-    <div id="logo-track" class="flex animate-scroll">
-      {[...logos, ...logos].map((logo) => (
-        <div class="flex items-center justify-center flex-shrink-0 px-6 sm:px-8 md:px-12">
-          <img
-            src={logo}
-            alt="Brand Logo"
-            class="h-10 sm:h-12 md:h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-          />
-        </div>
-      ))}
+  <div class="relative mx-auto max-w-[90vw] overflow-hidden">
+    <div id="logo-track" class="animate-scroll flex">
+      {
+        logos.map((logo) => (
+          <div class="flex flex-shrink-0 my-8 items-center justify-center">
+            <img
+              src={logo}
+              alt="Brand Logo"
+              class="h-20 w-auto px-4 py-3 rounded mx-4 bg-background grayscale transition-all duration-300 hover:grayscale-0 md:h-16"
+            />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

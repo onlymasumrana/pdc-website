@@ -4,19 +4,20 @@ import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import LogoSlider from '../components/CompanyLogoSlider.astro';
-import Stats from '../components/Stats.astro';
 import Services from '../components/Services.astro';
 import Projects from '../components/Projects.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Faq from '../components/Faq.astro';
 import Pricing from '../components/Pricing.astro';
-import HeroImg from '../components/HeroImg.astro';
 import Contact from '../components/Contact.astro';
 ---
 
 <BaseLayout>
   <section>
     <Hero />
+  </section>
+  <section>
+    <LogoSlider />
   </section>
   <section id="services">
     <Services />
