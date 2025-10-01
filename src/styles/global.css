@@ -1,40 +1,46 @@
 /* src/styles/global.css */
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* === Global Theme Tokens (single source of truth) === */
+/* === Neutral Light Theme === */
 :root {
   /* Base */
   --color-background: #ffffff;
-  --color-background-muted: #f9f9f9;
-  --color-foreground: #303030;
-  --color-foreground-muted: #6b7280;
+  --color-background-muted: #f5f5f5;
+  --color-foreground: #02152c;
+  --color-foreground-muted: #5b6776;
   --color-muted: var(--color-foreground-muted);
-  --color-border: #e5e5e5;
-  --color-card-bg: #f5f5f5;
+  --color-border: #5b677650;
+  --color-border-muted: #5b677625;
+  --color-card-bg: #e9e9e9;
   --color-card-text: var(--color-foreground);
   --color-card: var(--color-card-bg);
   --color-form-input-bg: #ffffff;
   --color-form-input-text: var(--color-foreground);
-  --color-primary: #ff6b6b;
-  --color-primary-hover: #ff5252;
-  --color-secondary: #ffd43b;
-  --color-secondary-hover: #ffc107;
-  --color-accent: #4dabf7;
-  --color-accent-hover: #339af0;
-  --color-tertiary: #845ef7;
-  --color-tertiary-hover: #7048e8;
+
+  /* Brand */
+  --color-primary: #02152c;
+  --color-primary-hover: #0a435a;
+  --color-secondary: #5b6776;
+  --color-secondary-hover: #465e7a;
+  --color-accent: #a3a3a3;
+  --color-accent-hover: #d4d4d4;
+  --color-tertiary: #8b8b8b;
+  --color-tertiary-hover: #a3a3a3;
 
   /* Status */
-  --color-success: #22c55e;
-  --color-warning: #facc15;
-  --color-danger: #ef4444;
-  --color-info: #3b82f6;
+  --color-success: #15803d;
+  --color-warning: #d97706;
+  --color-danger: #b91c1c;
+  --color-info: #1d4ed8;
 
   /* Links/Focus */
-  --color-link: var(--color-accent);
-  --color-link-hover: var(--color-accent-hover);
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-hover);
   --color-focus-ring: var(--color-primary);
 
   /* Buttons */
@@ -44,7 +50,7 @@
   --color-button-primary-text-hover: var(--color-button-primary-text);
   --color-button-secondary-background: var(--color-secondary);
   --color-button-secondary-background-hover: var(--color-secondary-hover);
-  --color-button-secondary-text: var(--color-foreground);
+  --color-button-secondary-text: #ffffff;
   --color-button-secondary-text-hover: var(--color-button-secondary-text);
   --color-button-outline-background: transparent;
   --color-button-outline-background-hover: var(--color-primary);
@@ -53,8 +59,60 @@
   --color-button-outline-border: var(--color-primary);
 }
 
+/* === Neutral Dark Theme === */
+[data-theme="neutral-dark"] {
+  /* Base */
+  --color-background: #171717;
+  --color-background-muted: #262626;
+  --color-foreground: #f5f5f5;
+  --color-foreground-muted: #a3a3a3;
+  --color-muted: var(--color-foreground-muted);
+  --color-border: #404040;
+  --color-border-muted: #40404050;
+  --color-card-bg: #262626;
+  --color-card-text: var(--color-foreground);
+  --color-form-input-bg: #404040;
+  --color-form-input-text: var(--color-foreground);
+
+  /* Brand */
+  --color-primary: #ffffff;
+  --color-primary-hover: #e9e9e9;
+  --color-secondary: #bbbbbb;
+  --color-secondary-hover: #d4d4d4;
+  --color-accent: #737373;
+  --color-accent-hover: #a3a3a3;
+  --color-tertiary: #8b8b8b;
+  --color-tertiary-hover: #a3a3a3;
+
+  /* Status */
+  --color-success: #4ade80;
+  --color-warning: #facc15;
+  --color-danger: #f87171;
+  --color-info: #60a5fa;
+
+  /* Links/Focus */
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-hover);
+  --color-focus-ring: var(--color-primary);
+
+  /* Buttons */
+  --color-button-primary-background: var(--color-primary);
+  --color-button-primary-background-hover: var(--color-primary-hover);
+  --color-button-primary-text: var(--color-background);
+  --color-button-primary-text-hover: var(--color-button-primary-text);
+  --color-button-secondary-background: var(--color-secondary);
+  --color-button-secondary-background-hover: var(--color-secondary-hover);
+  --color-button-secondary-text: var(--color-background);
+  --color-button-secondary-text-hover: var(--color-button-secondary-text);
+  --color-button-outline-background: transparent;
+  --color-button-outline-background-hover: var(--color-primary);
+  --color-button-outline-text: var(--color-primary);
+  --color-button-outline-text-hover: var(--color-background);
+  --color-button-outline-border: var(--color-primary);
+}
+
 /* === Cyberpunk === */
-[data-theme='cyberpunk'] {
+[data-theme="cyberpunk"] {
   /* Base */
   --color-background: #0d0221;
   --color-background-muted: #170c2c;
@@ -62,10 +120,13 @@
   --color-foreground-muted: #a09ee6;
   --color-muted: var(--color-foreground-muted);
   --color-border: #2de2e6;
+  --color-border-muted: #2de3e650;
   --color-card-bg: #170c2c;
   --color-card-text: var(--color-foreground);
   --color-form-input-bg: var(--color-foreground);
   --color-form-input-text: var(--color-background-muted);
+
+  /* Brand */
   --color-primary: #2de2e6;
   --color-primary-hover: #1ac8cc;
   --color-secondary: #ff3864;
@@ -103,7 +164,7 @@
 }
 
 /* === Vue Light === */
-[data-theme='vue-light'] {
+[data-theme="vue-light"] {
   /* Base */
   --color-background: #f0fdf4;
   --color-background-muted: #bbf7d0;
@@ -115,6 +176,8 @@
   --color-card-text: var(--color-foreground);
   --color-form-input-bg: #ffffff;
   --color-form-input-text: var(--color-foreground);
+
+  /* Brand */
   --color-primary: #10b981;
   --color-primary-hover: #059669;
   --color-secondary: #3b82f6;
@@ -152,7 +215,7 @@
 }
 
 /* === Terminal Dark === */
-[data-theme='terminal-dark'] {
+[data-theme="terminal-dark"] {
   /* Base */
   --color-background: #0f172a;
   --color-background-muted: #1e293b;
@@ -164,6 +227,8 @@
   --color-card-text: var(--color-foreground);
   --color-form-input-bg: var(--color-background-muted);
   --color-form-input-text: var(--color-foreground);
+
+  /* Brand */
   --color-primary: #10b981;
   --color-primary-hover: #34d399;
   --color-secondary: #14b8a6;
@@ -207,12 +272,13 @@
   }
 
   html {
-    @apply scroll-smooth scroll-pt-20; /* Adjust scroll padding based on the nav height */;
+    @apply scroll-pt-20 scroll-smooth; /* Adjust scroll padding based on the nav height */
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background font-sans text-foreground antialiased;
     line-height: 1.6;
+    font-family: "DM Sans", "Montserrat", "Inter", sans-serif;
   }
 
   /* Typography */
@@ -269,7 +335,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-border rounded-full;
+    @apply rounded-full bg-border;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -280,7 +346,7 @@
 @layer components {
   /* === Container === */
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
   /* Section */
@@ -290,36 +356,42 @@
 
   /* Section Header */
   .section-header {
-    @apply text-center mb-4 md:mb-6 lg:mb-8;
+    @apply mb-4 text-center md:mb-6 lg:mb-8;
   }
 
   /* Section Title */
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold pb-4;
+    @apply pb-4 text-3xl font-bold md:text-4xl lg:text-5xl;
   }
 
   /* Section Subtitle */
   .section-subtitle {
-    @apply text-lg text-[var(--color-muted)] max-w-2xl mx-auto;
+    @apply mx-auto max-w-2xl text-lg text-[var(--color-muted)];
   }
 
   /* === Cards === */
   .card {
-    @apply bg-card-bg text-card-text rounded-lg border border-border p-6;
+    @apply rounded-lg border border-border bg-card-bg p-6 text-card-text;
   }
 
   .card-glass {
     /* bg-background/80 border-border/50 */
-    @apply backdrop-blur-md border rounded-lg p-6;
+    @apply rounded-lg border p-6 backdrop-blur-md;
+    background-color: color-mix(
+      in srgb,
+      var(--color-background) 80%,
+      transparent
+    );
+    border-color: color-mix(in srgb, var(--color-border) 50%, transparent);
   }
 
   /* === Buttons === */
   .btn {
-    @apply inline-flex items-center justify-center rounded-md font-medium transition-all duration-200;
+    @apply inline-flex items-center justify-center rounded font-medium transition-all duration-200;
   }
 
   .btn:focus-visible {
-    @apply outline-none ring-2 ring-offset-2 ring-focus-ring;
+    @apply outline-none ring-2 ring-focus-ring ring-offset-2;
   }
 
   .btn:disabled {
@@ -335,7 +407,7 @@
   }
 
   .btn-lg {
-    @apply h-11 px-8 text-lg;
+    @apply px-5 py-2.5 text-lg;
   }
 
   /* Primary Button */
@@ -358,7 +430,7 @@
 
   /* Outline Button */
   .btn-outline {
-    @apply bg-button-outline-background border border-button-outline-border text-button-outline-text;
+    @apply border border-button-outline-border bg-button-outline-background text-button-outline-text;
   }
 
   .btn-outline:hover {
@@ -387,13 +459,13 @@
   .form-group {
     @apply space-y-2;
   }
-  
+
   .form-input {
     @apply flex h-10 w-full rounded-md border border-border bg-form-input-bg px-3 py-2 text-form-input-text placeholder-muted;
   }
 
   .form-input:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    @apply cursor-not-allowed opacity-50;
   }
 
   .form-input:focus-visible {
@@ -405,7 +477,7 @@
   }
 
   .form-textarea:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    @apply cursor-not-allowed opacity-50;
   }
 
   .form-textarea:focus-visible {
@@ -417,7 +489,7 @@
   }
 
   .form-select:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    @apply cursor-not-allowed opacity-50;
   }
 
   .form-select:focus-visible {
@@ -445,7 +517,7 @@
   }
 
   .form-label {
-    @apply text-foreground font-medium mb-2 block;
+    @apply mb-2 block font-medium text-foreground;
   }
 
   .form-error {
@@ -458,7 +530,7 @@
 
   /* === Navigation === */
   .nav-link {
-    @apply text-foreground-muted transition-colors duration-200;
+    @apply text-base font-medium text-foreground transition-colors duration-200;
   }
 
   .nav-link:hover {
@@ -466,7 +538,7 @@
   }
 
   .nav-link-active {
-    @apply text-foreground font-medium;
+    @apply font-medium text-foreground-muted;
   }
 
   /* === Badges === */
@@ -477,31 +549,41 @@
   .badge-primary {
     /* bg-primary/20 */
     @apply text-primary;
+    background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
 
   .badge-secondary {
     /* bg-secondary/20 */
     @apply text-secondary;
+    background-color: color-mix(
+      in srgb,
+      var(--color-secondary) 20%,
+      transparent
+    );
   }
 
   .badge-success {
     /* bg-success/20 */
     @apply text-success;
+    background-color: color-mix(in srgb, var(--color-success) 20%, transparent);
   }
 
   .badge-warning {
     /* bg-warning/20 */
     @apply text-warning;
+    background-color: color-mix(in srgb, var(--color-warning) 20%, transparent);
   }
 
   .badge-danger {
     /* bg-danger/20 */
     @apply text-danger;
+    background-color: color-mix(in srgb, var(--color-danger) 20%, transparent);
   }
 
   .badge-info {
     /* bg-info/20 */
     @apply text-info;
+    background-color: color-mix(in srgb, var(--color-info) 20%, transparent);
   }
 
   /* === Alerts === */
@@ -512,30 +594,38 @@
   .alert-info {
     /* border-info/20 bg-info/10 */
     @apply text-info;
+    background-color: color-mix(in srgb, var(--color-info) 10%, transparent);
+    border-color: color-mix(in srgb, var(--color-info) 20%, transparent);
   }
 
   .alert-success {
     /* border-success/20 bg-success/10 */
     @apply text-success;
+    background-color: color-mix(in srgb, var(--color-success) 10%, transparent);
+    border-color: color-mix(in srgb, var(--color-success) 20%, transparent);
   }
 
   .alert-warning {
     /* border-warning/20 bg-warning/10 */
     @apply text-warning;
+    background-color: color-mix(in srgb, var(--color-warning) 10%, transparent);
+    border-color: color-mix(in srgb, var(--color-warning) 20%, transparent);
   }
 
   .alert-danger {
     /* border-danger/20 bg-danger/10 */
     @apply text-danger;
+    background-color: color-mix(in srgb, var(--color-danger) 10%, transparent);
+    border-color: color-mix(in srgb, var(--color-danger) 20%, transparent);
   }
 
   /* === Code Blocks === */
   .code-block {
-    @apply rounded-md bg-background-muted p-4 font-mono text-sm border border-border;
+    @apply rounded-md border border-border bg-background-muted p-4 font-mono text-sm;
   }
 
   .code-inline {
-    @apply rounded bg-background-muted px-1.5 py-0.5 font-mono text-sm border border-border;
+    @apply rounded border border-border bg-background-muted px-1.5 py-0.5 font-mono text-sm;
   }
 
   /* === Dividers === */
@@ -555,13 +645,18 @@
 
   /* === Tooltips === */
   .tooltip {
-    @apply absolute z-50 overflow-hidden rounded-md border border-border bg-card-bg px-3 py-1.5 text-sm text-card-text shadow-md animate-in fade-in-0 zoom-in-95;
+    @apply animate-in fade-in-0 zoom-in-95 absolute z-50 overflow-hidden rounded-md border border-border bg-card-bg px-3 py-1.5 text-sm text-card-text shadow-md;
   }
 
   /* === Modal Backdrop === */
   .modal-backdrop {
     /* bg-background/80 */
     @apply fixed inset-0 z-50 backdrop-blur-sm;
+    background-color: color-mix(
+      in srgb,
+      var(--color-background) 80%,
+      transparent
+    );
   }
 
   /* === Modal Content === */

@@ -1,0 +1,133 @@
+---
+const plans = [
+  {
+    title: 'Pro',
+    description: 'Perfect for small businesses',
+    price: '$45',
+    yearly: '$420',
+    buttonText: 'Get Pro Plan',
+    buttonStyle: 'btn btn-outline p-2 pl-4 text-sm',
+    clickHandler: 'handleContactClick(event)',
+    features: [
+      'Unlimited projects',
+      'Advanced analytics',
+      'All integrations',
+      'Email & chat support',
+    ],
+  },
+  {
+    title: 'Business',
+    description: 'Perfect for small businesses',
+    cardStyles: 'shadow-lg border',
+    price: '$70',
+    yearly: '$708',
+    buttonText: 'Get Business Plan',
+    buttonStyle: 'btn btn-primary p-2 pl-4 text-sm',
+    clickHandler: 'handleContactClick(event)',
+    features: [
+      'Unlimited projects',
+      'Priority analytics',
+      'All integrations',
+      '24/7 Support',
+    ],
+  },
+  {
+    title: 'Enterprise',
+    description: 'Perfect for small businesses',
+    price: '$110',
+    yearly: '$1188',
+    buttonText: 'Get Enterprise Plan',
+    buttonStyle: 'btn btn-outline p-2 pl-4 text-sm',
+    clickHandler: 'handleContactClick(event)',
+    features: [
+      'Unlimited everything',
+      'Dedicated analytics',
+      'Custom integrations',
+    ],
+  },
+];
+---
+
+<section class="">
+  <!-- Heading -->
+  <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
+    <p class="text-sm font-medium uppercase tracking-wider">
+      <span class="mr-1 text-xl text-[#ff6a00]">✷</span>PRICING
+    </p>
+    <h2 class="section-title">
+      <span class="text-foreground">Affordable</span>
+      <span class="text-muted">pricing plan</span>
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+    {
+      plans.map((plan) => (
+        <div
+          class={
+            `${plan.cardStyles ? plan.cardStyles : ''}` +
+            `flex flex-col rounded bg-background p-8`
+          }>
+          <h2 class="mb-4 font-bold">{plan.title}</h2>
+          <p class="text-2xl font-semibold">
+            {plan.price}
+            <span class="text-base font-normal text-foreground-muted">
+              /month
+            </span>
+          </p>
+          <p class="mt-1">{plan.description}</p>
+
+          <hr class="my-6 border-t border-border-muted bg-transparent" />
+          <ul class="flex-grow space-y-3 px-1">
+            {plan.features.map((feature) => (
+              <li class="flex items-center gap-2">
+                <span>+</span> {feature}
+              </li>
+            ))}
+          </ul>
+
+          <hr class="my-6 border-t border-border-muted bg-transparent" />
+
+          <div class="flex justify-end">
+            <a
+              href="/contact"
+              onclick={plan.clickHandler}
+              class={plan.buttonStyle}>
+              {plan.buttonText}
+              <div class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  class="text-foreground">
+                  <path
+                    d="M7 17L17 7M9 7h8v8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+<script is:inline>
+  function handleContactClick(event) {
+    // If already on homepage, scroll to contact section
+    if (window.location.pathname === '/') {
+      event.preventDefault();
+      const contactSection = document.querySelector('#contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    // Otherwise, the regular href="/projects" will navigate to works page
+  }
+</script>

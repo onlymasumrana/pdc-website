@@ -4,7 +4,17 @@
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
   theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
+      fontFamily: {
+        // sans: ["DM Sans", "Montserrat", "Inter",  sans-serif],
+      },
       colors: {
         // Base
         background: 'var(--color-background)',
@@ -13,6 +23,7 @@ export default {
         'foreground-muted': 'var(--color-foreground-muted)',
         muted: 'var(--color-muted)',
         border: 'var(--color-border)',
+        'border-muted': 'var(--color-border-muted)',
 
         // Cards & Forms
         card: 'var(--color-card)',

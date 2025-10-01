@@ -1,0 +1,603 @@
+---
+// Configuration
+const services = [
+  'AI Development',
+  'UI/UX Design',
+  'Web Development',
+  'E-commerce Development',
+  'Branding',
+  'No-code (Webflow, Framer)',
+];
+
+const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
+
+const FORM_CONFIG = {
+  contact: 'https://formspree.io/f/mnnzekna',
+  quote: 'https://formspree.io/f/xovnaawz',
+};
+---
+
+<section class="py-12">
+  <div class="container mx-auto px-4">
+    <!-- Heading -->
+    <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
+      <p class="text-sm font-medium uppercase tracking-wider">
+        <span class="text-xl text-[#ff6a00]">✷</span> GET IN TOUCH
+      </p>
+
+      <div>
+        <h2 class="section-title">
+          Have
+          <span class="text-muted"> ideas to build?</span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Contact Info & Form  -->
+    <div
+      class="grid grid-cols-1 rounded border border-border bg-background md:grid-cols-2">
+      <!-- Info section -->
+      <div class="flex flex-col justify-between p-8">
+        <h2 class="mb-6 text-xl font-semibold leading-snug md:text-2xl">
+          We would love to hear from you!
+        </h2>
+        <div class="flex flex-col gap-4">
+          <!-- Email -->
+          <div
+            class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
+            <div>
+              <p class="font-medium text-muted">Email Us</p>
+              <p class="text-foreground">support@premiumdesign.com</p>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="text-muted">
+              <path
+                d="M7 17L17 7M9 7h8v8"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <!-- Phone -->
+          <div
+            class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
+            <div>
+              <p class="font-medium text-muted">Call Us</p>
+              <p class="text-foreground">+1234567890</p>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="text-muted">
+              <path
+                d="M7 17L17 7M9 7h8v8"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <!-- Address -->
+          <div
+            class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
+            <div>
+              <p class="font-medium text-muted">Address</p>
+              <p class="text-foreground">
+                123 Business Street, San Francisco, CA
+              </p>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="text-muted">
+              <path
+                d="M7 17L17 7M9 7h8v8"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form section -->
+      <div class="md:pb-8 md:pr-8">
+        <!-- Toggle Buttons -->
+        <div
+          class="mt-8 flex px-4 py-4 shadow-sm md:mt-4 md:justify-start justify-center items-center md:border-none md:px-0 md:shadow-none">
+          <div
+            class="inline-flex w-fit rounded-full border-border bg-background shadow-sm">
+            <button
+              data-type="contact"
+              class="active-tab px-3 py-1.5 btn-secondary rounded-full rounded-r-none md:px-4 md:py-2 text-sm font-medium">
+              Contact
+            </button>
+            <button
+              data-type="quote"
+              class="btn-outline px-3 py-1.5 border-x-0 md:px-4 md:py-2 text-sm font-medium">
+              Quote
+            </button>
+            <button
+              data-type="schedule"
+              class="btn-outline px-3 py-1.5 rounded-r-full md:px-4 md:py-2 text-sm font-medium">
+              Schedule
+            </button>
+          </div>
+        </div>
+
+        <!-- Contact Form Tab -->
+        <form
+          method="POST"
+          action={FORM_CONFIG.contact}
+          class="tab-content active space-y-6 p-8 md:rounded md:bg-background-muted"
+          id="contact-form"
+          data-form-type="contact">
+          <!-- Name & Email -->
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <label class="block text-sm font-medium">
+              Name *
+              <input
+                type="text"
+                id="contact-name"
+                name="name"
+                required
+                placeholder="Enter your name"
+                class="form-input mt-1 w-full"
+              />
+            </label>
+            <label class="block text-sm font-medium">
+              Email *
+              <input
+                type="email"
+                id="contact-email"
+                name="email"
+                required
+                placeholder="Enter your email"
+                class="form-input mt-1 w-full"
+              />
+            </label>
+          </div>
+
+          <!-- Subject -->
+          <label class="block text-sm font-medium">
+            Subject *
+            <input
+              type="text"
+              id="contact-subject"
+              name="subject"
+              required
+              placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
+              class="form-input mt-1 w-full"
+            />
+          </label>
+
+          <!-- Message -->
+          <label class="block text-sm font-medium">
+            Message *
+            <textarea
+              id="contact-message"
+              name="message"
+              required
+              placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
+              class="form-textarea mt-1 h-40 w-full"></textarea>
+          </label>
+
+          <!-- Submit Button -->
+          <div class="flex justify-end">
+            <button type="submit" class="btn btn-primary p-2 pl-4">
+              Send Message
+              <div
+                class="ml-2 flex items-center justify-center rounded bg-background p-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  class="text-foreground">
+                  <path
+                    d="M7 17L17 7M9 7h8v8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </form>
+
+        <!-- Quote Form Tab -->
+        <form
+          method="POST"
+          action={FORM_CONFIG.quote}
+          class="tab-content hidden space-y-6 p-8 md:rounded md:bg-background-muted"
+          id="quote-form"
+          data-form-type="quote">
+          <!-- Services -->
+          <div>
+            <label class="mb-2 block text-sm font-semibold">Service *</label>
+            <div class="flex flex-wrap gap-2" id="services-container">
+              {
+                services.map((service) => (
+                  <button
+                    type="button"
+                    data-service={service}
+                    class="data-[selected=true]:btn-secondary rounded border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
+                    {service}
+                  </button>
+                ))
+              }
+            </div>
+            <div id="service-error" class="mt-2 hidden">
+              <p class="text-sm text-danger">Please select a service</p>
+            </div>
+            <input type="hidden" name="service" id="selected-service" />
+          </div>
+
+          <!-- Budget -->
+          <div>
+            <label class="mb-2 block text-sm font-semibold">Budget *</label>
+            <div class="flex flex-wrap gap-2" id="budgets-container">
+              {
+                budgets.map((budget) => (
+                  <button
+                    type="button"
+                    data-budget={budget}
+                    class="data-[selected=true]:btn-secondary rounded border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
+                    {budget}
+                  </button>
+                ))
+              }
+            </div>
+            <div id="budget-error" class="mt-2 hidden">
+              <p class="text-sm text-danger">Please select a budget</p>
+            </div>
+            <input type="hidden" name="budget" id="selected-budget" />
+          </div>
+
+          <!-- Inputs -->
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <label class="block text-sm font-medium">
+              Name *
+              <input
+                type="text"
+                id="quote-name"
+                name="name"
+                required
+                placeholder="Enter your name"
+                class="form-input mt-1 w-full"
+              />
+            </label>
+            <label class="block text-sm font-medium">
+              Email *
+              <input
+                type="email"
+                id="quote-email"
+                name="email"
+                required
+                placeholder="Enter your email"
+                class="form-input mt-1 w-full"
+              />
+            </label>
+          </div>
+
+          <!-- Subject -->
+          <label class="block text-sm font-medium">
+            Subject *
+            <input
+              type="text"
+              id="quote-subject"
+              name="subject"
+              required
+              placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
+              class="form-input mt-1 w-full"
+            />
+          </label>
+
+          <!-- Message -->
+          <label class="block text-sm font-medium">
+            Message *
+            <textarea
+              id="quote-message"
+              name="message"
+              required
+              placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
+              class="form-textarea mt-1 h-40 w-full"></textarea>
+          </label>
+
+          <!-- Submit Button -->
+          <div class="flex justify-end">
+            <button type="submit" class="btn btn-primary p-2 pl-4">
+              Get Quote
+              <div
+                class="ml-2 flex items-center justify-center rounded bg-background p-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  class="text-foreground">
+                  <path
+                    d="M7 17L17 7M9 7h8v8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </form>
+
+        <!-- Schedule Form Tab -->
+        <div
+          class="tab-content hidden p-8 md:rounded md:bg-background-muted"
+          id="schedule-form">
+          <div class="flex h-64 items-center justify-center">
+            <p class="text-lg font-medium text-muted">
+              Schedule form coming soon
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  // Form Management Classes
+  class TabManager {
+    constructor() {
+      this.tabButtons = document.querySelectorAll('[data-type]');
+      this.tabContents = document.querySelectorAll('.tab-content');
+      this.init();
+    }
+
+    init() {
+      this.tabButtons.forEach((button) => {
+        button.addEventListener('click', (e) => this.switchTab(e.target));
+      });
+    }
+
+    switchTab(button) {
+      const type = button.getAttribute('data-type');
+
+      // Update tab buttons
+      this.tabButtons.forEach((btn) => {
+        btn.classList.remove('btn-secondary');
+        btn.classList.add('btn-outline');
+      });
+
+      button.classList.remove('btn-outline');
+      button.classList.add('btn-secondary');
+
+      // Show active tab content
+      this.tabContents.forEach((content) => {
+        content.classList.add('hidden');
+        content.classList.remove('active');
+      });
+
+      const activeContent = document.getElementById(`${type}-form`);
+      if (activeContent) {
+        activeContent.classList.remove('hidden');
+        activeContent.classList.add('active');
+      }
+    }
+  }
+
+  class FormValidator {
+    static validateRequiredFields(form) {
+      const inputs = form.querySelectorAll(
+        'input[required], textarea[required]'
+      );
+      let isValid = true;
+
+      inputs.forEach((input) => {
+        if (!input.value.trim()) {
+          isValid = false;
+          this.showFieldError(input, 'This field is required');
+        } else {
+          this.clearFieldError(input);
+        }
+      });
+
+      return isValid;
+    }
+
+    static validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    static showFieldError(input, message) {
+      let errorElement = input.parentNode.querySelector('.field-error');
+      if (!errorElement) {
+        errorElement = document.createElement('p');
+        errorElement.className = 'field-error text-sm text-danger mt-1';
+        input.parentNode.appendChild(errorElement);
+      }
+      errorElement.textContent = message;
+      input.classList.add('border-danger');
+    }
+
+    static clearFieldError(input) {
+      const errorElement = input.parentNode.querySelector('.field-error');
+      if (errorElement) {
+        errorElement.remove();
+      }
+      input.classList.remove('border-danger');
+    }
+  }
+
+  class SelectionManager {
+    constructor(containerId, hiddenInputId, errorElementId) {
+      this.container = document.getElementById(containerId);
+      this.hiddenInput = document.getElementById(hiddenInputId);
+      this.errorElement = document.getElementById(errorElementId);
+      this.buttons = this.container?.querySelectorAll('button') || [];
+      this.init();
+    }
+
+    init() {
+      this.buttons.forEach((button) => {
+        button.addEventListener('click', () => this.select(button));
+      });
+    }
+
+    select(button) {
+      const value =
+        button.getAttribute('data-service') ||
+        button.getAttribute('data-budget');
+
+      // Remove selection from all buttons
+      this.buttons.forEach((btn) => {
+        btn.removeAttribute('data-selected');
+        btn.classList.remove('btn-secondary');
+      });
+
+      // Add selection to clicked button
+      button.setAttribute('data-selected', 'true');
+      button.classList.add('btn-secondary');
+
+      // Update hidden input and clear error
+      this.hiddenInput.value = value;
+      if (this.errorElement) {
+        this.errorElement.classList.add('hidden');
+      }
+
+      console.log(`Selected: ${value}`);
+    }
+
+    getSelectedValue() {
+      return this.hiddenInput.value;
+    }
+
+    validate() {
+      const isValid = !!this.getSelectedValue();
+      if (this.errorElement) {
+        this.errorElement.classList.toggle('hidden', isValid);
+      }
+      return isValid;
+    }
+  }
+
+  class FormSubmitHandler {
+    constructor() {
+      this.forms = document.querySelectorAll('form[data-form-type]');
+      this.init();
+    }
+
+    init() {
+      this.forms.forEach((form) => {
+        form.addEventListener('submit', (e) => this.handleSubmit(e));
+      });
+    }
+
+    handleSubmit(event) {
+      const form = event.target;
+      const formType = form.getAttribute('data-form-type');
+
+      console.log(`Validating ${formType} form...`);
+
+      // Validate basic required fields
+      if (!FormValidator.validateRequiredFields(form)) {
+        console.error('Form validation failed: missing required fields');
+        event.preventDefault();
+        this.showErrorMessage('Please fill in all required fields');
+        return;
+      }
+
+      // Validate email format
+      const emailInput = form.querySelector('input[type="email"]');
+      if (emailInput && !FormValidator.validateEmail(emailInput.value)) {
+        console.error('Form validation failed: invalid email');
+        event.preventDefault();
+        FormValidator.showFieldError(
+          emailInput,
+          'Please enter a valid email address'
+        );
+        return;
+      }
+
+      // Validate quote form specific fields
+      if (formType === 'quote') {
+        const serviceManager = new SelectionManager(
+          'services-container',
+          'selected-service',
+          'service-error'
+        );
+        const budgetManager = new SelectionManager(
+          'budgets-container',
+          'selected-budget',
+          'budget-error'
+        );
+
+        if (!serviceManager.validate() || !budgetManager.validate()) {
+          console.error(
+            'Quote form validation failed: missing service or budget'
+          );
+          event.preventDefault();
+          this.showErrorMessage('Please select both a service and budget');
+          return;
+        }
+      }
+
+      // If all validations pass, allow FormSpree to handle the submission
+      console.log(
+        `Form validation passed. Allowing FormSpree to handle submission to: ${form.action}`
+      );
+
+      // FormSpree will now handle the submission and redirect to their success page
+      // Remove any custom success/error handlers since FormSpree will handle it
+    }
+
+    showErrorMessage(message) {
+      // Simple alert for validation errors
+      // alert(`❌ ${message}`);
+    }
+  }
+
+  // Main initialization
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log('🚀 Initializing contact form...');
+
+    try {
+      // Initialize tab management
+      new TabManager();
+
+      // Initialize form submission (validation only)
+      new FormSubmitHandler();
+
+      // Initialize selection managers for quote form
+      new SelectionManager(
+        'services-container',
+        'selected-service',
+        'service-error'
+      );
+      new SelectionManager(
+        'budgets-container',
+        'selected-budget',
+        'budget-error'
+      );
+
+      console.log('✅ Contact form initialized successfully');
+    } catch (error) {
+      console.error('❌ Error initializing contact form:', error);
+    }
+  });
+</script>

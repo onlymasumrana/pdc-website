@@ -1,21 +1,127 @@
 ---
-// src/components/Testimonials.astro
+import { Swiper, SwiperWrapper, SwiperSlide } from 'astro-swiper';
+
+const testimonials = [
+  {
+    text: 'Seamless integrations and super intuitive UI. Exactly what our growing business needed.',
+    name: 'John',
+    role: 'Project Manager',
+    image:
+      'https://images.unsplash.com/photo-1720805752653-10ddccea4c94?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    text: 'The platform transformed how we manage our projects. Incredible value for the price.',
+    name: 'Adam',
+    role: 'CTO',
+    image:
+      'https://images.unsplash.com/photo-1623184662645-73d7fcb58595?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    text: 'Outstanding customer support and robust features. Highly recommended for teams.',
+    name: 'Michael',
+    role: 'Product Lead',
+    image:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    text: 'Simple setup, powerful results. Our team collaboration has never been better.',
+    name: 'David',
+    role: 'Operations Manager',
+    image:
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+];
 ---
 
-<section class="section">
-  <header class="section-header">
-    <h2 class="section-title text-primary">Trusted by Teams, Loved by Users</h2>
-  </header>
-
-  <blockquote class="card text-center max-w-2xl mx-auto">
-    <p class="text-lg italic text-foreground">
-      "Masum was truly a joy to work and be with. He took ownership of the work
-      and had great attention to detail. Not just we got the job done, we had a
-      great time working together. I genuinely wish him the best for all his
-      future endeavours."
+<section class="overflow-x-hidden">
+  <!-- Heading -->
+  <div
+    class="2xs:mb-4 xs:mb-5 mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
+    <p class="text-sm font-medium uppercase tracking-wider">
+      <span class="mr-1 text-xl uppercase text-[#ff6a00]">✷</span>Testimonials
     </p>
-    <footer class="mt-4 text-muted font-medium">
-      - Chris
-    </footer>
-  </blockquote>
+    <h2 class="section-title">
+      <span class="text-foreground">Trusted by</span>
+      <span class="text-muted">happy people globally</span>
+    </h2>
+  </div>
+
+  <!-- Testimonial Carousel -->
+  <div
+    class="testimonial-carousel mx-auto max-w-[90vw] md:max-w-xl lg:max-w-2xl">
+    <Swiper
+      options={{
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        autoplay: {
+          delay: 7000,
+          disableOnInteraction: false,
+          waitForTransition: true,
+        },
+        pagination: {
+          clickable: true,
+          dynamicBullets: true,
+        },
+        breakpoints: {
+          640: {
+            spaceBetween: 10,
+          },
+          768: {
+            spaceBetween: 20,
+          },
+          1024: {
+            spaceBetween: 40,
+          },
+        },
+      }}>
+      <SwiperWrapper>
+        {
+          testimonials.map((testimonial) => (
+            <SwiperSlide>
+              <div class="flex w-full flex-col items-center rounded border border-border-muted bg-background p-8 text-center">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  class="avatar mb-4 h-20 w-20 rounded-full object-cover"
+                />
+                <blockquote class="quote mb-4 text-xl italic leading-relaxed text-foreground">
+                  "{testimonial.text}"
+                </blockquote>
+                <div class="author-info flex flex-col items-center">
+                  <strong class="text-lg text-foreground">
+                    {testimonial.name}
+                  </strong>
+                  <span class="role mt-1 text-sm text-foreground-muted">
+                    {testimonial.role}
+                  </span>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))
+        }
+      </SwiperWrapper>
+    </Swiper>
+  </div>
 </section>
+
+<style>
+  /* Custom Swiper pagination (Tailwind doesn't style Swiper defaults easily) */
+  .swiper-pagination-bullet {
+    background: #007acc;
+    opacity: 0.5;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+
+  .avatar {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+
+  .quote {
+    font-size: 1.1rem !important;
+  }
+</style>

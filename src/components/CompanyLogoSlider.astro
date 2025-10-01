@@ -1,0 +1,75 @@
+---
+const logos = [
+  '/assets/impact.png',
+  '/assets/kodekloud.png',
+  '/assets/smartmail.png',
+  '/assets/wandr.png',
+  '/assets/impact.png',
+  '/assets/kodekloud.png',
+  '/assets/smartmail.png',
+  '/assets/wandr.png',
+  '/assets/impact.png',
+  '/assets/kodekloud.png',
+  '/assets/smartmail.png',
+  '/assets/wandr.png',
+  '/assets/impact.png',
+  '/assets/kodekloud.png',
+  '/assets/smartmail.png',
+  '/assets/wandr.png',
+];
+---
+
+<section class="">
+  <!-- Logo Slider -->
+  <div class="relative mx-auto max-w-[90vw] overflow-hidden">
+    <div id="logo-track" class="animate-scroll flex">
+      {
+        logos.map((logo) => (
+          <div class="flex flex-shrink-0 items-center justify-center">
+            <img
+              src={logo}
+              alt="Brand Logo"
+              class="mx-4 h-16 w-auto rounded bg-background px-4 py-3 grayscale transition-all duration-300 hover:grayscale-0"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* smooth infinite scrolling */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  #logo-track {
+    width: max-content;
+    max-width: 100%;
+    display: flex;
+    animation: scroll 6s linear infinite;
+  }
+
+  /* pause on hover */
+  #logo-track:hover {
+    animation-play-state: paused;
+  }
+
+  @media (min-width: 641px) {
+    #logo-track {
+      animation: scroll 10s linear infinite;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #logo-track {
+      animation: scroll 15s linear infinite;
+    }
+  }
+</style>

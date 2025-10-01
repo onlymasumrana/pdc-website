@@ -1,0 +1,97 @@
+---
+const cards = [
+  {
+    img: 'https://cdn.dribbble.com/userupload/22237908/file/original-c6de19bbb279f2a63e072dc7a8bc103d.png?resize=752x564&vertical=center',
+    category: 'Fintech app',
+    title: 'Smartlist Conceptual Design',
+    link: '#',
+  },
+  {
+    img: 'https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center',
+    category: 'Fintech app',
+    title: 'Smartlist Conceptual Design',
+    link: '#',
+  },
+  {
+    img: 'https://cdn.dribbble.com/userupload/22237908/file/original-c6de19bbb279f2a63e072dc7a8bc103d.png?resize=752x564&vertical=center',
+    category: 'Fintech app',
+    title: 'Smartlist Conceptual Design',
+    link: '#',
+  },
+  {
+    img: 'https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center',
+    category: 'Fintech app',
+    title: 'Smartlist Conceptual Design',
+    link: '#',
+  },
+  {
+    img: 'https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center',
+    category: 'Fintech app',
+    title: 'Smartlist Conceptual Design',
+    link: '#',
+  },
+  {
+    img: 'https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center',
+    category: 'Fintech app',
+    title: 'Smartlist Conceptual Design',
+    link: '#',
+  },
+];
+---
+
+<section class="">
+  <!-- Heading -->
+  <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
+    <p class="text-sm font-medium uppercase tracking-wider">
+      <span class="text-[#ff6a00] text-xl mr-1"
+        >✷</span
+      >PORTFOLIO
+    </p>
+
+    <h2 class="section-title flex flex-wrap gap-2">
+      <span class="text-muted">Remarkable</span>
+      projects
+    </h2>
+  </div>
+  <div>
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        cards.map((card) => (
+          <div class="overflow-hidden rounded shadow">
+            <img
+              src={card.img}
+              alt={card.title}
+              class="h-48 w-full object-cover"
+            />
+            <div class="p-6 pt-4">
+              <p class="text-sm text-foreground-muted">{card.category}</p>
+              <h3 class="mt-1 text-lg font-semibold">{card.title}</h3>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="mx-auto mt-8 text-center">
+      <a href="#" class="btn btn-primary p-2 pl-4">
+        View All Projects
+        <div
+          class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="text-foreground">
+            <path
+              d="M7 17L17 7M9 7h8v8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
