@@ -351,7 +351,7 @@
 
   /* Section */
   .section {
-    @apply py-6 md:py-8 lg:py-10;
+    @apply my-6 md:my-8 lg:my-10;
   }
 
   /* Section Header */
