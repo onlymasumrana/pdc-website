@@ -13,7 +13,7 @@ const logos = [
 ];
 ---
 
-<section class="">
+<section class="py-8">
   <!-- Logo Slider -->
   <div class="relative mx-auto max-w-[90vw] overflow-hidden">
     <div id="logo-track" class="animate-scroll flex">
@@ -23,7 +23,7 @@ const logos = [
             <img
               src={logo}
               alt="Brand Logo"
-              class="h-20 w-auto px-4 py-3 rounded mx-4 bg-background grayscale transition-all duration-300 hover:grayscale-0 md:h-16"
+              class="mx-4 h-16 w-auto rounded bg-background px-4 py-3 grayscale transition-all duration-300 hover:grayscale-0"
             />
           </div>
         ))
@@ -47,7 +47,7 @@ const logos = [
     width: max-content;
     max-width: 100%;
     display: flex;
-    animation: scroll 25s linear infinite;
+    animation: scroll 6s linear infinite;
   }
 
   /* pause on hover */
@@ -55,22 +55,15 @@ const logos = [
     animation-play-state: paused;
   }
 
-  /* responsive speed control */
-  @media (max-width: 640px) {
+  @media (min-width: 641px) {
     #logo-track {
-      animation: scroll 60s linear infinite; /* Mobile → slowest */
-    }
-  }
-
-  @media (min-width: 641px) and (max-width: 1023px) {
-    #logo-track {
-      animation: scroll 40s linear infinite; /* Tablet → medium */
+      animation: scroll 10s linear infinite;
     }
   }
 
   @media (min-width: 1024px) {
     #logo-track {
-      animation: scroll 25s linear infinite; /* Desktop → fastest */
+      animation: scroll 15s linear infinite;
     }
   }
 </style>

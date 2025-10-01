@@ -1,12 +1,15 @@
 ---
-import { Swiper, SwiperWrapper, SwiperSlide } from 'astro-swiper';
+import PortfolioCarousel from './PortfolioCarousel.jsx';
 
-const portfolioImages = ['/assets/spacex.png', '/assets/aerosense.png'];
+const portfolioImages = [
+  { src: '/assets/spacex.png', alt: 'SpaceX Project' },
+  { src: '/assets/aerosense.png', alt: 'AeroSense Project' },
+];
 ---
 
 <section class="rounded bg-background">
   <div class="flex flex-col justify-between md:p-8 lg:flex-row">
-    <div class="flex flex-1 flex-col items-start justify-between p-8">
+    <div class="flex-col items-start justify-between p-4 md:p-8">
       <p class="text-sm font-medium uppercase tracking-wider">
         Welcome to Premium Design Company
         <span class="text-xl uppercase text-[#ff6a00]"> ✷</span>
@@ -21,7 +24,7 @@ const portfolioImages = ['/assets/spacex.png', '/assets/aerosense.png'];
       </p>
       <a
         href="#"
-        class="btn btn-primary mt-4 inline-flex items-center p-2 pl-4">
+        class="btn btn-primary mt-4 inline-flex items-center p-2 pl-4 md:mt-8">
         Get Started Now
         <div
           class="ml-2 inline-flex items-center justify-center rounded bg-background p-2">
@@ -42,68 +45,10 @@ const portfolioImages = ['/assets/spacex.png', '/assets/aerosense.png'];
         </div>
       </a>
     </div>
-    <div class="flex flex-1 items-center justify-center p-8">
-      <div class="testimonial-carousel w-full max-w-md">
-        <Swiper
-          options={{
-            slidesPerView: 1,
-            spaceBetween: 16,
-            loop: true,
-            autoplay: {
-              delay: 5000,
-              disableOnInteraction: false,
-            },
-            breakpoints: {
-              640: {
-                slidesPerView: 1,
-              },
-              1024: {
-                slidesPerView: 1,
-              },
-            },
-          }}>
-          <SwiperWrapper>
-            {
-              portfolioImages.map((image) => (
-                <SwiperSlide>
-                  <div class="flex items-center justify-center">
-                    <img
-                      src={image}
-                      alt="Portfolio Image"
-                      class="max-w-full overflow-hidden rounded object-contain transition"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))
-            }
-          </SwiperWrapper>
-        </Swiper>
+    <div class="hidden md:flex items-center justify-center p-4 md:p-8">
+      <div class="h-64 w-full max-w-md md:h-72">
+        <PortfolioCarousel client:load images={portfolioImages} />
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .testimonial-carousel {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .swiper {
-    width: 100%;
-    padding-bottom: 1rem;
-  }
-
-  .swiper-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @media (max-width: 640px) {
-    .swiper-slide img {
-      height: 24rem !important;
-      padding: 1rem !important;
-    }
-  }
-</style>
