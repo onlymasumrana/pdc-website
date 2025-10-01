@@ -55,7 +55,7 @@ const isActiveLink = (linkPath: string): boolean => {
           <a
             href="/projects"
             class={`nav-link ${isActiveLink('/projects') ? 'nav-link-active' : ''}`}
-            onclick="handleWorksClick(event)">Projects</a
+            onclick="handleProjectsClick(event)">Projects</a
           >
           <a
             href="/blogs"
@@ -147,7 +147,7 @@ const isActiveLink = (linkPath: string): boolean => {
         <a
           href="/projects"
           class={`block py-2 text-xl nav-link ${isActiveLink('/projects') ? 'nav-link-active' : ''}`}
-          onclick="handleMobileWorksClick(event)">Projects</a
+          onclick="handleMobileProjectsClick(event)">Projects</a
         >
         <a
           href="/blogs"
@@ -227,9 +227,9 @@ const isActiveLink = (linkPath: string): boolean => {
     handleServicesClick(event);
   }
 
-  function handleMobileWorksClick(event) {
+  function handleMobileProjectsClick(event) {
     closeMobileMenu();
-    handleWorksClick(event);
+    handleProjectsClick(event);
   }
 
   function handleMobileContactClick(event) {
@@ -259,16 +259,16 @@ const isActiveLink = (linkPath: string): boolean => {
     // Otherwise, the regular href="/services" will navigate to services page
   }
 
-  function handleWorksClick(event) {
-    // If already on homepage, scroll to works section
+  function handleProjectsClick(event) {
+    // If already on homepage, scroll to projects section
     if (window.location.pathname === '/') {
       event.preventDefault();
-      const worksSection = document.querySelector('#works');
-      if (worksSection) {
-        worksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const projectsSection = document.querySelector('#projects');
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-    // Otherwise, the regular href="/projects" will navigate to works page
+    // Otherwise, the regular href="/projects" will navigate to /projects page
   }
 
   function handleContactClick(event) {
@@ -280,14 +280,14 @@ const isActiveLink = (linkPath: string): boolean => {
         contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-    // Otherwise, the regular href="/projects" will navigate to works page
+    // Otherwise, the regular href="/projects" will navigate to /projects page
   }
 
   // Handle direct URL hashes on homepage
   document.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname === '/') {
       const hash = window.location.hash;
-      if (hash === '#services' || hash === '#works') {
+      if (hash === '#services' || hash === '#projects') {
         const section = document.querySelector(hash);
         if (section) {
           setTimeout(() => {
