@@ -1,12 +1,14 @@
 ---
+import { Swiper, SwiperWrapper, SwiperSlide } from 'astro-swiper';
 
+const portfolioImages = ['/assets/spacex.png', '/assets/aerosense.png'];
 ---
 
-<section class="section rounded-t-lg bg-background">
-  <div>
-    <div class="flex flex-col items-start p-8">
+<section class="section rounded bg-background">
+  <div class="flex flex-col justify-between md:p-8 lg:flex-row">
+    <div class="flex flex-1 flex-col items-start justify-between p-8">
       <p class="text-sm font-medium uppercase tracking-wider">
-        Welcome to Premium Design Company 
+        Welcome to Premium Design Company
         <span class="text-xl uppercase text-[#ff6a00]"> ✷</span>
       </p>
       <h1 class="section-title">
@@ -40,8 +42,68 @@
         </div>
       </a>
     </div>
-    <div>
-      
+    <div class="flex flex-1 items-center justify-center p-8">
+      <div class="testimonial-carousel w-full max-w-md">
+        <Swiper
+          options={{
+            slidesPerView: 1,
+            spaceBetween: 16,
+            loop: true,
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+            },
+            breakpoints: {
+              640: {
+                slidesPerView: 1,
+              },
+              1024: {
+                slidesPerView: 1,
+              },
+            },
+          }}>
+          <SwiperWrapper>
+            {
+              portfolioImages.map((image) => (
+                <SwiperSlide>
+                  <div class="flex items-center justify-center">
+                    <img
+                      src={image}
+                      alt="Portfolio Image"
+                      class="max-w-full overflow-hidden rounded object-contain transition"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))
+            }
+          </SwiperWrapper>
+        </Swiper>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .testimonial-carousel {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .swiper {
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 640px) {
+    .swiper-slide img {
+      height: 24rem !important;
+      padding: 1rem !important;
+    }
+  }
+</style>
