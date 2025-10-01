@@ -37,7 +37,7 @@ const availableThemes = [
 
     <!-- Theme Switcher -->
     <div
-      class="glass hidden fixed bottom-4 right-4 z-50 rounded-lg border border-border bg-card-bg p-3 shadow-lg backdrop-blur-sm">
+      class="glass fixed bottom-4 right-4 z-50 hidden rounded-lg border border-border bg-card-bg p-3 shadow-lg backdrop-blur-sm">
       <label
         for="themeSelect"
         class="sr-only mb-1 block text-xs font-medium text-foreground-muted">
@@ -64,11 +64,11 @@ const availableThemes = [
         { value: 'terminal-dark', label: 'Terminal Dark' },
       ];
 
-      // Set initial theme from localStorage or default to cyberpunk
+      // Set initial theme from localStorage or default to Neutral Light
       const getSavedTheme = () => {
         const saved = localStorage.getItem('theme');
         // Validate the saved theme exists in our themes array
-        return themes.some((t) => t.value === saved) ? saved : 'cyberpunk';
+        return themes.some((t) => t.value === saved) ? saved : '';
       };
 
       // Initialize theme
