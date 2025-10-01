@@ -1,0 +1,63 @@
+---
+// src\components\WhyChooseUs.astro
+const stats = [
+  { id: '01', value: '200+', label: 'Project Served' },
+  { id: '02', value: '100+', label: 'Startup Partner' },
+  { id: '03', value: '1M+', label: 'User served' },
+  { id: '04', value: '200+', label: 'Project Served' },
+];
+---
+
+<section class="section">
+  <!-- Heading -->
+  <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
+    <p class="mr-2 text-sm font-medium uppercase tracking-wider">
+      <span class="mr-1 text-xl text-[#ff6a00]"> ✷</span>WHY CHOOSE US
+    </p>
+    <h2 class="section-title">
+      <span class="text-foreground">10</span>
+      <span class="text-muted">years of experience in this industry</span>
+    </h2>
+  </div>
+
+  <!-- Main Grid -->
+  <div class="grid grid-cols-1 gap-16 lg:h-full lg:grid-cols-3 lg:items-end">
+    <!-- Image -->
+    <div class="flex h-full justify-center">
+      <img
+        src="/assets/why-choose-us.png"
+        alt="Team meeting"
+        class="w-full max-w-xs self-end rounded object-cover shadow-lg lg:max-w-md"
+      />
+    </div>
+
+    <!-- Cards -->
+    <div
+      class="grid h-full grid-cols-2 gap-8 lg:col-span-2 lg:h-full lg:grid-cols-4 lg:items-end">
+      {
+        stats.map((stat, index) => (
+          <div
+            class={`flex flex-col justify-between rounded p-4 transition md:p-8 lg:first:h-[50%] lg:[&:nth-child(2)]:h-[66.66%] lg:[&:nth-child(3)]:h-[83.32%] lg:[&:nth-child(4)]:h-[100%] ${
+              index === stats.length - 1
+                ? 'border bg-primary text-background'
+                : 'border bg-background-muted text-foreground'
+            }`}>
+            <p class="whitespace-nowrap text-xs font-semibold opacity-60 md:text-base">
+              {stat.id}
+            </p>
+
+            {/* <!-- Bottom Value + Label --> */}
+            <div class="mt-auto">
+              <h3 class="whitespace-nowrap text-lg font-bold md:text-3xl xl:text-4xl">
+                {stat.value}
+              </h3>
+              <p class="whitespace-nowrap text-xs md:text-base lg:text-sm xl:text-lg">
+                {stat.label}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

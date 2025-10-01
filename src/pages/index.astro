@@ -10,30 +10,42 @@ import Testimonials from '../components/Testimonials.astro';
 import Faq from '../components/Faq.astro';
 import Pricing from '../components/Pricing.astro';
 import Contact from '../components/Contact.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
 ---
 
 <BaseLayout>
   <section class="section">
     <Hero />
   </section>
+
   <section class="pb-6 pt-3 md:pb-8 md:pt-4 lg:pb-10 lg:pt-5">
     <LogoSlider />
   </section>
+
   <section class="section" id="services">
     <Services />
   </section>
+
+  <section>
+    <WhyChooseUs />
+  </section>
+
   <section class="section" id="projects">
     <Projects />
   </section>
-  <section class="section">
-    <Pricing />
-  </section>
-  <section class="section">
-    <Faq />
-  </section>
+
   <section class="section">
     <Testimonials />
   </section>
+
+  <section class="section">
+    <Pricing />
+  </section>
+
+  <section class="section">
+    <Faq />
+  </section>
+  
   <section class="section" id="contact">
     <Contact />
   </section>
