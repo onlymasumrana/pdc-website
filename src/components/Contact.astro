@@ -1,4 +1,5 @@
 ---
+// Configuration
 const services = [
   'AI Development',
   'UI/UX Design',
@@ -9,6 +10,11 @@ const services = [
 ];
 
 const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
+
+const FORM_CONFIG = {
+  contact: 'https://formspree.io/f/mnnzekna',
+  quote: 'https://formspree.io/f/xovnaawz',
+};
 ---
 
 <section class="py-12">
@@ -135,16 +141,17 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
         <!-- Contact Form Tab -->
         <form
           method="POST"
-          action="https://formspree.io/f/xovnaawz"
+          action={FORM_CONFIG.contact}
           class="tab-content active space-y-6 p-8 md:rounded md:bg-background-muted"
-          id="contact-form">
+          id="contact-form"
+          data-form-type="contact">
           <!-- Name & Email -->
           <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
             <label class="block text-sm font-medium">
               Name *
               <input
                 type="text"
-                id="name"
+                id="contact-name"
                 name="name"
                 required
                 placeholder="Enter your name"
@@ -155,7 +162,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
               Email *
               <input
                 type="email"
-                id="email"
+                id="contact-email"
                 name="email"
                 required
                 placeholder="Enter your email"
@@ -169,7 +176,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
             Subject *
             <input
               type="text"
-              id="subject"
+              id="contact-subject"
               name="subject"
               required
               placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
@@ -181,7 +188,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
           <label class="block text-sm font-medium">
             Message *
             <textarea
-              id="message"
+              id="contact-message"
               name="message"
               required
               placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
@@ -190,7 +197,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
 
           <!-- Submit Button -->
           <div class="flex justify-end">
-            <button type="submit" class="btn p-2 pl-4 btn-primary">
+            <button type="submit" class="btn btn-primary p-2 pl-4">
               Send Message
               <div
                 class="ml-2 flex items-center justify-center rounded bg-background p-1">
@@ -216,9 +223,10 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
         <!-- Quote Form Tab -->
         <form
           method="POST"
-          action="https://formspree.io/f/xovnaawz"
+          action={FORM_CONFIG.quote}
           class="tab-content hidden space-y-6 p-8 md:rounded md:bg-background-muted"
-          id="quote-form">
+          id="quote-form"
+          data-form-type="quote">
           <!-- Services -->
           <div>
             <label class="mb-2 block text-sm font-semibold">Service *</label>
@@ -313,7 +321,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
 
           <!-- Submit Button -->
           <div class="flex justify-end">
-            <button type="submit" class="btn p-2 pl-4 btn-primary">
+            <button type="submit" class="btn btn-primary p-2 pl-4">
               Get Quote
               <div
                 class="ml-2 flex items-center justify-center rounded bg-background p-1">
@@ -352,125 +360,244 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
 </section>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Tab switching functionality
-    const tabButtons = document.querySelectorAll('[data-type]');
-    const tabContents = document.querySelectorAll('.tab-content');
+  // Form Management Classes
+  class TabManager {
+    constructor() {
+      this.tabButtons = document.querySelectorAll('[data-type]');
+      this.tabContents = document.querySelectorAll('.tab-content');
+      this.init();
+    }
 
-    tabButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        const type = this.getAttribute('data-type');
-
-        // Update active tab button - set all to outline, active to secondary
-        tabButtons.forEach((btn) => {
-          btn.classList.remove('btn-secondary');
-          btn.classList.add('btn-outline');
-        });
-
-        this.classList.remove('btn-outline');
-        this.classList.add('btn-secondary');
-
-        // Show active tab content
-        tabContents.forEach((content) => {
-          content.classList.add('hidden');
-          content.classList.remove('active');
-        });
-
-        const activeContent = document.getElementById(`${type}-form`);
-        if (activeContent) {
-          activeContent.classList.remove('hidden');
-          activeContent.classList.add('active');
-        }
-      });
-    });
-
-    // Service and budget selection for quote form
-    const selectedServiceInput = document.getElementById('selected-service');
-    const selectedBudgetInput = document.getElementById('selected-budget');
-    const serviceError = document.getElementById('service-error');
-    const budgetError = document.getElementById('budget-error');
-
-    // Remove required attributes and handle validation manually
-    if (selectedServiceInput) selectedServiceInput.removeAttribute('required');
-    if (selectedBudgetInput) selectedBudgetInput.removeAttribute('required');
-
-    // Form submission validation for quote form
-    const quoteForm = document.getElementById('quote-form');
-    if (quoteForm) {
-      quoteForm.addEventListener('submit', function (e) {
-        let hasError = false;
-
-        // Reset errors
-        if (serviceError) serviceError.classList.add('hidden');
-        if (budgetError) budgetError.classList.add('hidden');
-
-        // Check service
-        if (!selectedServiceInput.value) {
-          if (serviceError) serviceError.classList.remove('hidden');
-          hasError = true;
-        }
-
-        // Check budget
-        if (!selectedBudgetInput.value) {
-          if (budgetError) budgetError.classList.remove('hidden');
-          hasError = true;
-        }
-
-        if (hasError) {
-          e.preventDefault();
-          // Scroll to first error
-          const firstError = document.querySelector(
-            '.text-danger:not(.hidden)'
-          );
-          if (firstError) {
-            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }
+    init() {
+      this.tabButtons.forEach((button) => {
+        button.addEventListener('click', (e) => this.switchTab(e.target));
       });
     }
 
-    // Service selection
-    const serviceButtons = document.querySelectorAll('[data-service]');
-    serviceButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        const service = this.getAttribute('data-service');
+    switchTab(button) {
+      const type = button.getAttribute('data-type');
 
-        // Remove selected state from all service buttons
-        serviceButtons.forEach((btn) => {
-          btn.removeAttribute('data-selected');
-          btn.classList.remove('btn-secondary');
-        });
-
-        // Add selected state to clicked button
-        this.setAttribute('data-selected', 'true');
-        this.classList.add('btn-secondary');
-
-        // Update hidden input value and hide error
-        if (selectedServiceInput) selectedServiceInput.value = service;
-        if (serviceError) serviceError.classList.add('hidden');
+      // Update tab buttons
+      this.tabButtons.forEach((btn) => {
+        btn.classList.remove('btn-secondary');
+        btn.classList.add('btn-outline');
       });
-    });
 
-    // Budget selection
-    const budgetButtons = document.querySelectorAll('[data-budget]');
-    budgetButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        const budget = this.getAttribute('data-budget');
+      button.classList.remove('btn-outline');
+      button.classList.add('btn-secondary');
 
-        // Remove selected state from all budget buttons
-        budgetButtons.forEach((btn) => {
-          btn.removeAttribute('data-selected');
-          btn.classList.remove('btn-secondary');
-        });
-
-        // Add selected state to clicked button
-        this.setAttribute('data-selected', 'true');
-        this.classList.add('btn-secondary');
-
-        // Update hidden input value and hide error
-        if (selectedBudgetInput) selectedBudgetInput.value = budget;
-        if (budgetError) budgetError.classList.add('hidden');
+      // Show active tab content
+      this.tabContents.forEach((content) => {
+        content.classList.add('hidden');
+        content.classList.remove('active');
       });
-    });
+
+      const activeContent = document.getElementById(`${type}-form`);
+      if (activeContent) {
+        activeContent.classList.remove('hidden');
+        activeContent.classList.add('active');
+      }
+    }
+  }
+
+  class FormValidator {
+    static validateRequiredFields(form) {
+      const inputs = form.querySelectorAll(
+        'input[required], textarea[required]'
+      );
+      let isValid = true;
+
+      inputs.forEach((input) => {
+        if (!input.value.trim()) {
+          isValid = false;
+          this.showFieldError(input, 'This field is required');
+        } else {
+          this.clearFieldError(input);
+        }
+      });
+
+      return isValid;
+    }
+
+    static validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    static showFieldError(input, message) {
+      let errorElement = input.parentNode.querySelector('.field-error');
+      if (!errorElement) {
+        errorElement = document.createElement('p');
+        errorElement.className = 'field-error text-sm text-danger mt-1';
+        input.parentNode.appendChild(errorElement);
+      }
+      errorElement.textContent = message;
+      input.classList.add('border-danger');
+    }
+
+    static clearFieldError(input) {
+      const errorElement = input.parentNode.querySelector('.field-error');
+      if (errorElement) {
+        errorElement.remove();
+      }
+      input.classList.remove('border-danger');
+    }
+  }
+
+  class SelectionManager {
+    constructor(containerId, hiddenInputId, errorElementId) {
+      this.container = document.getElementById(containerId);
+      this.hiddenInput = document.getElementById(hiddenInputId);
+      this.errorElement = document.getElementById(errorElementId);
+      this.buttons = this.container?.querySelectorAll('button') || [];
+      this.init();
+    }
+
+    init() {
+      this.buttons.forEach((button) => {
+        button.addEventListener('click', () => this.select(button));
+      });
+    }
+
+    select(button) {
+      const value =
+        button.getAttribute('data-service') ||
+        button.getAttribute('data-budget');
+
+      // Remove selection from all buttons
+      this.buttons.forEach((btn) => {
+        btn.removeAttribute('data-selected');
+        btn.classList.remove('btn-secondary');
+      });
+
+      // Add selection to clicked button
+      button.setAttribute('data-selected', 'true');
+      button.classList.add('btn-secondary');
+
+      // Update hidden input and clear error
+      this.hiddenInput.value = value;
+      if (this.errorElement) {
+        this.errorElement.classList.add('hidden');
+      }
+
+      console.log(`Selected: ${value}`);
+    }
+
+    getSelectedValue() {
+      return this.hiddenInput.value;
+    }
+
+    validate() {
+      const isValid = !!this.getSelectedValue();
+      if (this.errorElement) {
+        this.errorElement.classList.toggle('hidden', isValid);
+      }
+      return isValid;
+    }
+  }
+
+  class FormSubmitHandler {
+    constructor() {
+      this.forms = document.querySelectorAll('form[data-form-type]');
+      this.init();
+    }
+
+    init() {
+      this.forms.forEach((form) => {
+        form.addEventListener('submit', (e) => this.handleSubmit(e));
+      });
+    }
+
+    handleSubmit(event) {
+      const form = event.target;
+      const formType = form.getAttribute('data-form-type');
+
+      console.log(`Validating ${formType} form...`);
+
+      // Validate basic required fields
+      if (!FormValidator.validateRequiredFields(form)) {
+        console.error('Form validation failed: missing required fields');
+        event.preventDefault();
+        this.showErrorMessage('Please fill in all required fields');
+        return;
+      }
+
+      // Validate email format
+      const emailInput = form.querySelector('input[type="email"]');
+      if (emailInput && !FormValidator.validateEmail(emailInput.value)) {
+        console.error('Form validation failed: invalid email');
+        event.preventDefault();
+        FormValidator.showFieldError(
+          emailInput,
+          'Please enter a valid email address'
+        );
+        return;
+      }
+
+      // Validate quote form specific fields
+      if (formType === 'quote') {
+        const serviceManager = new SelectionManager(
+          'services-container',
+          'selected-service',
+          'service-error'
+        );
+        const budgetManager = new SelectionManager(
+          'budgets-container',
+          'selected-budget',
+          'budget-error'
+        );
+
+        if (!serviceManager.validate() || !budgetManager.validate()) {
+          console.error(
+            'Quote form validation failed: missing service or budget'
+          );
+          event.preventDefault();
+          this.showErrorMessage('Please select both a service and budget');
+          return;
+        }
+      }
+
+      // If all validations pass, allow FormSpree to handle the submission
+      console.log(
+        `Form validation passed. Allowing FormSpree to handle submission to: ${form.action}`
+      );
+
+      // FormSpree will now handle the submission and redirect to their success page
+      // Remove any custom success/error handlers since FormSpree will handle it
+    }
+
+    showErrorMessage(message) {
+      // Simple alert for validation errors
+      // alert(`❌ ${message}`);
+    }
+  }
+
+  // Main initialization
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log('🚀 Initializing contact form...');
+
+    try {
+      // Initialize tab management
+      new TabManager();
+
+      // Initialize form submission (validation only)
+      new FormSubmitHandler();
+
+      // Initialize selection managers for quote form
+      new SelectionManager(
+        'services-container',
+        'selected-service',
+        'service-error'
+      );
+      new SelectionManager(
+        'budgets-container',
+        'selected-budget',
+        'budget-error'
+      );
+
+      console.log('✅ Contact form initialized successfully');
+    } catch (error) {
+      console.error('❌ Error initializing contact form:', error);
+    }
   });
 </script>
