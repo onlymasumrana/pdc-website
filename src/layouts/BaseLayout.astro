@@ -16,7 +16,7 @@ const availableThemes = [
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="description" content="Premium Design Company" />
     <meta
@@ -28,12 +28,12 @@ const availableThemes = [
     <title>Premium Design Company</title>
   </head>
   <body
-    class="flex min-h-screen flex-col bg-background-muted p-4 text-foreground">
+    class="flex min-h-screen flex-col bg-background-muted p-4 text-foreground sm:px-6 lg:px-8">
     <Header />
-    <main class="container-custom flex-grow">
+    <main class="mx-auto max-w-7xl flex-grow">
       <slot />
     </main>
-    <!-- <Footer /> -->
+    <Footer />
 
     <!-- Theme Switcher -->
     <div

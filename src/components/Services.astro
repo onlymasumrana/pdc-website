@@ -1,239 +1,66 @@
 ---
 const services = [
   {
-    title: "AI Development",
+    title: 'AI Development',
     description:
-      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
   },
   {
-    title: "UI/UX Design",
+    title: 'UI/UX Design',
     description:
-      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
   },
   {
-    title: "Web Development",
+    title: 'Web Development',
     description:
-      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
   },
   {
-    title: "E-commerce Development",
+    title: 'E-commerce Development',
     description:
-      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
   },
   {
-    title: "Branding",
+    title: 'Branding',
     description:
-      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
   },
   {
-    title: "No-code (Webflow, Framer)",
+    title: 'No-code (Webflow, Framer)',
     description:
-      "Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.",
+      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
   },
 ];
 ---
 
 <section class="section">
   <div class="">
-     <!-- Heading -->
-    <div class="mb-3 md:mb-6 flex flex-col md:flex-row md:gap-10">
-      <p class="text-sm font-medium uppercase tracking-wider "><span style="color: rgb(255, 106, 0); font-size: 20px;">✷</span>SERVICES</p>
-        <h2 class="section-title flex flex-wrap gap-2">
-          <span class="text-foreground">Elevate your brand </span>
-          <span class="text-muted">with exceptional design solutions</span>
-        </h2>
+    <!-- Heading -->
+    <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
+      <p class="text-sm font-medium uppercase tracking-wider">
+        <span class="text-[#ff6a00] text-lg mr-1">✷</span
+        >SERVICES
+      </p>
+      <h2 class="section-title max-w-3xl">
+        Elevate your brand
+        <span class="text-muted">with exceptional design solutions</span>
+      </h2>
     </div>
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
       {
         services.map((service, index) => (
           <div
-            class={`bg-background rounded-2xl shadow p-6 hover:shadow-md transition 
-            ${index >= 4 ? "md:col-span-2" : "col-span-1"}`}
-          >
-            <div class="text-muted text-xl mb-16">+</div>
-            <h3 class="font-semibold text-lg text-foreground mb-2">
+            class={`rounded bg-background p-6 shadow transition hover:shadow-md ${index >= 4 ? 'md:col-span-2' : 'col-span-1'}`}>
+            <div class="mb-16 text-xl text-muted">+</div>
+            <h3 class="mb-2 text-lg font-semibold text-foreground">
               {service.title}
             </h3>
-            <p class="text-muted text-sm leading-relaxed">
+            <p class="text-sm leading-relaxed text-muted">
               {service.description}
             </p>
           </div>
         ))
       }
     </div>
-
-    <!-- 
-// src/components/Services.astro
-import Card from './Card.astro';
-const services = [
-  {
-    link: 'example.com',
-    icon: '',
-    title: 'Website Design & Development',
-    description:
-      'Upload your design or website draft and get instant AI-powered analysis with accessibility recommendations.',
-    features: [
-      'Screen Reader Compatible',
-      'Keyboard Navigation',
-      'High Contrast Support',
-    ],
-    cta: [
-      {
-        icon: '',
-        text: '100% accessibility compliant',
-        link: 'example.com',
-        target: '',
-        rel: '',
-        variant: 'primary',
-      },
-    ],
-  },
-  {
-    link: 'example.com',
-    icon: '',
-    title: 'Mobile App Design & Development',
-    description:
-      'Universal mobile apps designed for all users, including those with disabilities.',
-    features: ['Voice Control', 'Large Touch Targets', 'Adaptive Interfaces'],
-    cta: [
-      {
-        icon: '',
-        text: 'Cross-platform accessibility',
-        link: 'example.com',
-        target: '',
-        rel: '',
-        variant: 'primary',
-      },
-    ],
-  },
-  {
-    link: 'example.com',
-    icon: '',
-    title: 'Accessibility Auditing',
-    description:
-      'Comprehensive accessibility audits and remediation services for existing digital products.',
-    features: ['Automated Testing', 'Manual Review', 'Remediation Plans'],
-    cta: [
-      {
-        icon: '',
-        text: '100% accessibility compliant',
-        link: 'example.com',
-        target: '',
-        rel: '',
-        variant: 'primary',
-      },
-    ],
-  },
-  {
-    link: 'example.com',
-    icon: '',
-    title: 'AI-Powered Branding',
-    description:
-      'Intelligent branding solutions that consider accessibility and inclusivity from the start.',
-    features: [
-      'Color Blind Friendly',
-      'Cultural Sensitivity',
-      'Universal Symbols',
-    ],
-    cta: [
-      {
-        icon: '',
-        text: 'Exclusive design principles',
-        link: 'example.com',
-        target: '',
-        rel: '',
-        variant: 'primary',
-      },
-    ],
-  },
-  {
-    link: 'example.com',
-    icon: '',
-    title: 'UI/UX Design',
-    description:
-      'User experiences designed for everyone, regardless of ability or technical expertise.',
-    features: ['Clear Navigation', 'Consistent Layouts', 'Error Prevention'],
-    cta: [
-      {
-        icon: '',
-        text: 'Universal design approach',
-        link: 'example.com',
-        target: '',
-        rel: '',
-        variant: 'primary',
-      },
-    ],
-  },
-  {
-    link: 'example.com',
-    icon: '',
-    title: 'Creative Consulting',
-    description:
-      'Strategic guidance for creating inclusive digital experiences that reach all audiences.',
-    features: ['WCAG Compliance', 'User Testing', 'Inclusive Research'],
-    cta: [
-      {
-        icon: '',
-        text: 'Accessibility expertise',
-        link: 'example.com',
-        target: '',
-        rel: '',
-        variant: 'primary',
-      },
-    ],
-  },
-];
-
-
-<section class="section">
-  <header class="section-header">
-    <h2 class="section-title text-gradient">Design for Everyone</h2>
-    <p class="section-subtitle">AI-powered solutions that work for all users</p>
-  </header>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-    {
-      services.map((service) => (
-        <Card>
-          <h4
-            slot="card-header"
-            class="text-xl font-semibold text-foreground mb-2">
-            {service.title}
-          </h4>
-
-          {/* Content */}
-          <div slot="card-content" class="space-y-4">
-            <p class="text-muted">{service.description}</p>
-            <div>
-              <p class="font-medium text-foreground mb-2">Key Features:</p>
-              <ul class="list-disc list-inside space-y-1 text-muted">
-                {service.features.map((feature) => (
-                  <li>{feature}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div slot="card-footer" class="space-y-2">
-            {service.cta.map((button) => (
-              <a
-                href={button.link}
-                target={button.target}
-                rel={button.rel}
-                class={`
-                  btn btn-sm w-full justify-center
-                  ${button.variant === 'primary' ? 'btn-primary' : ''}
-                  ${button.variant === 'secondary' ? 'btn-secondary' : ''}
-                  ${button.variant === 'outline' ? 'btn-outline' : ''}
-                `}>
-                {button.text}
-              </a>
-            ))}
-          </div>
-        </Card>
-      ))
-    }
-  </div>
-</section> -->
   </div>
 </section>
