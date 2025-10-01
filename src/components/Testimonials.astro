@@ -33,7 +33,7 @@ const testimonials = [
 ];
 ---
 
-<section class=" overflow-x-hidden">
+<section class="overflow-x-hidden">
   <!-- Heading -->
   <div
     class="2xs:mb-4 xs:mb-5 mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
@@ -47,7 +47,8 @@ const testimonials = [
   </div>
 
   <!-- Testimonial Carousel -->
-  <div class="testimonial-carousel mx-auto max-w-[90vw] md:max-w-xl lg:max-w-2xl">
+  <div
+    class="testimonial-carousel mx-auto max-w-[90vw] md:max-w-xl lg:max-w-2xl">
     <Swiper
       options={{
         slidesPerView: 1,
@@ -73,26 +74,25 @@ const testimonials = [
             spaceBetween: 40,
           },
         },
-      }}
-      modules={[]}>
+      }}>
       <SwiperWrapper>
         {
-          testimonials.map((testimonial, index) => (
+          testimonials.map((testimonial) => (
             <SwiperSlide>
-              <div class="slide-content flex h-full flex-col items-center rounded border border-border-muted bg-background p-8 text-center shadow-md">
+              <div class="flex w-full flex-col items-center rounded border border-border-muted bg-background p-8 text-center">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
                   class="avatar mb-4 h-20 w-20 rounded-full object-cover"
                 />
-                <blockquote class="quote mb-4 text-xl italic leading-relaxed text-gray-700">
+                <blockquote class="quote mb-4 text-xl italic leading-relaxed text-foreground">
                   "{testimonial.text}"
                 </blockquote>
                 <div class="author-info flex flex-col items-center">
-                  <strong class="text-lg text-gray-900">
+                  <strong class="text-lg text-foreground">
                     {testimonial.name}
                   </strong>
-                  <span class="role mt-1 text-sm text-gray-500">
+                  <span class="role mt-1 text-sm text-foreground-muted">
                     {testimonial.role}
                   </span>
                 </div>
@@ -116,19 +116,12 @@ const testimonials = [
     opacity: 1;
   }
 
-  /* Mobile adjustments */
-  @media (max-width: 640px) {
-    .slide-content {
-      padding: 1rem 0.5rem !important; /* Override Tailwind if needed */
-    }
+  .avatar {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
 
-    .avatar {
-      width: 3rem !important;
-      height: 3rem !important;
-    }
-
-    .quote {
-      font-size: 1.1rem !important;
-    }
+  .quote {
+    font-size: 1.1rem !important;
   }
 </style>
