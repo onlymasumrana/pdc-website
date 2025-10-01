@@ -12,7 +12,6 @@ import Faq from '../components/Faq.astro';
 import Pricing from '../components/Pricing.astro';
 import HeroImg from '../components/HeroImg.astro';
 import Contact from '../components/Contact.astro';
-import Header from '../components/Header.astro';
 ---
 
 <BaseLayout>
@@ -27,6 +26,9 @@ import Header from '../components/Header.astro';
   </section>
   <section>
     <Faq />
+  </section>
+  <section class=" mx-auto">
+    <Testimonials />
   </section>
   <section id="contact">
     <Contact />
