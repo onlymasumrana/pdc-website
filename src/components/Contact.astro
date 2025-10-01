@@ -11,8 +11,8 @@ const services = [
 const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
 ---
 
-<section class="">
-  <div class="">
+<section class="py-12">
+  <div class="container mx-auto px-4">
     <!-- Heading -->
     <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
       <p class="text-sm font-medium uppercase tracking-wider">
@@ -29,7 +29,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
 
     <!-- Contact Info & Form  -->
     <div
-      class="grid grid-cols-1 rounded border border-border-muted bg-background md:grid-cols-2">
+      class="grid grid-cols-1 rounded border border-border bg-background md:grid-cols-2">
       <!-- Info section -->
       <div class="flex flex-col justify-between p-8">
         <h2 class="mb-6 text-xl font-semibold leading-snug md:text-2xl">
@@ -106,73 +106,39 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
           </div>
         </div>
       </div>
+
       <!-- Form section -->
       <div class="md:pb-8 md:pr-8">
         <!-- Toggle Buttons -->
         <div
-          class="mt-8 flex border-border-muted px-4 py-4 shadow-sm md:mt-4 md:justify-start md:border-none md:px-0 md:shadow-none">
+          class="mt-8 flex px-4 py-4 shadow-sm md:mt-4 md:justify-start md:border-none md:px-0 md:shadow-none">
           <div
-            class="inline-flex w-fit rounded-full border border-border bg-background p-1 shadow-sm">
+            class="inline-flex w-fit rounded-full border-border bg-background shadow-sm">
             <button
-              data-type="quotes"
-              class="rounded-full bg-primary px-4 py-2 text-sm font-medium text-button-primary-text">
-              Request a quotes
+              data-type="contact"
+              class="active-tab btn-secondary rounded-full rounded-r-none px-4 py-2 text-sm font-medium">
+              Contact
             </button>
             <button
-              data-type="call"
-              class="button-secondary-text rounded-full px-4 py-2 text-sm font-medium">
-              Book a call
+              data-type="quote"
+              class="btn-outline border-x-0 px-4 py-2 text-sm font-medium">
+              Quote
+            </button>
+            <button
+              data-type="schedule"
+              class="btn-outline rounded-r-full px-4 py-2 text-sm font-medium">
+              Schedule
             </button>
           </div>
         </div>
+
+        <!-- Contact Form Tab -->
         <form
           method="POST"
           action="https://formspree.io/f/xovnaawz"
-          class="space-y-6 p-8 md:rounded md:bg-background-muted"
+          class="tab-content active space-y-6 p-8 md:rounded md:bg-background-muted"
           id="contact-form">
-          <!-- Services -->
-          <div>
-            <label class="mb-2 block text-sm font-semibold">Service *</label>
-            <div class="flex flex-wrap gap-2" id="services-container">
-              {
-                services.map((service) => (
-                  <button
-                    type="button"
-                    data-service={service}
-                    class="data-[selected=true]:btn-secondary rounded border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
-                    {service}
-                  </button>
-                ))
-              }
-            </div>
-            <div id="service-error" class="mt-2 hidden">
-              <p class="text-sm text-red-500">Please select a service</p>
-            </div>
-            <input type="hidden" name="service" id="selected-service" />
-          </div>
-
-          <!-- Budget -->
-          <div>
-            <label class="mb-2 block text-sm font-semibold">Budget *</label>
-            <div class="flex flex-wrap gap-2" id="budgets-container">
-              {
-                budgets.map((budget) => (
-                  <button
-                    type="button"
-                    data-budget={budget}
-                    class="data-[selected=true]:btn-secondary rounded border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
-                    {budget}
-                  </button>
-                ))
-              }
-            </div>
-            <div id="budget-error" class="mt-2 hidden">
-              <p class="text-sm text-red-500">Please select a budget</p>
-            </div>
-            <input type="hidden" name="budget" id="selected-budget" />
-          </div>
-
-          <!-- Inputs -->
+          <!-- Name & Email -->
           <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
             <label class="block text-sm font-medium">
               Name *
@@ -182,7 +148,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
                 name="name"
                 required
                 placeholder="Enter your name"
-                class="focus:ring-primary/20 mt-1 w-full rounded border border-border-muted p-3 focus:outline-none focus:ring-2"
+                class="form-input mt-1 w-full"
               />
             </label>
             <label class="block text-sm font-medium">
@@ -193,7 +159,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
                 name="email"
                 required
                 placeholder="Enter your email"
-                class="focus:ring-primary/20 mt-1 w-full rounded border border-border-muted p-3 focus:outline-none focus:ring-2"
+                class="form-input mt-1 w-full"
               />
             </label>
           </div>
@@ -207,7 +173,7 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
               name="subject"
               required
               placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
-              class="focus:ring-primary/20 mt-1 w-full rounded border border-border-muted p-3 focus:outline-none focus:ring-2"
+              class="form-input mt-1 w-full"
             />
           </label>
 
@@ -219,14 +185,13 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
               name="message"
               required
               placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
-              class="focus:ring-primary/20 mt-1 h-40 w-full rounded border border-border-muted p-3 focus:outline-none focus:ring-2"
-            ></textarea>
+              class="form-textarea mt-1 h-40 w-full"></textarea>
           </label>
 
           <!-- Submit Button -->
           <div class="flex justify-end">
-            <button type="submit" class="btn btn-primary p-2 pl-4">
-              Send Inquiry
+            <button type="submit" class="btn p-2 pl-4 btn-primary">
+              Send Message
               <div
                 class="ml-2 flex items-center justify-center rounded bg-background p-1">
                 <svg
@@ -247,53 +212,222 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
             </button>
           </div>
         </form>
+
+        <!-- Quote Form Tab -->
+        <form
+          method="POST"
+          action="https://formspree.io/f/xovnaawz"
+          class="tab-content hidden space-y-6 p-8 md:rounded md:bg-background-muted"
+          id="quote-form">
+          <!-- Services -->
+          <div>
+            <label class="mb-2 block text-sm font-semibold">Service *</label>
+            <div class="flex flex-wrap gap-2" id="services-container">
+              {
+                services.map((service) => (
+                  <button
+                    type="button"
+                    data-service={service}
+                    class="data-[selected=true]:btn-secondary rounded border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
+                    {service}
+                  </button>
+                ))
+              }
+            </div>
+            <div id="service-error" class="mt-2 hidden">
+              <p class="text-sm text-danger">Please select a service</p>
+            </div>
+            <input type="hidden" name="service" id="selected-service" />
+          </div>
+
+          <!-- Budget -->
+          <div>
+            <label class="mb-2 block text-sm font-semibold">Budget *</label>
+            <div class="flex flex-wrap gap-2" id="budgets-container">
+              {
+                budgets.map((budget) => (
+                  <button
+                    type="button"
+                    data-budget={budget}
+                    class="data-[selected=true]:btn-secondary rounded border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
+                    {budget}
+                  </button>
+                ))
+              }
+            </div>
+            <div id="budget-error" class="mt-2 hidden">
+              <p class="text-sm text-danger">Please select a budget</p>
+            </div>
+            <input type="hidden" name="budget" id="selected-budget" />
+          </div>
+
+          <!-- Inputs -->
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <label class="block text-sm font-medium">
+              Name *
+              <input
+                type="text"
+                id="quote-name"
+                name="name"
+                required
+                placeholder="Enter your name"
+                class="form-input mt-1 w-full"
+              />
+            </label>
+            <label class="block text-sm font-medium">
+              Email *
+              <input
+                type="email"
+                id="quote-email"
+                name="email"
+                required
+                placeholder="Enter your email"
+                class="form-input mt-1 w-full"
+              />
+            </label>
+          </div>
+
+          <!-- Subject -->
+          <label class="block text-sm font-medium">
+            Subject *
+            <input
+              type="text"
+              id="quote-subject"
+              name="subject"
+              required
+              placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
+              class="form-input mt-1 w-full"
+            />
+          </label>
+
+          <!-- Message -->
+          <label class="block text-sm font-medium">
+            Message *
+            <textarea
+              id="quote-message"
+              name="message"
+              required
+              placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
+              class="form-textarea mt-1 h-40 w-full"></textarea>
+          </label>
+
+          <!-- Submit Button -->
+          <div class="flex justify-end">
+            <button type="submit" class="btn p-2 pl-4 btn-primary">
+              Get Quote
+              <div
+                class="ml-2 flex items-center justify-center rounded bg-background p-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  class="text-foreground">
+                  <path
+                    d="M7 17L17 7M9 7h8v8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </form>
+
+        <!-- Schedule Form Tab -->
+        <div
+          class="tab-content hidden p-8 md:rounded md:bg-background-muted"
+          id="schedule-form">
+          <div class="flex h-64 items-center justify-center">
+            <p class="text-lg font-medium text-muted">
+              Schedule form coming soon
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <script is:inline>
-  // Handle service and budget selection
   document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('contact-form');
+    // Tab switching functionality
+    const tabButtons = document.querySelectorAll('[data-type]');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        const type = this.getAttribute('data-type');
+
+        // Update active tab button - set all to outline, active to secondary
+        tabButtons.forEach((btn) => {
+          btn.classList.remove('btn-secondary');
+          btn.classList.add('btn-outline');
+        });
+
+        this.classList.remove('btn-outline');
+        this.classList.add('btn-secondary');
+
+        // Show active tab content
+        tabContents.forEach((content) => {
+          content.classList.add('hidden');
+          content.classList.remove('active');
+        });
+
+        const activeContent = document.getElementById(`${type}-form`);
+        if (activeContent) {
+          activeContent.classList.remove('hidden');
+          activeContent.classList.add('active');
+        }
+      });
+    });
+
+    // Service and budget selection for quote form
     const selectedServiceInput = document.getElementById('selected-service');
     const selectedBudgetInput = document.getElementById('selected-budget');
     const serviceError = document.getElementById('service-error');
     const budgetError = document.getElementById('budget-error');
 
     // Remove required attributes and handle validation manually
-    selectedServiceInput.removeAttribute('required');
-    selectedBudgetInput.removeAttribute('required');
+    if (selectedServiceInput) selectedServiceInput.removeAttribute('required');
+    if (selectedBudgetInput) selectedBudgetInput.removeAttribute('required');
 
-    // Form submission validation
-    form.addEventListener('submit', function (e) {
-      let hasError = false;
+    // Form submission validation for quote form
+    const quoteForm = document.getElementById('quote-form');
+    if (quoteForm) {
+      quoteForm.addEventListener('submit', function (e) {
+        let hasError = false;
 
-      // Reset errors
-      serviceError.classList.add('hidden');
-      budgetError.classList.add('hidden');
+        // Reset errors
+        if (serviceError) serviceError.classList.add('hidden');
+        if (budgetError) budgetError.classList.add('hidden');
 
-      // Check service
-      if (!selectedServiceInput.value) {
-        serviceError.classList.remove('hidden');
-        hasError = true;
-      }
-
-      // Check budget
-      if (!selectedBudgetInput.value) {
-        budgetError.classList.remove('hidden');
-        hasError = true;
-      }
-
-      if (hasError) {
-        e.preventDefault();
-        // Scroll to first error
-        const firstError = document.querySelector('.text-red-500:not(.hidden)');
-        if (firstError) {
-          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Check service
+        if (!selectedServiceInput.value) {
+          if (serviceError) serviceError.classList.remove('hidden');
+          hasError = true;
         }
-      }
-    });
+
+        // Check budget
+        if (!selectedBudgetInput.value) {
+          if (budgetError) budgetError.classList.remove('hidden');
+          hasError = true;
+        }
+
+        if (hasError) {
+          e.preventDefault();
+          // Scroll to first error
+          const firstError = document.querySelector(
+            '.text-danger:not(.hidden)'
+          );
+          if (firstError) {
+            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      });
+    }
 
     // Service selection
     const serviceButtons = document.querySelectorAll('[data-service]');
@@ -304,14 +438,16 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
         // Remove selected state from all service buttons
         serviceButtons.forEach((btn) => {
           btn.removeAttribute('data-selected');
+          btn.classList.remove('btn-secondary');
         });
 
         // Add selected state to clicked button
         this.setAttribute('data-selected', 'true');
+        this.classList.add('btn-secondary');
 
         // Update hidden input value and hide error
-        selectedServiceInput.value = service;
-        serviceError.classList.add('hidden');
+        if (selectedServiceInput) selectedServiceInput.value = service;
+        if (serviceError) serviceError.classList.add('hidden');
       });
     });
 
@@ -324,32 +460,16 @@ const budgets = ['Less than $10k', '$10k - $50k', 'More than $50k'];
         // Remove selected state from all budget buttons
         budgetButtons.forEach((btn) => {
           btn.removeAttribute('data-selected');
+          btn.classList.remove('btn-secondary');
         });
 
         // Add selected state to clicked button
         this.setAttribute('data-selected', 'true');
+        this.classList.add('btn-secondary');
 
         // Update hidden input value and hide error
-        selectedBudgetInput.value = budget;
-        budgetError.classList.add('hidden');
-      });
-    });
-
-    // Toggle buttons functionality
-    const toggleButtons = document.querySelectorAll('[data-type]');
-    toggleButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        const type = this.getAttribute('data-type');
-
-        // Remove active state from all toggle buttons
-        toggleButtons.forEach((btn) => {
-          btn.classList.remove('bg-primary', 'text-button-primary-text');
-          btn.classList.add('button-secondary-text');
-        });
-
-        // Add active state to clicked button
-        this.classList.add('bg-primary', 'text-button-primary-text');
-        this.classList.remove('button-secondary-text');
+        if (selectedBudgetInput) selectedBudgetInput.value = budget;
+        if (budgetError) budgetError.classList.add('hidden');
       });
     });
   });
