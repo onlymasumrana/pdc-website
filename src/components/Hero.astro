@@ -23,7 +23,8 @@ const portfolioImages = [
         inclusivity, and driven by cutting-edge AI technology.
       </p>
       <a
-        href="#"
+        href="/contact"
+        onclick="handleContactClick(event)"
         class="btn btn-primary mt-6 inline-flex items-center p-2 pl-4 md:mt-8">
         Get Started Now
         <div
@@ -45,15 +46,14 @@ const portfolioImages = [
         </div>
       </a>
     </div>
-    <div class="hidden items-center justify-end p-4 lg:flex md:p-8">
+    <div class="hidden items-center justify-end p-4 md:p-8 lg:flex">
       <div class="w-full md:max-w-sm lg:max-w-md">
         <div class="h-full overflow-hidden rounded">
           <div class="swiper portfolio-carousel">
             <div class="swiper-wrapper">
               {
                 portfolioImages.map((image, index) => (
-                  <div
-                    class="swiper-slide flex h-full items-center justify-center">
+                  <div class="swiper-slide flex h-full items-center justify-center">
                     <img
                       src={image.src}
                       alt={image.alt}
@@ -76,7 +76,7 @@ const portfolioImages = [
   }
 </style>
 
-<script>
+<script is:inline>
   import { Swiper } from 'swiper';
   import { Autoplay } from 'swiper/modules';
   import 'swiper/css';
@@ -103,5 +103,17 @@ const portfolioImages = [
         },
       },
     });
+  }
+
+  function handleContactClick(event) {
+    // If already on homepage, scroll to contact section
+    if (window.location.pathname === '/') {
+      event.preventDefault();
+      const contactSection = document.querySelector('#contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    // Otherwise, the regular href="/projects" will navigate to /projects page
   }
 </script>
