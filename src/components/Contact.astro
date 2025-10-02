@@ -17,342 +17,340 @@ const FORM_CONFIG = {
 };
 ---
 
-<section class="py-12">
-  <div class="container mx-auto px-4">
-    <!-- Heading -->
-    <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
-      <p class="text-sm font-medium uppercase tracking-wider">
-        <span class="text-xl text-[#ff6a00]">✷</span> GET IN TOUCH
-      </p>
+<section>
+  <!-- Heading -->
+  <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
+    <p class="text-sm font-medium uppercase tracking-wider">
+      <span class="text-xl text-[#ff6a00]">✷</span> GET IN TOUCH
+    </p>
 
-      <div>
-        <h2 class="section-title">
-          Have
-          <span class="text-muted"> ideas to build?</span>
-        </h2>
+    <div>
+      <h2 class="section-title">
+        Have
+        <span class="text-muted"> ideas to build?</span>
+      </h2>
+    </div>
+  </div>
+
+  <!-- Contact Info & Form  -->
+  <div
+    class="grid grid-cols-1 rounded lg:p-8 border border-border bg-background md:grid-cols-2">
+    <!-- Info section -->
+    <div class="flex flex-col justify-between p-8">
+      <h2 class="mb-6 text-xl font-semibold leading-snug md:text-2xl">
+        We would love to hear from you!
+      </h2>
+      <div class="flex flex-col gap-4">
+        <!-- Email -->
+        <div
+          class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
+          <div>
+            <p class="font-medium text-muted">Email Us</p>
+            <p class="text-foreground">support@premiumdesign.com</p>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="text-muted">
+            <path
+              d="M7 17L17 7M9 7h8v8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <!-- Phone -->
+        <div
+          class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
+          <div>
+            <p class="font-medium text-muted">Call Us</p>
+            <p class="text-foreground">+1234567890</p>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="text-muted">
+            <path
+              d="M7 17L17 7M9 7h8v8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <!-- Address -->
+        <div
+          class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
+          <div>
+            <p class="font-medium text-muted">Address</p>
+            <p class="text-foreground">
+              123 Business Street, San Francisco, CA
+            </p>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="text-muted">
+            <path
+              d="M7 17L17 7M9 7h8v8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
       </div>
     </div>
 
-    <!-- Contact Info & Form  -->
-    <div
-      class="grid grid-cols-1 rounded border border-border bg-background md:grid-cols-2">
-      <!-- Info section -->
-      <div class="flex flex-col justify-between p-8">
-        <h2 class="mb-6 text-xl font-semibold leading-snug md:text-2xl">
-          We would love to hear from you!
-        </h2>
-        <div class="flex flex-col gap-4">
-          <!-- Email -->
-          <div
-            class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
-            <div>
-              <p class="font-medium text-muted">Email Us</p>
-              <p class="text-foreground">support@premiumdesign.com</p>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="text-muted">
-              <path
-                d="M7 17L17 7M9 7h8v8"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
-          <!-- Phone -->
-          <div
-            class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
-            <div>
-              <p class="font-medium text-muted">Call Us</p>
-              <p class="text-foreground">+1234567890</p>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="text-muted">
-              <path
-                d="M7 17L17 7M9 7h8v8"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
-          <!-- Address -->
-          <div
-            class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
-            <div>
-              <p class="font-medium text-muted">Address</p>
-              <p class="text-foreground">
-                123 Business Street, San Francisco, CA
-              </p>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="text-muted">
-              <path
-                d="M7 17L17 7M9 7h8v8"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
+    <!-- Form section -->
+    <div class="md:pb-8 md:pr-8">
+      <!-- Toggle Buttons -->
+      <div
+        class="mt-8 flex items-center justify-center px-4 py-4 shadow-sm md:mt-4 md:justify-start md:border-none md:px-0 md:shadow-none">
+        <div
+          class="inline-flex w-fit rounded-full border-border bg-background shadow-sm">
+          <button
+            data-type="contact"
+            class="active-tab btn-secondary rounded-full rounded-r-none border border-border px-3 py-1.5 text-sm font-medium md:px-4 md:py-2">
+            Contact
+          </button>
+          <button
+            data-type="quote"
+            class="btn-outline border border-x-0 border-border px-3 py-1.5 text-sm font-medium md:px-4 md:py-2">
+            Quote
+          </button>
+          <button
+            data-type="schedule"
+            class="btn-outline rounded-r-full border border-border px-3 py-1.5 text-sm font-medium md:px-4 md:py-2">
+            Schedule
+          </button>
         </div>
       </div>
 
-      <!-- Form section -->
-      <div class="md:pb-8 md:pr-8">
-        <!-- Toggle Buttons -->
-        <div
-          class="mt-8 flex items-center justify-center px-4 py-4 shadow-sm md:mt-4 md:justify-start md:border-none md:px-0 md:shadow-none">
-          <div
-            class="inline-flex w-fit rounded-full border-border bg-background shadow-sm">
-            <button
-              data-type="contact"
-              class="active-tab btn-secondary rounded-full rounded-r-none border border-border px-3 py-1.5 text-sm font-medium md:px-4 md:py-2">
-              Contact
-            </button>
-            <button
-              data-type="quote"
-              class="btn-outline border border-x-0 border-border px-3 py-1.5 text-sm font-medium md:px-4 md:py-2">
-              Quote
-            </button>
-            <button
-              data-type="schedule"
-              class="btn-outline rounded-r-full border border-border px-3 py-1.5 text-sm font-medium md:px-4 md:py-2">
-              Schedule
-            </button>
-          </div>
+      <!-- Contact Form Tab -->
+      <form
+        method="POST"
+        action={FORM_CONFIG.contact}
+        class="tab-content active space-y-6 p-8 md:rounded md:bg-background-muted"
+        id="contact-form"
+        data-form-type="contact">
+        <!-- Name & Email -->
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <label class="block text-sm font-medium">
+            Name *
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              required
+              placeholder="Enter your name"
+              class="form-input mt-1 w-full"
+            />
+          </label>
+          <label class="block text-sm font-medium">
+            Email *
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              required
+              placeholder="Enter your email"
+              class="form-input mt-1 w-full"
+            />
+          </label>
         </div>
 
-        <!-- Contact Form Tab -->
-        <form
-          method="POST"
-          action={FORM_CONFIG.contact}
-          class="tab-content active space-y-6 p-8 md:rounded md:bg-background-muted"
-          id="contact-form"
-          data-form-type="contact">
-          <!-- Name & Email -->
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <label class="block text-sm font-medium">
-              Name *
-              <input
-                type="text"
-                id="contact-name"
-                name="name"
-                required
-                placeholder="Enter your name"
-                class="form-input mt-1 w-full"
-              />
-            </label>
-            <label class="block text-sm font-medium">
-              Email *
-              <input
-                type="email"
-                id="contact-email"
-                name="email"
-                required
-                placeholder="Enter your email"
-                class="form-input mt-1 w-full"
-              />
-            </label>
-          </div>
+        <!-- Subject -->
+        <label class="block text-sm font-medium">
+          Subject *
+          <input
+            type="text"
+            id="contact-subject"
+            name="subject"
+            required
+            placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
+            class="form-input mt-1 w-full"
+          />
+        </label>
 
-          <!-- Subject -->
+        <!-- Message -->
+        <label class="block text-sm font-medium">
+          Message *
+          <textarea
+            id="contact-message"
+            name="message"
+            required
+            placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
+            class="form-textarea mt-1 h-40 w-full"></textarea>
+        </label>
+
+        <!-- Submit Button -->
+        <div class="flex justify-end">
+          <button type="submit" class="btn btn-primary p-2 pl-4">
+            Send Message
+            <div
+              class="ml-2 flex items-center justify-center rounded bg-background p-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="text-foreground">
+                <path
+                  d="M7 17L17 7M9 7h8v8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </form>
+
+      <!-- Quote Form Tab -->
+      <form
+        method="POST"
+        action={FORM_CONFIG.quote}
+        class="tab-content hidden space-y-6 p-8 md:rounded md:bg-background-muted"
+        id="quote-form"
+        data-form-type="quote">
+        <!-- Services -->
+        <div>
+          <label class="mb-2 block text-sm font-semibold">Service *</label>
+          <div class="flex flex-wrap gap-2" id="services-container">
+            {
+              services.map((service) => (
+                <button
+                  type="button"
+                  data-service={service}
+                  class="data-[selected=true]:btn-secondary rounded border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
+                  {service}
+                </button>
+              ))
+            }
+          </div>
+          <div id="service-error" class="mt-2 hidden">
+            <p class="text-sm text-danger">Please select a service</p>
+          </div>
+          <input type="hidden" name="service" id="selected-service" />
+        </div>
+
+        <!-- Budget -->
+        <div>
+          <label class="mb-2 block text-sm font-semibold">Budget *</label>
+          <div class="flex flex-wrap gap-2" id="budgets-container">
+            {
+              budgets.map((budget) => (
+                <button
+                  type="button"
+                  data-budget={budget}
+                  class="data-[selected=true]:btn-secondary rounded border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
+                  {budget}
+                </button>
+              ))
+            }
+          </div>
+          <div id="budget-error" class="mt-2 hidden">
+            <p class="text-sm text-danger">Please select a budget</p>
+          </div>
+          <input type="hidden" name="budget" id="selected-budget" />
+        </div>
+
+        <!-- Inputs -->
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
           <label class="block text-sm font-medium">
-            Subject *
+            Name *
             <input
               type="text"
-              id="contact-subject"
-              name="subject"
+              id="quote-name"
+              name="name"
               required
-              placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
+              placeholder="Enter your name"
               class="form-input mt-1 w-full"
             />
           </label>
-
-          <!-- Message -->
           <label class="block text-sm font-medium">
-            Message *
-            <textarea
-              id="contact-message"
-              name="message"
-              required
-              placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
-              class="form-textarea mt-1 h-40 w-full"></textarea>
-          </label>
-
-          <!-- Submit Button -->
-          <div class="flex justify-end">
-            <button type="submit" class="btn btn-primary p-2 pl-4">
-              Send Message
-              <div
-                class="ml-2 flex items-center justify-center rounded bg-background p-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  class="text-foreground">
-                  <path
-                    d="M7 17L17 7M9 7h8v8"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-                </svg>
-              </div>
-            </button>
-          </div>
-        </form>
-
-        <!-- Quote Form Tab -->
-        <form
-          method="POST"
-          action={FORM_CONFIG.quote}
-          class="tab-content hidden space-y-6 p-8 md:rounded md:bg-background-muted"
-          id="quote-form"
-          data-form-type="quote">
-          <!-- Services -->
-          <div>
-            <label class="mb-2 block text-sm font-semibold">Service *</label>
-            <div class="flex flex-wrap gap-2" id="services-container">
-              {
-                services.map((service) => (
-                  <button
-                    type="button"
-                    data-service={service}
-                    class="data-[selected=true]:btn-secondary rounded border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
-                    {service}
-                  </button>
-                ))
-              }
-            </div>
-            <div id="service-error" class="mt-2 hidden">
-              <p class="text-sm text-danger">Please select a service</p>
-            </div>
-            <input type="hidden" name="service" id="selected-service" />
-          </div>
-
-          <!-- Budget -->
-          <div>
-            <label class="mb-2 block text-sm font-semibold">Budget *</label>
-            <div class="flex flex-wrap gap-2" id="budgets-container">
-              {
-                budgets.map((budget) => (
-                  <button
-                    type="button"
-                    data-budget={budget}
-                    class="data-[selected=true]:btn-secondary rounded border border-border-muted bg-background px-3 py-1.5 text-sm font-medium transition-colors hover:border-border">
-                    {budget}
-                  </button>
-                ))
-              }
-            </div>
-            <div id="budget-error" class="mt-2 hidden">
-              <p class="text-sm text-danger">Please select a budget</p>
-            </div>
-            <input type="hidden" name="budget" id="selected-budget" />
-          </div>
-
-          <!-- Inputs -->
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <label class="block text-sm font-medium">
-              Name *
-              <input
-                type="text"
-                id="quote-name"
-                name="name"
-                required
-                placeholder="Enter your name"
-                class="form-input mt-1 w-full"
-              />
-            </label>
-            <label class="block text-sm font-medium">
-              Email *
-              <input
-                type="email"
-                id="quote-email"
-                name="email"
-                required
-                placeholder="Enter your email"
-                class="form-input mt-1 w-full"
-              />
-            </label>
-          </div>
-
-          <!-- Subject -->
-          <label class="block text-sm font-medium">
-            Subject *
+            Email *
             <input
-              type="text"
-              id="quote-subject"
-              name="subject"
+              type="email"
+              id="quote-email"
+              name="email"
               required
-              placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
+              placeholder="Enter your email"
               class="form-input mt-1 w-full"
             />
           </label>
+        </div>
 
-          <!-- Message -->
-          <label class="block text-sm font-medium">
-            Message *
-            <textarea
-              id="quote-message"
-              name="message"
-              required
-              placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
-              class="form-textarea mt-1 h-40 w-full"></textarea>
-          </label>
+        <!-- Subject -->
+        <label class="block text-sm font-medium">
+          Subject *
+          <input
+            type="text"
+            id="quote-subject"
+            name="subject"
+            required
+            placeholder="What's this about? (e.g., Project Inquiry, Support, Partnership)"
+            class="form-input mt-1 w-full"
+          />
+        </label>
 
-          <!-- Submit Button -->
-          <div class="flex justify-end">
-            <button type="submit" class="btn btn-primary p-2 pl-4">
-              Get Quote
-              <div
-                class="ml-2 flex items-center justify-center rounded bg-background p-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  class="text-foreground">
-                  <path
-                    d="M7 17L17 7M9 7h8v8"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-                </svg>
-              </div>
-            </button>
-          </div>
-        </form>
+        <!-- Message -->
+        <label class="block text-sm font-medium">
+          Message *
+          <textarea
+            id="quote-message"
+            name="message"
+            required
+            placeholder="What's on your mind? Share your questions, project ideas, feedback, or anything else you'd like to discuss. The more details you provide, the better we can help you & vice versa!"
+            class="form-textarea mt-1 h-40 w-full"></textarea>
+        </label>
 
-        <!-- Schedule Form Tab -->
-        <div
-          class="tab-content hidden p-8 md:rounded md:bg-background-muted"
-          id="schedule-form">
-          <div class="flex h-64 items-center justify-center">
-            <p class="text-lg font-medium text-muted">
-              Calendar integrated scheduling coming soon..
-            </p>
-          </div>
+        <!-- Submit Button -->
+        <div class="flex justify-end">
+          <button type="submit" class="btn btn-primary p-2 pl-4">
+            Get Quote
+            <div
+              class="ml-2 flex items-center justify-center rounded bg-background p-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="text-foreground">
+                <path
+                  d="M7 17L17 7M9 7h8v8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </form>
+
+      <!-- Schedule Form Tab -->
+      <div
+        class="tab-content hidden p-8 md:rounded md:bg-background-muted"
+        id="schedule-form">
+        <div class="flex h-64 items-center justify-center">
+          <p class="text-lg font-medium text-muted">
+            Calendar integrated scheduling coming soon..
+          </p>
         </div>
       </div>
     </div>

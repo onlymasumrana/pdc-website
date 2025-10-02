@@ -198,7 +198,7 @@
 
   /* Section */
   .section {
-    @apply py-6 md:py-8 lg:py-10;
+    @apply py-8 md:py-12 lg:py-16;
   }
 
   /* Section Header */

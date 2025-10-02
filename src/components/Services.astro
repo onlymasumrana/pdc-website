@@ -38,14 +38,14 @@ const services = [
     <!-- Heading -->
     <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
       <p class="text-sm font-medium uppercase tracking-wider">
-        <span class="text-[#ff6a00] text-lg mr-1">✷</span
-        >SERVICES
+        <span class="mr-1 text-lg text-[#ff6a00]">✷</span>SERVICES
       </p>
       <h2 class="section-title max-w-3xl">
         Elevate your brand
         <span class="text-muted">with exceptional design solutions</span>
       </h2>
     </div>
+    <!-- Services cards  -->
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
       {
         services.map((service, index) => (
@@ -61,6 +61,29 @@ const services = [
           </div>
         ))
       }
+    </div>
+    <!-- View all services button  -->
+    <div class="mx-auto mt-12 text-center">
+      <a href="/services" class="btn btn-primary p-2 pl-4">
+        View All Services
+        <div
+          class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="text-foreground">
+            <path
+              d="M7 17L17 7M9 7h8v8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </a>
     </div>
   </div>
 </section>
