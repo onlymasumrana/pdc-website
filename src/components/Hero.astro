@@ -1,11 +1,25 @@
 ---
-// src\components\Hero.astro
 import { Swiper, SwiperWrapper, SwiperSlide } from 'astro-swiper';
+import { Image } from 'astro:assets';
+
+// Import local images
+import spacexImage from '../assets/spacex.png';
+import aerosenseImage from '../assets/aerosense.png';
+import rantyImage from '../assets/ranty.png';
 
 const portfolioImages = [
-  { src: '/assets/spacex.png', alt: 'SpaceX Project' },
-  { src: '/assets/aerosense.png', alt: 'AeroSense Project' },
-  { src: '/assets/ranty.png', alt: 'Ranty Project' },
+  {
+    src: spacexImage,
+    alt: 'SpaceX Project',
+  },
+  {
+    src: aerosenseImage,
+    alt: 'AeroSense Project',
+  },
+  {
+    src: rantyImage,
+    alt: 'Ranty Project',
+  },
 ];
 ---
 
@@ -73,10 +87,12 @@ const portfolioImages = [
                 portfolioImages.map((image, index) => (
                   <SwiperSlide>
                     <div class="swiper-slide flex h-full items-center justify-center">
-                      <img
+                      <Image
                         src={image.src}
                         alt={image.alt}
                         class="max-h-full max-w-full rounded object-contain transition"
+                        loading="lazy"
+                        inferSize={true}
                       />
                     </div>
                   </SwiperSlide>
@@ -95,7 +111,6 @@ const portfolioImages = [
     height: 100%;
   }
 
-  /* Ensure proper Swiper container sizing */
   .swiper {
     width: 100%;
     height: 100%;
@@ -105,6 +120,16 @@ const portfolioImages = [
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide img {
+    max-width: 80vw;
+    max-height: 80vh;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 </style>
 
