@@ -3,12 +3,22 @@ import { Swiper, SwiperWrapper, SwiperSlide } from 'astro-swiper';
 import { Image } from 'astro:assets';
 
 // Import local images
+import powerwashImage from '../assets/powerwash.png';
+import smartlottoImage from '../assets/smartlotto.png';
 import spacexImage from '../assets/spacex.png';
 
 const portfolioImages = [
   {
+    src: powerwashImage,
+    alt: 'Veteran Owned Power Washing Company Website',
+  },
+  {
+    src: smartlottoImage,
+    alt: 'Smart Lotto Mobile App UI Design',
+  },
+  {
     src: spacexImage,
-    alt: 'SpaceX Project',
+    alt: 'SpaceX Desktop Interface',
   },
 ];
 ---
@@ -23,7 +33,7 @@ const portfolioImages = [
       <h1 class="section-title mt-2">
         Quality Designs Bring <br /> Better Sales
       </h1>
-      <p class="text-muted text-lg font-semibold">
+      <p class="text-muted text-lg">
         We design innovative websites, applications, and brands that are
         beautifully crafted for all users. Emphasizing accessibility,
         inclusivity, and driven by cutting-edge AI technology.
