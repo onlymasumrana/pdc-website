@@ -3,34 +3,105 @@
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
+import { getCollection } from 'astro:content';
+
+// Fetch all posts, sort by publish date descending
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Formatting helper for publication date
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Insights & Articles | Premium Design Company"
+  description="Expert articles and insights covering UI/UX design, frontend engineering, SaaS optimization, and modern product design workflows.">
   <!-- Header Section -->
   <section class="section">
     <div class="container-custom">
       <div class="section-header text-left">
-        <h1 class="section-title">Blogs</h1>
+        <span class="text-xs font-semibold uppercase tracking-widest text-[#ff6a00] mb-2 block">Our Journal</span>
+        <h1 class="section-title">Insights & Articles</h1>
         <p class="section-subtitle text-left ml-0 max-w-2xl">
-          Our thoughts on UI/UX design, frontend engineering, and building premium digital products.
+          Thoughts on design systems, user experience optimization, conversion strategy, and building state-of-the-art digital products.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Content Section -->
-  <section class="section">
+  <!-- Blogs Grid Section -->
+  <section class="section pt-0">
     <div class="container-custom">
-      <div class="card text-center">
-        <span class="mb-4 block text-5xl">✍️</span>
-        <h2 class="mb-4 text-3xl font-bold">Writing in progress...</h2>
-        <p class="mx-auto mb-8 max-w-md text-foreground-muted">
-          We are currently crafting our first set of articles covering modern design systems, Astro performance, and premium UI/UX design workflows.
-        </p>
-        <div class="flex justify-center">
-          <Button href="/contact" variant="primary">Connect with Us</Button>
+      {sortedPosts.length > 0 ? (
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12">
+          {sortedPosts.map((post) => (
+            <a
+              href={`/blogs/${post.slug}/`}
+              class="card group flex flex-col justify-between h-full border border-border-muted bg-background p-8 transition-all duration-300 hover:border-border hover:shadow-lg rounded"
+            >
+              <div class="space-y-4">
+                <!-- Metadata -->
+                <div class="flex items-center justify-between text-xs text-foreground-muted">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                  {post.data.readTime && (
+                    <span class="flex items-center gap-1.5">
+                      <span class="inline-block h-1 w-1 rounded-full bg-border"></span>
+                      {post.data.readTime}
+                    </span>
+                  )}
+                </div>
+
+                <!-- Title & Description -->
+                <div class="space-y-2">
+                  <h3 class="text-2xl font-bold tracking-tight text-foreground transition-colors duration-200 group-hover:text-[#ff6a00]">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-base leading-relaxed text-foreground-muted line-clamp-3">
+                    {post.data.description}
+                  </p>
+                </div>
+              </div>
+
+              <!-- Footer (Tags & Action) -->
+              <div class="mt-8 pt-6 border-t border-border-muted flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags.slice(0, 3).map((tag) => (
+                    <span class="rounded bg-background-muted px-2.5 py-1 text-xs font-medium text-foreground-muted">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <!-- Link Button -->
+                <span class="flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-foreground group-hover:text-[#ff6a00] transition-colors">
+                  Read More
+                  <span class="inline-block transform transition-transform duration-200 group-hover:translate-x-1">→</span>
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
-      </div>
+      ) : (
+        <div class="card text-center py-16">
+          <span class="mb-4 block text-5xl">✍️</span>
+          <h2 class="mb-4 text-3xl font-bold">Writing in progress...</h2>
+          <p class="mx-auto mb-8 max-w-md text-foreground-muted">
+            We are currently crafting our first set of articles. Check back soon for guides on design systems, code architecture, and animations!
+          </p>
+          <div class="flex justify-center">
+            <Button href="/contact" variant="primary">Connect with Us</Button>
+          </div>
+        </div>
+      )}
     </div>
   </section>
 </BaseLayout>
