@@ -1,0 +1,145 @@
+---
+// src/pages/privacy-policy.astro
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <section class="section">
+    <div class="container-custom">
+      <!-- Header -->
+      <div class="section-header text-left">
+        <h1 class="section-title">Privacy Policy</h1>
+        <p class="section-subtitle text-left ml-0 max-w-none">
+          Last updated: November 17, 2025
+        </p>
+      </div>
+
+      <div class="mx-auto max-w-4xl space-y-8">
+        <!-- Introduction -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">1. Introduction</h2>
+          <p class="leading-relaxed text-foreground-muted">
+            At Premium Design Company, we are committed to protecting your
+            privacy and ensuring the security of your personal information. This
+            Privacy Policy explains how we collect, use, disclose, and safeguard
+            your information when you visit our website or use our services.
+          </p>
+        </div>
+
+        <!-- Information We Collect -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">2. Information We Collect</h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="mb-2 text-lg font-semibold">
+                Personal Information (via contact form)
+              </h3>
+              <ul class="list-disc space-y-2 pl-6 text-foreground-muted">
+                <li>Name and contact details (email, phone number)</li>
+                <li>Company information</li>
+                <li>Project requirements and specifications</li>
+                <li>Communication records</li>
+                <li>Billing and payment information</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="mb-2 text-lg font-semibold">
+                Automatically Collected Information
+              </h3>
+              <ul class="list-disc space-y-2 pl-6 text-foreground-muted">
+                <li>IP address and browser type</li>
+                <li>Device information</li>
+                <li>Usage data and analytics</li>
+                <li>Cookies and tracking technologies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- How We Use Your Information -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">
+            3. How We Use Your Information
+          </h2>
+          <ul class="list-disc space-y-2 pl-6 text-foreground-muted">
+            <li>To provide and maintain our services</li>
+            <li>To process your inquiries and requests</li>
+            <li>To communicate with you about projects and updates</li>
+            <li>To improve our website and services</li>
+            <li>To comply with legal obligations</li>
+            <li>To protect our rights and prevent fraud</li>
+          </ul>
+        </div>
+
+        <!-- Data Sharing -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">
+            4. Data Sharing and Disclosure
+          </h2>
+          <p class="mb-4 text-foreground-muted">
+            We do not sell, trade, or rent your personal information to third
+            parties. We may share your information with:
+          </p>
+          <ul class="list-disc space-y-2 pl-6 text-foreground-muted">
+            <li>Service providers who assist in our operations</li>
+            <li>Legal authorities when required by law</li>
+            <li>Professional advisors (lawyers, accountants)</li>
+            <li>Business partners with your consent</li>
+          </ul>
+        </div>
+
+        <!-- Data Security -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">5. Data Security</h2>
+          <p class="leading-relaxed text-foreground-muted">
+            We implement appropriate technical and organizational security
+            measures to protect your personal information against unauthorized
+            access, alteration, disclosure, or destruction. However, no method
+            of transmission over the Internet is 100% secure.
+          </p>
+        </div>
+
+        <!-- Your Rights -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">6. Your Rights</h2>
+          <p class="mb-4 text-foreground-muted">You have the right to:</p>
+          <ul class="list-disc space-y-2 pl-6 text-foreground-muted">
+            <li>Access your personal information</li>
+            <li>Correct inaccurate data</li>
+            <li>Request deletion of your data</li>
+            <li>Object to processing of your data</li>
+            <li>Data portability</li>
+            <li>Withdraw consent</li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">7. Contact Us</h2>
+          <p class="leading-relaxed text-foreground-muted">
+            If you have any questions about this Privacy Policy or your personal
+            data, please contact us at:
+          </p>
+          <div class="mt-4 space-y-2">
+            <p class="text-foreground">
+              <strong>Email:</strong>
+              <a href="mailto:info.premiumdesigncompany@gmail.com" class="text-primary hover:text-primary-hover hover:underline">
+                info.premiumdesigncompany@gmail.com
+              </a>
+            </p>
+            <p class="text-foreground">
+              <strong>Phone:</strong>
+              <a href="tel:+33759440610" class="text-primary hover:text-primary-hover hover:underline">
+                +33 75 944 06 10
+              </a>
+            </p>
+            <p class="text-foreground">
+              <strong>Address:</strong> Gothenburg, Sweden
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

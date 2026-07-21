@@ -26,11 +26,13 @@ const logos = [
       {
         logos.map((logo) => (
           <div class="flex flex-shrink-0 items-center justify-center">
-            <img
-              src={logo}
-              alt="Brand Logo"
-              class="mx-4 h-16 w-auto rounded bg-background px-4 py-3 grayscale transition-all duration-300 hover:grayscale-0"
-            />
+            <div class="mx-4 flex h-16 items-center justify-center rounded bg-background px-4 py-3">
+              <img
+                src={logo}
+                alt="Brand Logo"
+                class="h-10 w-auto grayscale transition-all duration-300 hover:grayscale-0 dark-invert-logo"
+              />
+            </div>
           </div>
         ))
       }
@@ -39,6 +41,14 @@ const logos = [
 </section>
 
 <style>
+  /* Invert logos in dark theme */
+  :global([data-theme="neutral-dark"]) .dark-invert-logo {
+    filter: invert(1) brightness(2) grayscale(1);
+  }
+  :global([data-theme="neutral-dark"]) .dark-invert-logo:hover {
+    filter: invert(1) brightness(2) grayscale(0);
+  }
+
   /* smooth infinite scrolling */
   @keyframes scroll {
     from {

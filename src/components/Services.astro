@@ -1,34 +1,40 @@
 ---
 const services = [
   {
-    title: 'AI Development',
+    title: 'Web Design',
     description:
-      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
-  },
-  {
-    title: 'UI/UX Design',
-    description:
-      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
+      'Transform user interactions with intuitive, human-centered designs. We craft seamless digital experiences through UI/UX design, product design, wireframing, and prototyping that drives engagement and conversion.',
+    features: ['UI/UX Design', 'Product Design', 'User Research', 'Wireframing & Prototyping'],
   },
   {
     title: 'Web Development',
     description:
-      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
+      'Create robust, scalable web applications with modern technologies. We develop responsive, high-performance solutions using full-stack development, backend systems, and e-commerce platforms.',
+    features: ['Full Stack Development', 'Backend Development', 'e-Commerce (Shopify, WooCommerce)', 'React, Next.js, Astro'],
   },
   {
-    title: 'E-commerce Development',
+    title: 'Portfolio',
     description:
-      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
+      'Showcase your work with stunning portfolio websites that highlight your expertise and attract clients and opportunities with visually compelling, responsive designs.',
+    features: ['Portfolio Websites', 'Case Study Design', 'Project Showcase', 'Personal Branding'],
+  },
+  {
+    title: 'No-Code',
+    description:
+      'Build professional websites faster with no-code platforms. We create responsive, conversion-optimized websites using Framer and Webflow without compromising on design quality.',
+    features: ['Framer Development', 'Webflow Development', 'Conversion Optimization', 'Design-First Approach'],
+  },
+  {
+    title: 'MVP',
+    description:
+      'Launch your SaaS/AI products faster with MVP development. We help validate your ideas quickly by building core-feature MVPs that attract early adopters and provide valuable market feedback.',
+    features: ['SaaS MVP Design & Development', 'AI Product Development', 'Market Validation', 'Rapid Prototyping'],
   },
   {
     title: 'Branding',
     description:
-      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
-  },
-  {
-    title: 'No-code (Webflow, Framer)',
-    description:
-      'Our UI/UX Design service focuses on crafting intuitive, accessible, and visually appealing digital experiences that leave a lasting impression.',
+      'Establish a memorable brand identity that resonates with your audience through comprehensive agency rebranding and visual identity systems.',
+    features: ['Full Agency Rebranding', 'Logo Design', 'Print Design', 'Graphics & Visual Identity'],
   },
 ];
 ---
@@ -50,24 +56,33 @@ const services = [
       {
         services.map((service, index) => (
           <div
-            class={`rounded bg-background p-6 shadow transition hover:shadow-md ${index >= 4 ? 'md:col-span-2' : 'col-span-1'}`}>
-            <div class="mb-16 text-xl text-muted">+</div>
-            <h3 class="mb-2 text-lg font-semibold text-foreground">
+            class={`animated-service-card hover:border-primary/30 group rounded border border-border-muted bg-background p-6 transition-all duration-300 hover:shadow-lg ${index >= 4 ? 'md:col-span-2' : 'col-span-1'}`}>
+            <div class="text-xl text-primary">+</div>
+            <h3 class="mb-3 mt-4 text-xl font-semibold text-foreground group-hover:text-primary">
               {service.title}
             </h3>
-            <p class="text-sm leading-relaxed text-muted">
+            <p class="mb-4 text-sm leading-relaxed text-muted">
               {service.description}
             </p>
+            <ul class="space-y-2">
+              {service.features.map((feature) => (
+                <li class="flex items-center text-sm font-semibold text-foreground-muted">
+                  <svg class="mr-2 h-3 w-3 flex-shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
           </div>
         ))
       }
     </div>
-    <!-- View all services button  -->
-    <div class="mx-auto mt-12 text-center">
+    <!-- View all services button (hidden to match live site) -->
+    <div class="mx-auto mt-12 hidden text-center">
       <a href="/services" class="btn btn-primary p-2 pl-4">
         View All Services
-        <div
-          class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
+        <div class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

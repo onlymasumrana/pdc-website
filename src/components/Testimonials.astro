@@ -1,130 +1,173 @@
 ---
-import { Swiper, SwiperWrapper, SwiperSlide } from 'astro-swiper';
+const featured = {
+  text: 'Masum WAS GREAT! Very easy to work with, very smart UI designer, completely understood the project and what we were trying to accomplish, very quick, very responsive, got right to work when we started and was always dependable. We will work with him again.',
+  name: 'Bob',
+  role: 'Upwork Client',
+  stars: 5,
+};
 
 const testimonials = [
   {
-    text: 'Seamless integrations and super intuitive UI. Exactly what our growing business needed.',
-    name: 'John',
-    role: 'Project Manager',
-    image:
-      'https://images.unsplash.com/photo-1720805752653-10ddccea4c94?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    text: "I had the pleasure to work with many freelancers on Upwork, but I must say - Masum stands out. Just the quality of the work he provides surprises me everytime. I can't recall even once where he disappointed me. On the contrary, he amazes me all the time.",
+    name: 'Abdul Kareem',
+    role: 'Upwork Client',
+    stars: 5,
   },
   {
-    text: 'The platform transformed how we manage our projects. Incredible value for the price.',
-    name: 'Adam',
-    role: 'CTO',
-    image:
-      'https://images.unsplash.com/photo-1623184662645-73d7fcb58595?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    text: 'Masum understood my requirement and gave me a great design for my website along with code. He was happy to work with me to revise as much time as required to my satisfaction.',
+    name: 'Mumshad',
+    role: 'Upwork Client',
+    stars: 5,
   },
   {
-    text: 'Outstanding customer support and robust features. Highly recommended for teams.',
-    name: 'Michael',
-    role: 'Product Lead',
-    image:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    text: 'Simple setup, powerful results. Our team collaboration has never been better.',
-    name: 'David',
-    role: 'Operations Manager',
-    image:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    text: "Masum developed very professional, sophisticated designs for our user account interface with minimal instruction required. He works hard and communicates effectively and often. He was able to generate polished designs within a few days and full UI/UX samples within a day or so after that. I highly recommend his design services especially if you're looking for efficient, solid work.",
+    name: 'Chris',
+    role: 'Upwork Client',
+    stars: 5,
   },
 ];
 ---
 
-<section class="overflow-x-hidden">
-  <!-- Heading -->
-  <div
-    class="2xs:mb-4 xs:mb-5 mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
+<section id="testimonials" class="">
+  <!-- Section Header -->
+  <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
     <p class="text-sm font-medium uppercase tracking-wider">
       <span class="mr-1 text-xl uppercase text-[#ff6a00]">✷</span>Testimonials
     </p>
-    <h2 class="section-title">
-      <span class="text-foreground">Trusted by</span>
-      <span class="text-muted">happy people globally</span>
-    </h2>
+    <div>
+      <h2 class="section-title">
+        <span class="text-foreground">Trusted by</span>
+        <span class="text-muted">happy people globally</span>
+      </h2>
+      <p class="text-muted text-lg mb-6">
+        Hear from our satisfied clients about their experiences working with us.
+      </p>
+    </div>
   </div>
 
-  <!-- Testimonial Carousel -->
-  <div
-    class="testimonial-carousel mx-auto max-w-[90vw] md:max-w-xl lg:max-w-2xl">
-    <Swiper
-      options={{
-        slidesPerView: 1,
-        spaceBetween: 0,
-        loop: true,
-        autoplay: {
-          delay: 7000,
-          disableOnInteraction: false,
-          waitForTransition: true,
-        },
-        pagination: {
-          clickable: true,
-          dynamicBullets: true,
-        },
-        breakpoints: {
-          640: {
-            spaceBetween: 10,
-          },
-          768: {
-            spaceBetween: 20,
-          },
-          1024: {
-            spaceBetween: 40,
-          },
-        },
-      }}>
-      <SwiperWrapper>
-        {
-          testimonials.map((testimonial) => (
-            <SwiperSlide>
-              <div class="flex w-full flex-col items-center rounded border border-border-muted bg-background p-8 text-center">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  class="avatar mb-4 h-20 w-20 rounded-full object-cover"
-                />
-                <blockquote class="quote mb-4 text-xl italic leading-relaxed text-foreground">
-                  "{testimonial.text}"
-                </blockquote>
-                <div class="author-info flex flex-col items-center">
-                  <strong class="text-lg text-foreground">
-                    {testimonial.name}
-                  </strong>
-                  <span class="role mt-1 text-sm text-foreground-muted">
-                    {testimonial.role}
-                  </span>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))
-        }
-      </SwiperWrapper>
-    </Swiper>
-    <div class="m-2 text-right text-sm text-foreground-muted">
-      <a href="/feedbacks" class="underline font-semibold text-foreground-muted">More Feedbacks</a>
+  <!-- All Testimonials in Column Layout (including featured) -->
+  <div class="columns-1 gap-8 space-y-8 md:columns-2">
+    <!-- Featured Testimonial -->
+    <div class="fade-in animation-delay-200 break-inside-avoid">
+      <div class="card featured-card border-primary/20 relative flex h-full flex-col border-2 border-y-4 border-y-muted p-6 md:p-8">
+        <div class="absolute right-4 top-3">
+          <span class="rounded-full bg-muted px-3 py-1 text-xs font-medium text-white">
+            Featured Review
+          </span>
+        </div>
+        <div class="mb-4">
+          <svg class="h-8 w-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"></path>
+          </svg>
+        </div>
+        <blockquote class="flex-grow">
+          <p class="mb-6 leading-relaxed text-foreground">"{featured.text}"</p>
+        </blockquote>
+        <div class="mt-auto border-t border-border-muted pt-4">
+          <div class="inline-flex items-center gap-2">
+            <p class="text-lg font-semibold text-primary">{featured.name}</p>
+          </div>
+          <p class="mt-1 text-sm text-muted">{featured.role}</p>
+          <div class="mt-1 flex text-primary">{'★'.repeat(featured.stars)}</div>
+        </div>
+      </div>
     </div>
+
+    <!-- Regular Testimonials -->
+    {
+      testimonials.map((t) => (
+        <div class="fade-in animation-delay-300 break-inside-avoid">
+          <div class="card flex h-full flex-col p-6 md:p-8">
+            <div class="mb-4">
+              <svg class="h-8 w-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"></path>
+              </svg>
+            </div>
+            <blockquote class="flex-grow">
+              <p class="mb-6 leading-relaxed text-foreground">"{t.text}"</p>
+            </blockquote>
+            <div class="mt-auto border-t border-border-muted pt-4">
+              <div class="inline-flex items-center gap-2">
+                <p class="text-lg font-semibold text-primary">{t.name}</p>
+              </div>
+              <p class="mt-1 text-sm text-muted">{t.role}</p>
+              <div class="mt-1 flex text-primary">{'★'.repeat(t.stars)}</div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- CTA Button -->
+  <div class="fade-in animation-delay-600 mt-12 text-center">
+    <a
+      href="https://www.upwork.com/freelancers/masumrana"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-secondary px-6 py-2">
+      Read More Reviews
+    </a>
   </div>
 </section>
 
 <style>
-  /* Custom Swiper pagination (Tailwind doesn't style Swiper defaults easily) */
-  .swiper-pagination-bullet {
-    background: #007acc;
-    opacity: 0.5;
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
   }
 
-  .swiper-pagination-bullet-active {
-    opacity: 1;
+  .animation-delay-200 {
+    animation-delay: 0.2s;
   }
 
-  .avatar {
-    width: 3rem !important;
-    height: 3rem !important;
+  .animation-delay-300 {
+    animation-delay: 0.3s;
   }
 
-  .quote {
-    font-size: 1.1rem !important;
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .featured-card {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-primary) 8%, transparent) 0%,
+      var(--color-card-bg) 50%,
+      color-mix(in srgb, var(--color-primary) 4%, transparent) 100%
+    );
+    position: relative;
+    box-shadow: 0 4px 20px -4px color-mix(in srgb, var(--color-primary) 15%, transparent);
+  }
+
+  .break-inside-avoid {
+    break-inside: avoid;
+  }
+
+  .card {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .featured-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -5px color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
 </style>

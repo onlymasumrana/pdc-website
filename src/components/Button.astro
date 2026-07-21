@@ -1,0 +1,51 @@
+---
+// src/components/Button.astro
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'link';
+  class?: string;
+  onclick?: string;
+  target?: string;
+}
+
+const { 
+  href, 
+  variant = 'primary', 
+  class: className = '', 
+  onclick,
+  target
+} = Astro.props;
+
+const variantClasses = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  outline: 'btn-outline',
+  ghost: 'btn-ghost',
+  link: 'btn-link',
+};
+
+// Use the design system's exact padding structure to visually balance with the arrow SVG box
+const baseButtonClass = `btn ${variantClasses[variant]} p-2 pl-4 text-sm`;
+const finalClass = `${baseButtonClass} ${className}`.trim();
+---
+
+<a href={href} class={finalClass} onclick={onclick} target={target}>
+  <slot />
+  <div class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="none"
+      viewBox="0 0 24 24"
+      class="text-foreground">
+      <path
+        d="M7 17L17 7M9 7h8v8"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+</a>

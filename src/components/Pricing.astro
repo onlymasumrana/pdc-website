@@ -2,47 +2,66 @@
 const plans = [
   {
     title: 'Pro',
-    description: 'Perfect for small businesses',
-    price: '$45',
-    yearly: '$420',
+    description: 'Perfect for small business',
+    price: '$1750',
     buttonText: 'Get Pro Plan',
     buttonStyle: 'btn btn-outline p-2 pl-4 text-sm',
-    clickHandler: 'handleContactClick(event)',
     features: [
-      'Unlimited projects',
-      'Advanced analytics',
-      'All integrations',
-      'Email & chat support',
+      { text: '40 hours of dedicated design support', included: true },
+      { text: 'Full-Stack Delivery Team', included: true },
+      { text: 'Daily communication (Slack, Google Meet)', included: true },
+      { text: '1 active request per team member', included: true },
+      { text: 'Hours rollover', included: true },
+      { text: '4 meetings per month', included: true },
+      { text: 'Same-day response time', included: true },
+      { text: 'Weekly updates and monthly reports', included: true },
+      { text: 'Advanced analytics dashboard', included: false },
+      { text: 'Dedicated Account Manager', included: false },
+      { text: 'Custom analytics and reporting', included: false },
+      { text: 'Custom integrations and white-label options', included: false },
     ],
   },
   {
     title: 'Business',
-    description: 'Perfect for small businesses',
+    description: 'Perfect for small-medium businesses',
     cardStyles: 'shadow-lg border',
-    price: '$70',
-    yearly: '$708',
+    price: '$3500',
     buttonText: 'Get Business Plan',
     buttonStyle: 'btn btn-primary p-2 pl-4 text-sm',
-    clickHandler: 'handleContactClick(event)',
     features: [
-      'Unlimited projects',
-      'Priority analytics',
-      'All integrations',
-      '24/7 Support',
+      { text: '80 hours of dedicated design support', included: true },
+      { text: 'Full-Stack Delivery Team', included: true },
+      { text: 'Daily communication (Slack, Google Meet)', included: true },
+      { text: '2 active requests per team member', included: true },
+      { text: 'Hours rollover', included: true },
+      { text: '8 meetings per month', included: true },
+      { text: 'Priority same-day response time', included: true },
+      { text: 'Bi-weekly updates and monthly reports', included: true },
+      { text: 'Advanced analytics dashboard', included: true },
+      { text: 'Dedicated Account Manager', included: false },
+      { text: 'Custom analytics and reporting', included: false },
+      { text: 'Custom integrations and white-label options', included: false },
     ],
   },
   {
     title: 'Enterprise',
-    description: 'Perfect for small businesses',
-    price: '$110',
-    yearly: '$1188',
+    description: 'Perfect for medium-large businesses',
+    price: '$9000',
     buttonText: 'Get Enterprise Plan',
     buttonStyle: 'btn btn-outline p-2 pl-4 text-sm',
-    clickHandler: 'handleContactClick(event)',
     features: [
-      'Unlimited everything',
-      'Dedicated analytics',
-      'Custom integrations',
+      { text: '160 hours of dedicated design support', included: true },
+      { text: 'Full-Stack Delivery Team', included: true },
+      { text: '24/7 communication (Slack, Google Meet)', included: true },
+      { text: 'Unlimited active requests', included: true },
+      { text: 'Hours rollover', included: true },
+      { text: 'Unlimited meetings', included: true },
+      { text: 'Immediate response time', included: true },
+      { text: 'Daily updates and comprehensive monthly reports', included: true },
+      { text: 'Advanced analytics dashboard', included: true },
+      { text: 'Dedicated Account Manager', included: true },
+      { text: 'Custom analytics and reporting', included: true },
+      { text: 'Custom integrations and white-label options', included: true },
     ],
   },
 ];
@@ -65,8 +84,8 @@ const plans = [
       plans.map((plan) => (
         <div
           class={
-            `${plan.cardStyles ? plan.cardStyles : ''}` +
-            `flex flex-col rounded bg-background p-8`
+            (plan.cardStyles ? `${plan.cardStyles} ` : '') +
+            'animated-block flex flex-col rounded bg-background p-8'
           }>
           <h2 class="mb-4 font-bold">{plan.title}</h2>
           <p class="text-2xl font-semibold">
@@ -80,8 +99,13 @@ const plans = [
           <hr class="my-6 border-t border-border-muted bg-transparent" />
           <ul class="flex-grow space-y-3 px-1">
             {plan.features.map((feature) => (
-              <li class="flex items-center gap-2">
-                <span>+</span> {feature}
+              <li class={`flex items-start gap-2 ${!feature.included ? 'opacity-50' : ''}`}>
+                <span class="font-medium text-foreground-muted">
+                  {feature.included ? '+' : '−'}
+                </span>
+                <span class={feature.included ? 'font-medium text-foreground-muted' : 'text-foreground-muted line-through'}>
+                  {feature.text}
+                </span>
               </li>
             ))}
           </ul>
@@ -91,7 +115,7 @@ const plans = [
           <div class="flex justify-end">
             <a
               href="/contact"
-              onclick={plan.clickHandler}
+              onclick="handleContactClick(event)"
               class={plan.buttonStyle}>
               {plan.buttonText}
               <div class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">
@@ -117,7 +141,7 @@ const plans = [
       ))
     }
   </div>
-  <div class="m-2 text-right text-sm text-foreground-muted">
+  <div class="m-2 hidden text-right text-sm text-foreground-muted">
     <a href="/plans" class="font-semibold capitalize text-foreground-muted underline">
       Know more</a
     > or
@@ -136,6 +160,6 @@ const plans = [
         contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-    // Otherwise, the regular href="/projects" will navigate to works page
+    // Otherwise, the regular href="/contact" will navigate to contact page
   }
 </script>

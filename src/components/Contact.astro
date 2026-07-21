@@ -1,10 +1,10 @@
 ---
 // Configuration
 const services = [
-  'AI Development',
+  'Portfolio Website',
   'UI/UX Design',
   'Web Development',
-  'E-commerce Development',
+  'MVP',
   'Branding',
   'No-code (Webflow, Framer)',
 ];
@@ -34,19 +34,19 @@ const FORM_CONFIG = {
 
   <!-- Contact Info & Form  -->
   <div
-    class="grid grid-cols-1 rounded lg:p-8 border border-border bg-background md:grid-cols-2">
+    class="grid grid-cols-1 rounded border border-border bg-background md:grid-cols-2 lg:p-8">
     <!-- Info section -->
     <div class="flex flex-col justify-between p-8">
       <h2 class="mb-6 text-xl font-semibold leading-snug md:text-2xl">
         We would love to hear from you!
       </h2>
-      <div class="flex flex-col gap-4">
+      <div class="animated-block flex flex-col gap-4">
         <!-- Email -->
         <div
-          class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
+          class="animated-item flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
           <div>
             <p class="font-medium text-muted">Email Us</p>
-            <p class="text-foreground">support@premiumdesign.com</p>
+            <a href="mailto:info.premiumdesigncompany@gmail.com" class="text-foreground">info.premiumdesigncompany@gmail.com</a>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,10 +65,38 @@ const FORM_CONFIG = {
         </div>
         <!-- Phone -->
         <div
-          class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
+          class="animated-item flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
           <div>
             <p class="font-medium text-muted">Call Us</p>
-            <p class="text-foreground">+1234567890</p>
+            <a href="tel:+33759440610" class="text-foreground">+33 75 944 06 10</a>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="text-muted">
+            <path
+              d="M7 17L17 7M9 7h8v8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <!-- WhatsApp -->
+        <div
+          class="animated-item flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
+          <div>
+            <p class="font-medium text-muted">WhatsApp</p>
+            <a
+              href="https://wa.me/46769220990"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-foreground">
+              +46 76 922 09 90
+            </a>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,12 +115,10 @@ const FORM_CONFIG = {
         </div>
         <!-- Address -->
         <div
-          class="flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
+          class="animated-item flex justify-between rounded border border-border-muted bg-background p-4 md:w-2/3">
           <div>
             <p class="font-medium text-muted">Address</p>
-            <p class="text-foreground">
-              123 Business Street, San Francisco, CA
-            </p>
+            <p class="text-foreground">Gothenburg, Sweden | Paris, France</p>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -129,11 +155,13 @@ const FORM_CONFIG = {
             class="btn-outline border border-x-0 border-border px-3 py-1.5 text-sm font-medium md:px-4 md:py-2">
             Quote
           </button>
-          <button
-            data-type="schedule"
-            class="btn-outline rounded-r-full border border-border px-3 py-1.5 text-sm font-medium md:px-4 md:py-2">
-            Schedule
-          </button>
+          <a href="https://premiumdesigncompany.com/schedule/" target="_blank" rel="noopener noreferrer">
+            <button
+              data-type="schedule"
+              class="btn-outline rounded-r-full border border-border px-3 py-1.5 text-sm font-medium md:px-4 md:py-2">
+              Schedule
+            </button>
+          </a>
         </div>
       </div>
 
@@ -141,12 +169,12 @@ const FORM_CONFIG = {
       <form
         method="POST"
         action={FORM_CONFIG.contact}
-        class="tab-content active space-y-6 p-8 md:rounded md:bg-background-muted"
+        class="tab-content animated-block active space-y-6 p-8 md:rounded md:bg-background-muted"
         id="contact-form"
         data-form-type="contact">
         <!-- Name & Email -->
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <label class="block text-sm font-medium">
+          <label class="animated-item block text-sm font-medium">
             Name *
             <input
               type="text"
@@ -157,7 +185,7 @@ const FORM_CONFIG = {
               class="form-input mt-1 w-full"
             />
           </label>
-          <label class="block text-sm font-medium">
+          <label class="animated-item block text-sm font-medium">
             Email *
             <input
               type="email"
@@ -171,7 +199,7 @@ const FORM_CONFIG = {
         </div>
 
         <!-- Subject -->
-        <label class="block text-sm font-medium">
+        <label class="animated-item block text-sm font-medium">
           Subject *
           <input
             type="text"
@@ -184,7 +212,7 @@ const FORM_CONFIG = {
         </label>
 
         <!-- Message -->
-        <label class="block text-sm font-medium">
+        <label class="animated-item block text-sm font-medium">
           Message *
           <textarea
             id="contact-message"
@@ -228,7 +256,8 @@ const FORM_CONFIG = {
         data-form-type="quote">
         <!-- Services -->
         <div>
-          <label class="mb-2 block text-sm font-semibold">Service *</label>
+          <label class="mb-2 block text-sm font-semibold">Services *</label>
+          <p class="mb-3 text-sm text-muted">Select all that apply</p>
           <div class="flex flex-wrap gap-2" id="services-container">
             {
               services.map((service) => (
@@ -242,9 +271,9 @@ const FORM_CONFIG = {
             }
           </div>
           <div id="service-error" class="mt-2 hidden">
-            <p class="text-sm text-danger">Please select a service</p>
+            <p class="text-sm text-danger">Please select at least one service</p>
           </div>
-          <input type="hidden" name="service" id="selected-service" />
+          <input type="hidden" name="services" id="selected-services" />
         </div>
 
         <!-- Budget -->
@@ -349,7 +378,10 @@ const FORM_CONFIG = {
         id="schedule-form">
         <div class="flex h-64 items-center justify-center">
           <p class="text-lg font-medium text-muted">
-            Calendar integrated scheduling coming soon..
+            Calendar integrated scheduling opened in
+            <button onclick="focusScheduleWindow()" class="underline">
+              another tab
+            </button>
           </p>
         </div>
       </div>
@@ -443,11 +475,18 @@ const FORM_CONFIG = {
   }
 
   class SelectionManager {
-    constructor(containerId, hiddenInputId, errorElementId) {
+    constructor(
+      containerId,
+      hiddenInputId,
+      errorElementId,
+      allowMultiple = false
+    ) {
       this.container = document.getElementById(containerId);
       this.hiddenInput = document.getElementById(hiddenInputId);
       this.errorElement = document.getElementById(errorElementId);
+      this.allowMultiple = allowMultiple;
       this.buttons = this.container?.querySelectorAll('button') || [];
+      this.selectedValues = [];
       this.init();
     }
 
@@ -462,45 +501,92 @@ const FORM_CONFIG = {
         button.getAttribute('data-service') ||
         button.getAttribute('data-budget');
 
-      // Remove selection from all buttons
-      this.buttons.forEach((btn) => {
-        btn.removeAttribute('data-selected');
-        btn.classList.remove('btn-secondary');
-      });
+      if (this.allowMultiple) {
+        // Multiple selection logic for services
+        if (button.getAttribute('data-selected') === 'true') {
+          // Deselect
+          button.removeAttribute('data-selected');
+          button.classList.remove('btn-secondary');
+          this.selectedValues = this.selectedValues.filter((v) => v !== value);
+        } else {
+          // Select
+          button.setAttribute('data-selected', 'true');
+          button.classList.add('btn-secondary');
+          this.selectedValues.push(value);
+        }
+      } else {
+        // Single selection logic for budget
+        // Remove selection from all buttons
+        this.buttons.forEach((btn) => {
+          btn.removeAttribute('data-selected');
+          btn.classList.remove('btn-secondary');
+        });
 
-      // Add selection to clicked button
-      button.setAttribute('data-selected', 'true');
-      button.classList.add('btn-secondary');
+        // Add selection to clicked button
+        button.setAttribute('data-selected', 'true');
+        button.classList.add('btn-secondary');
+        this.selectedValues = [value];
+      }
 
-      // Update hidden input and clear error
-      this.hiddenInput.value = value;
+      // Update hidden input with comma-separated values
+      this.hiddenInput.value = this.selectedValues.join(', ');
+
+      // Clear error
       if (this.errorElement) {
         this.errorElement.classList.add('hidden');
       }
 
-      console.log(`Selected: ${value}`);
+      console.log(`Selected: ${this.selectedValues.join(', ')}`);
     }
 
     getSelectedValue() {
-      return this.hiddenInput.value;
+      return this.allowMultiple
+        ? this.selectedValues
+        : this.selectedValues[0] || '';
     }
 
     validate() {
-      const isValid = !!this.getSelectedValue();
+      const isValid = this.selectedValues.length > 0;
       if (this.errorElement) {
         this.errorElement.classList.toggle('hidden', isValid);
       }
       return isValid;
+    }
+
+    // Get current state without creating new instance
+    getCurrentState() {
+      const currentValue = this.hiddenInput.value;
+      if (this.allowMultiple) {
+        return currentValue ? currentValue.split(', ') : [];
+      } else {
+        return currentValue ? [currentValue] : [];
+      }
     }
   }
 
   class FormSubmitHandler {
     constructor() {
       this.forms = document.querySelectorAll('form[data-form-type]');
+      this.serviceManager = null;
+      this.budgetManager = null;
       this.init();
     }
 
     init() {
+      // Initialize selection managers once and store them
+      this.serviceManager = new SelectionManager(
+        'services-container',
+        'selected-services',
+        'service-error',
+        true
+      );
+      this.budgetManager = new SelectionManager(
+        'budgets-container',
+        'selected-budget',
+        'budget-error',
+        false
+      );
+
       this.forms.forEach((form) => {
         form.addEventListener('submit', (e) => this.handleSubmit(e));
       });
@@ -516,7 +602,6 @@ const FORM_CONFIG = {
       if (!FormValidator.validateRequiredFields(form)) {
         console.error('Form validation failed: missing required fields');
         event.preventDefault();
-        this.showErrorMessage('Please fill in all required fields');
         return;
       }
 
@@ -534,39 +619,35 @@ const FORM_CONFIG = {
 
       // Validate quote form specific fields
       if (formType === 'quote') {
-        const serviceManager = new SelectionManager(
-          'services-container',
-          'selected-service',
-          'service-error'
-        );
-        const budgetManager = new SelectionManager(
-          'budgets-container',
-          'selected-budget',
-          'budget-error'
-        );
+        const hasServices = this.serviceManager.getCurrentState().length > 0;
+        const hasBudget = this.budgetManager.getCurrentState().length > 0;
 
-        if (!serviceManager.validate() || !budgetManager.validate()) {
-          console.error(
-            'Quote form validation failed: missing service or budget'
-          );
+        console.log(
+          'Services selected:',
+          this.serviceManager.getCurrentState()
+        );
+        console.log('Budget selected:', this.budgetManager.getCurrentState());
+
+        if (!hasServices) {
+          console.error('Quote form validation failed: no services selected');
           event.preventDefault();
-          this.showErrorMessage('Please select both a service and budget');
+          this.serviceManager.errorElement.classList.remove('hidden');
+        }
+
+        if (!hasBudget) {
+          console.error('Quote form validation failed: no budget selected');
+          event.preventDefault();
+          this.budgetManager.errorElement.classList.remove('hidden');
+        }
+
+        if (!hasServices || !hasBudget) {
           return;
         }
       }
 
-      // If all validations pass, allow FormSpree to handle the submission
       console.log(
         `Form validation passed. Allowing FormSpree to handle submission to: ${form.action}`
       );
-
-      // FormSpree will now handle the submission and redirect to their success page
-      // Remove any custom success/error handlers since FormSpree will handle it
-    }
-
-    showErrorMessage(message) {
-      // Simple alert for validation errors
-      // alert(`❌ ${message}`);
     }
   }
 
@@ -575,27 +656,45 @@ const FORM_CONFIG = {
     console.log('🚀 Initializing contact form...');
 
     try {
-      // Initialize tab management
       new TabManager();
-
-      // Initialize form submission (validation only)
       new FormSubmitHandler();
-
-      // Initialize selection managers for quote form
-      new SelectionManager(
-        'services-container',
-        'selected-service',
-        'service-error'
-      );
-      new SelectionManager(
-        'budgets-container',
-        'selected-budget',
-        'budget-error'
-      );
-
       console.log('✅ Contact form initialized successfully');
     } catch (error) {
       console.error('❌ Error initializing contact form:', error);
     }
   });
+
+  // Store reference & open the tab when schedule button is clicked
+  let scheduleWindow = null;
+  document
+    .querySelector('[data-type="schedule"]')
+    ?.addEventListener('click', function (e) {
+      const link = this.closest('a');
+      if (link) {
+        e.preventDefault();
+        if (scheduleWindow && !scheduleWindow.closed) {
+          scheduleWindow.close();
+        }
+        scheduleWindow = window.open(link.href, '_blank');
+        if (scheduleWindow) {
+          scheduleWindow.focus();
+        }
+      }
+    });
+
+  function focusScheduleWindow() {
+    if (scheduleWindow && !scheduleWindow.closed) {
+      scheduleWindow.focus();
+    } else {
+      const link = document
+        .querySelector('[data-type="schedule"]')
+        ?.closest('a');
+      if (link) {
+        scheduleWindow = window.open(link.href, '_blank');
+        if (scheduleWindow) {
+          scheduleWindow.focus();
+        }
+      }
+    }
+  }
 </script>

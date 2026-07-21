@@ -1,29 +1,33 @@
 ---
+// src/components/Faq.astro
 const faqs = [
   {
-    question: 'What is the purpose of this product?',
+    question: "What's your process for taking a project from idea to launch?",
     answer:
-      'Our product revolutionizes user engagement with cutting-edge design and flawless functionality, ensuring an unparalleled experience for every user across all platforms.',
+      "We start by deeply understanding your goals and audience, then move through strategic planning, design, and development in collaborative phases. You're involved at every step - from initial wireframes to final testing - ensuring the end product truly reflects your vision while meeting business objectives. Typical timelines range from 2-3 weeks for landing pages to 6-12 weeks for complex applications.",
   },
   {
-    question: 'How do I set up my account?',
+    question:
+      "Do you work with both startups and established companies? What's your approach for each?",
     answer:
-      'To set up your account, simply sign up with your email, verify it, and complete your profile. You’ll be ready to start using our services right away.',
+      "Absolutely! With startups, we focus on rapid MVP development to validate ideas and attract early users quickly. For established businesses, we specialize in enhancing existing platforms, redesigning for better performance, and scaling systems. Our approach adapts to your stage - whether you're launching something new or leveling up what you already have.",
   },
   {
-    question: 'Can I change my subscription plan?',
+    question:
+      "What happens after our project launches? Do you offer ongoing support?",
     answer:
-      'Yes, you can easily upgrade or downgrade your subscription anytime from the account settings page.',
+      "Yes, we believe the launch is just the beginning! We offer maintenance packages covering security updates, performance optimization, and technical support. Plus, we provide all source files and documentation so you have full ownership and control over your project. Think of us as long-term partners, not just one-time contractors.",
   },
   {
-    question: 'What should I do if I encounter a technical issue?',
+    question:
+      "How do you handle design and development when we already have some branding in place?",
     answer:
-      'If you face any technical issues, please reach out to our support team via chat or email. We’re always here to help you quickly resolve any problem.',
+      "We love working with existing brand systems! We'll study your current guidelines and design language, then build upon them while maintaining consistency. Whether you need a complete rebrand or just want to extend your existing look, we ensure everything feels cohesive while bringing fresh, effective solutions to the table.",
   },
   {
-    question: 'How can I contact customer support?',
+    question: "What's your approach to pricing and payment structure?",
     answer:
-      'You can contact us anytime through live chat, email, or our support page. Our team is available 24/7.',
+      "We believe in transparent pricing with no hidden costs. Most projects start with a 50% deposit to begin work, with the balance due upon completion. For larger projects, we can arrange milestone-based payments. While we don't offer full refunds for completed work, we ensure you're happy at every stage through constant communication and revision rounds. If a project needs to be paused, we'll only charge for work delivered up to that point.",
   },
 ];
 ---
@@ -44,14 +48,26 @@ const faqs = [
     <!-- FAQ List -->
     <div class="flex flex-col gap-4 md:w-2/3">
       {
-        faqs.map((faq) => (
-          <details class="group rounded bg-background p-5">
-            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-semibold">
+        faqs.map((faq, index) => (
+          <details
+            class="faq-item group relative overflow-hidden rounded bg-background p-8"
+            data-index={index}>
+            <div class="snake-border snake-border-top absolute left-0 top-0 h-1 bg-border-muted opacity-0" />
+            <div class="snake-border snake-border-right absolute right-0 top-0 w-1 bg-border-muted opacity-0" />
+            <div class="snake-border snake-border-bottom absolute bottom-0 right-0 h-1 bg-border-muted opacity-0" />
+            <div class="snake-border snake-border-left absolute bottom-0 left-0 w-1 bg-border-muted opacity-0" />
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-medium hover:text-primary">
               {faq.question}
-              {/* plus/minus toggle */}
-              <span class="ml-4 text-xl before:content-['+'] group-open:before:content-['-']" />
+              <span class="ml-8 flex h-6 w-6 items-center justify-center text-2xl font-medium">
+                <span class="block group-open:hidden">+</span>
+                <span class="hidden group-open:block">−</span>
+              </span>
             </summary>
-            <p class="mt-3 text-base leading-relaxed">{faq.answer}</p>
+            <div class="faq-content mt-3 overflow-hidden">
+              <p class="pl-2 pr-4 pb-2 pt-0 text-base leading-relaxed text-foreground-muted">
+                {faq.answer}
+              </p>
+            </div>
           </details>
         ))
       }
@@ -61,7 +77,7 @@ const faqs = [
           More questions?
           <a
             href="/contact"
-            class="inline-flex items-center gap-1 font-bold text-foreground-muted underline"
+            class="inline-flex items-center gap-1 font-bold text-foreground-muted underline hover:text-primary"
             onclick="handleContactClick(event)">Reach Us</a
           >
         </p>
@@ -69,6 +85,104 @@ const faqs = [
     </div>
   </div>
 </section>
+
+<style>
+  .faq-item[open] {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Smooth accordion */
+  .faq-content {
+    max-height: 0;
+    transition: max-height 0.5s ease;
+  }
+
+  .faq-item[open] .faq-content {
+    max-height: 500px;
+  }
+
+  /* Snake border animations */
+  .faq-item[open] .snake-border-top {
+    animation: snakeTop 0.5s ease-out 0.1s forwards;
+  }
+
+  .faq-item[open] .snake-border-right {
+    animation: snakeRight 0.5s ease-out 0.1s forwards;
+  }
+
+  .faq-item[open] .snake-border-bottom {
+    animation: snakeBottom 0.5s ease-out 0.1s forwards;
+  }
+
+  .faq-item[open] .snake-border-left {
+    animation: snakeLeft 0.5s ease-out 0.1s forwards;
+  }
+
+  @keyframes snakeTop {
+    0% {
+      width: 0%;
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      width: 100%;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes snakeRight {
+    0% {
+      height: 0%;
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      height: 100%;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes snakeBottom {
+    0% {
+      width: 0%;
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      width: 100%;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes snakeLeft {
+    0% {
+      height: 0%;
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      height: 100%;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
 <script is:inline>
   function handleContactClick(event) {
     // If already on homepage, scroll to contact section
@@ -79,6 +193,5 @@ const faqs = [
         contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-    // Otherwise, the regular href="/projects" will navigate to works page
   }
 </script>

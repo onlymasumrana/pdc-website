@@ -5,9 +5,5 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind({
-    config: {
-      applyBaseStyles: true, // optional, Astro auto-adds Tailwind base styles
-    },
-  })],
+  integrations: [react(), tailwind()],
 });

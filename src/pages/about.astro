@@ -1,0 +1,80 @@
+---
+// src/pages/about.astro
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout>
+  <section class="section">
+    <div class="container-custom">
+      <!-- Page Header -->
+      <div class="section-header text-left">
+        <h1 class="section-title">About Us</h1>
+        <p class="section-subtitle text-left ml-0 max-w-2xl">
+          We craft digital experiences that feel premium, perform flawlessly, and elevate brands to the state of the art.
+        </p>
+      </div>
+
+      <div class="mx-auto max-w-4xl space-y-8">
+        <!-- Who We Are Card -->
+        <div class="card text-left">
+          <h2 class="mb-6 text-3xl font-bold">Who We Are</h2>
+          <div class="space-y-6 text-foreground-muted">
+            <p class="leading-relaxed">
+              Premium Design Company is a boutique creative studio specializing in high-end UI/UX design, visual identity, and premium frontend web development. Based in Gothenburg, Sweden, we partner with startups, product companies, and agencies globally to transform complex workflows into simple, elegant, and highly performant interfaces.
+            </p>
+            <p class="leading-relaxed">
+              We believe that good design is not just how something looks, but how it works, how it feels, and how it drives value for your business. We bridge the gap between design thinking and production-ready implementation, providing custom Figma visuals alongside clean, responsive web code.
+            </p>
+          </div>
+        </div>
+
+        <!-- Core Pillars Grid -->
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div class="card text-left">
+            <span class="mb-4 block text-3xl text-[#ff6a00]">✷</span>
+            <h3 class="mb-2 text-xl font-bold">Uncompromising Aesthetics</h3>
+            <p class="text-sm leading-relaxed text-foreground-muted">
+              We believe in rich details, balanced typography, and harmonious color palettes. Every pixel serves a deliberate visual and functional purpose.
+            </p>
+          </div>
+          <div class="card text-left">
+            <span class="mb-4 block text-3xl text-[#ff6a00]">✦</span>
+            <h3 class="mb-2 text-xl font-bold">Performance-First</h3>
+            <p class="text-sm leading-relaxed text-foreground-muted">
+              A beautiful design must load instantly. We build websites using clean, lightweight, and modern frameworks like Astro, Tailwind, and React.
+            </p>
+          </div>
+          <div class="card text-left">
+            <span class="mb-4 block text-3xl text-[#ff6a00]">✺</span>
+            <h3 class="mb-2 text-xl font-bold">Transparent Partnership</h3>
+            <p class="text-sm leading-relaxed text-foreground-muted">
+              We act as an extension of your team, providing rapid iterations, open communication, and highly dependable product design expertise.
+            </p>
+          </div>
+        </div>
+
+        <!-- Presence Section -->
+        <div class="card text-left">
+          <h2 class="mb-4 text-2xl font-bold">Global Presence</h2>
+          <p class="leading-relaxed text-foreground-muted">
+            While based in Gothenburg, Sweden, we operate as a remote-friendly studio. We work with clients across North America, Europe, and Asia, managing flexible communication windows to ensure seamless collaboration regardless of your time zone.
+          </p>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="card-glass text-center">
+          <h2 class="mb-4 text-3xl font-bold text-gradient">Let's build something exceptional</h2>
+          <p class="mx-auto mb-8 max-w-lg text-lg text-foreground-muted">
+            Have a project in mind or just want to chat about design? Reach out to us and let's get the conversation started.
+          </p>
+          <div class="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <Button href="/contact" variant="primary">Get in Touch</Button>
+            <Button href="/pricing" variant="outline">View Pricing</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
