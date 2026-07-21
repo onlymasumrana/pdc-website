@@ -1,40 +1,40 @@
 ---
 const cards = [
   {
-    img: 'https://cdn.dribbble.com/userupload/22237908/file/original-c6de19bbb279f2a63e072dc7a8bc103d.png?resize=752x564&vertical=center',
-    category: 'Fintech app',
-    title: 'Smartlist Conceptual Design',
-    link: '#',
+    img: '/assets/token-alert.png',
+    category: 'Design',
+    title: 'Token Alert',
+    link: 'https://www.coroflot.com/MasumRana/Token-Alert',
   },
   {
-    img: 'https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center',
-    category: 'Fintech app',
-    title: 'Smartlist Conceptual Design',
-    link: '#',
+    img: '/assets/ico-invest.png',
+    category: 'Design',
+    title: 'ICO Invest',
+    link: 'https://www.coroflot.com/MasumRana/ICO-Invest',
   },
   {
-    img: 'https://cdn.dribbble.com/userupload/22237908/file/original-c6de19bbb279f2a63e072dc7a8bc103d.png?resize=752x564&vertical=center',
-    category: 'Fintech app',
-    title: 'Smartlist Conceptual Design',
-    link: '#',
+    img: '/assets/us-trade.png',
+    category: 'Conceptual',
+    title: 'US Trade',
+    link: 'https://www.coroflot.com/MasumRana/US-Trade',
   },
   {
-    img: 'https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center',
-    category: 'Fintech app',
-    title: 'Smartlist Conceptual Design',
-    link: '#',
+    img: '/assets/supplyr.png',
+    category: 'Dashboard',
+    title: 'Supplyr',
+    link: 'https://www.coroflot.com/MasumRana/Supplyr',
   },
   {
-    img: 'https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center',
-    category: 'Fintech app',
-    title: 'Smartlist Conceptual Design',
-    link: '#',
+    img: '/assets/meena.png',
+    category: 'Landing Page',
+    title: 'Meena App for Children',
+    link: 'https://www.coroflot.com/MasumRana/Meena-App-for-Children',
   },
   {
-    img: 'https://cdn.dribbble.com/userupload/20730526/file/original-8c962830f8a0a56d28e19e61e30b9231.png?resize=752x&vertical=center',
-    category: 'Fintech app',
-    title: 'Smartlist Conceptual Design',
-    link: '#',
+    img: '/assets/directory-listing.jpg',
+    category: 'Website',
+    title: 'Directory Listing',
+    link: 'https://www.coroflot.com/MasumRana/Directory-Listing',
   },
 ];
 ---
@@ -43,11 +43,8 @@ const cards = [
   <!-- Heading -->
   <div class="mb-3 flex flex-col md:mb-6 md:flex-row md:gap-10">
     <p class="text-sm font-medium uppercase tracking-wider">
-      <span class="text-[#ff6a00] text-xl mr-1"
-        >✷</span
-      >PORTFOLIO
+      <span class="mr-1 text-xl text-[#ff6a00]">✷</span>PORTFOLIO
     </p>
-
     <h2 class="section-title flex flex-wrap gap-2">
       <span class="text-muted">Remarkable</span>
       projects
@@ -57,22 +54,28 @@ const cards = [
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {
         cards.map((card) => (
-          <div class="overflow-hidden bg-background rounded shadow">
+          <a
+            href={card.link}
+            target="_blank"
+            class="animated-block overflow-hidden rounded bg-background shadow">
             <img
               src={card.img}
               alt={card.title}
-              class="h-48 w-full object-cover"
+              class="aspect-video w-full object-cover"
             />
             <div class="p-6 pt-4">
               <p class="text-sm text-foreground-muted">{card.category}</p>
-              <h3 class="mt-1 text-lg font-semibold">{card.title}</h3>
+              <h3 class="mt-1 text-lg font-semibold capitalize">{card.title}</h3>
             </div>
-          </div>
+          </a>
         ))
       }
     </div>
-    <div class="mx-auto mt-12 text-center">
-      <a href="/projects" class="btn btn-primary p-2 pl-4">
+    <div class="mx-auto hidden mt-12 text-center">
+      <a
+        href="https://dribbble.com/premiumdesigncompany"
+        target="_blank"
+        class="btn btn-primary p-2 pl-4">
         View All Projects
         <div
           class="ml-2 inline-flex items-center justify-center rounded bg-background p-1">

@@ -1,7 +1,6 @@
 ---
 // src/components/Header.astro
-import { Image } from 'astro:assets';
-import logo from '../assets/logo.png';
+import Logo from './Logo.astro';
 
 // Get current page path
 const { url } = Astro;
@@ -21,17 +20,8 @@ const isActiveLink = (linkPath: string): boolean => {
   <div class="p-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-3">
-        <!-- <Image
-          src={logo}
-          alt="Premium Design Company Logo"
-          width={32}
-          height={32}
-          class="flex-shrink-0"
-        /> -->
-        <span class="font-medium leading-[1] md:font-bold"
-          >Premium <br /> Design</span
-        >
+      <a href="/" class="flex items-center gap-3" onclick="handleHomeClick(event)">
+        <Logo class="h-6 w-auto text-foreground" />
       </a>
 
       <!-- Desktop Navigation -->
@@ -89,6 +79,7 @@ const isActiveLink = (linkPath: string): boolean => {
           </a>
         </div>
       </nav>
+
 
       <!-- Mobile Menu Button -->
       <button

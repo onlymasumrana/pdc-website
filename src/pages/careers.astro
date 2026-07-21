@@ -1,0 +1,175 @@
+---
+// src/pages/careers.astro
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout>
+  <section class="section">
+    <div class="container-custom">
+      <!-- Header -->
+      <div class="section-header text-left">
+        <h1 class="section-title">Careers</h1>
+        <p class="section-subtitle text-left ml-0 max-w-none">
+          We have no job openings right now! But you can connect with us for
+          future opportunities
+        </p>
+      </div>
+
+      <div class="mx-auto max-w-4xl space-y-8">
+        <!-- Main Content -->
+        <div class="card text-left">
+          <h2 class="mb-6 text-3xl font-bold">Let's Stay Connected</h2>
+          <div class="space-y-6 text-foreground-muted">
+            <p class="leading-relaxed">
+              While we're not actively hiring at the moment, we believe in
+              keeping the door open for the right kind of people. The design and
+              development industry moves fast, and great opportunities can
+              appear when you least expect them.
+            </p>
+            <p class="leading-relaxed">
+              We often come across opportunities in our network that might be
+              perfect for talented individuals. By sharing your work with us,
+              you're not just expressing interest in our future roles - you're
+              also getting on our radar for potential connections and
+              collaborations within our industry circle.
+            </p>
+            <div class="rounded bg-background-muted p-6">
+              <h3 class="mb-4 text-xl font-semibold text-foreground">
+                What happens when you share your work:
+              </h3>
+              <ul class="ml-4 space-y-3">
+                <li class="list-disc">
+                  <span>We review your portfolio and keep it in our talent database</span>
+                </li>
+                <li class="list-disc">
+                  <span>You'll be first in line when we do open new positions</span>
+                </li>
+                <li class="list-disc">
+                  <span>We might connect you with other companies in our network</span>
+                </li>
+                <li class="list-disc">
+                  <span>Sometimes the right person inspires us to create a new role</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="card text-left">
+          <h2 class="mb-4 text-3xl font-bold">Ready to Share Your Work?</h2>
+          <p class="mb-6 leading-relaxed text-foreground-muted">
+            No formal cover letter needed - just send us your portfolio or
+            resume & give a little brief about yourself & what you're passionate
+            about building :)
+          </p>
+          <!-- Email Options -->
+          <div class="space-y-6">
+            <!-- Quick Email Button -->
+            <div class="py-2 text-center">
+              <Button
+                href="mailto:info.premiumdesigncompany@gmail.com"
+                variant="primary">
+                Send Your Resume
+              </Button>
+            </div>
+            <!-- Divider -->
+            <div class="relative">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-border-muted"></div>
+              </div>
+              <div class="relative flex justify-center text-sm">
+                <span class="bg-card px-2 text-foreground-muted">Or</span>
+              </div>
+            </div>
+            <!-- Manual Email Option -->
+            <div class="text-center">
+              <p class="mb-4 text-foreground-muted">
+                Prefer to mail manually? Use the address below:
+              </p>
+              <div class="flex flex-col items-center justify-center gap-2 md:flex-row">
+                <code class="rounded bg-background-muted px-2.5 py-2 text-sm font-medium text-foreground">
+                  info.premiumdesigncompany@gmail.com
+                </code>
+                <button
+                  onclick="copyToClipboard('info.premiumdesigncompany@gmail.com', 'email-btn')"
+                  class="btn btn-outline flex items-center gap-2 px-2.5 py-2 text-xs"
+                  id="email-btn">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <div class="mt-6 -ml-6 text-sm font-medium text-foreground-muted">
+                <p>
+                  💡ProTip! You can{" "}
+                  <a
+                    href="https://docs.google.com/document/d/1MTlYfwy_Hd3kQ6f6ZLun-I7e4nSC2r3Ix6ZTL3NVL7Q/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="font-bold text-foreground-muted underline">
+                    use this template
+                  </a>{" "}
+                  as a starter
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  function copyToClipboard(text, buttonId) {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        const btn = document.getElementById(buttonId);
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          Copied!
+        `;
+        btn.classList.add("bg-success", "text-white", "border-success");
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove("bg-success", "text-white", "border-success");
+        }, 2000);
+      })
+      .catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+
+        const btn = document.getElementById(buttonId);
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          Copied!
+        `;
+        btn.classList.add("bg-success", "text-white", "border-success");
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove("bg-success", "text-white", "border-success");
+        }, 2000);
+      });
+  }
+</script>

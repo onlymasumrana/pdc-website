@@ -1,0 +1,137 @@
+---
+// src/pages/terms-conditions.astro
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <section class="section">
+    <div class="container-custom">
+      <!-- Header -->
+      <div class="section-header text-left">
+        <h1 class="section-title">Terms & Conditions</h1>
+        <p class="section-subtitle text-left ml-0 max-w-none">
+          Effective date: November 17, 2025
+        </p>
+      </div>
+
+      <div class="mx-auto max-w-4xl space-y-8">
+        <!-- Agreement -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">1. Agreement to Terms</h2>
+          <p class="text-foreground-muted leading-relaxed">
+            By accessing and using Premium Design Company's services, you accept and agree to be bound by these Terms and Conditions. If you disagree with any part, you may not access our services.
+          </p>
+        </div>
+
+        <!-- Services -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">2. Services</h2>
+          <div class="space-y-4 text-foreground-muted">
+            <p>Premium Design Company provides:</p>
+            <ul class="list-disc space-y-2 pl-6">
+              <li>UI/UX Design services</li>
+              <li>Web Development</li>
+              <li>Portfolio Development/Design</li>
+              <li>MVP Development</li>
+              <li>Branding services</li>
+              <li>No-code Development (Webflow, Framer)</li>
+            </ul>
+            <p>All services are subject to project-specific agreements and scope definitions.</p>
+          </div>
+        </div>
+
+        <!-- Intellectual Property -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">3. Intellectual Property</h2>
+          <div class="space-y-4 text-foreground-muted">
+            <p><strong>Client Materials:</strong> You retain all rights to materials you provide for projects.</p>
+            <p><strong>Our Work:</strong> Upon full payment, clients receive ownership of final delivered work. We retain the right to display completed projects in our portfolio.</p>
+            <p><strong>Third-party Content:</strong> Clients are responsible for ensuring they have proper licenses for any third-party content used in projects.</p>
+          </div>
+        </div>
+
+        <!-- Payments -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">4. Payments and Pricing</h2>
+          <ul class="list-disc space-y-2 pl-6 text-foreground-muted">
+            <li>Quotes are valid for 30 days from issuance</li>
+            <li>Payment schedules are outlined in project proposals</li>
+            <li>Late payments may incur added charges</li>
+            <li>All prices are in USD unless otherwise specified</li>
+            <li>Additional work outside scope may incur extra charges</li>
+          </ul>
+        </div>
+
+        <!-- Project Process -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">5. Project Process</h2>
+          <div class="space-y-4 text-foreground-muted">
+            <p><strong>Timeline:</strong> Project timelines are estimates and may vary based on client responsiveness and project complexity.</p>
+            <p><strong>Revisions:</strong> Each project includes a specified number of revision rounds. Additional revisions may incur extra charges.</p>
+            <p><strong>Approval:</strong> Client approval is required at each major milestone before proceeding to next phase.</p>
+          </div>
+        </div>
+
+        <!-- Cancellation -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">6. Cancellation and Refunds</h2>
+          <div class="space-y-4 text-foreground-muted">
+            <p><strong>Cancellation:</strong> Projects may be cancelled with written notice. Work completed to date will be billed.</p>
+            <p><strong>Refunds:</strong> Refunds are considered on a case-by-case basis for undelivered work.</p>
+            <p><strong>Termination:</strong> We reserve the right to terminate services for non-payment or breach of terms.</p>
+          </div>
+        </div>
+
+        <!-- Limitations -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">7. Limitations of Liability</h2>
+          <p class="text-foreground-muted leading-relaxed">
+            Premium Design Company shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use our services. Our total liability shall not exceed the amount paid for services.
+          </p>
+        </div>
+
+        <!-- Governing Law -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">8. Governing Law</h2>
+          <p class="text-foreground-muted leading-relaxed">
+            These Terms shall be governed by and construed in accordance with the laws of Sweden, without regard to its conflict of law provisions.
+          </p>
+        </div>
+
+        <!-- Changes -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">9. Changes to Terms</h2>
+          <p class="text-foreground-muted leading-relaxed">
+            We reserve the right to modify these terms at any time. Continued use of our services after changes constitutes acceptance of modified terms.
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="card">
+          <h2 class="mb-4 text-2xl font-bold">10. Contact Us</h2>
+          <p class="leading-relaxed text-foreground-muted">
+            If you have any questions about our terms & conditions, please contact us:
+          </p>
+          <div class="mt-4 space-y-2">
+            <p class="text-foreground">
+              <strong>Email:</strong>
+              <a href="mailto:info.premiumdesigncompany@gmail.com" class="text-primary hover:text-primary-hover hover:underline">
+                info.premiumdesigncompany@gmail.com
+              </a>
+            </p>
+            <p class="text-foreground">
+              <strong>Phone:</strong>
+              <a href="tel:+33759440610" class="text-primary hover:text-primary-hover hover:underline">
+                +33 75 944 06 10
+              </a>
+            </p>
+            <p class="text-foreground">
+              <strong>Address:</strong> Gothenburg, Sweden
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

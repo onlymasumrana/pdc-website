@@ -1,0 +1,36 @@
+---
+// src/pages/blogs.astro
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout>
+  <!-- Header Section -->
+  <section class="section">
+    <div class="container-custom">
+      <div class="section-header text-left">
+        <h1 class="section-title">Blogs</h1>
+        <p class="section-subtitle text-left ml-0 max-w-2xl">
+          Our thoughts on UI/UX design, frontend engineering, and building premium digital products.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section">
+    <div class="container-custom">
+      <div class="card text-center">
+        <span class="mb-4 block text-5xl">✍️</span>
+        <h2 class="mb-4 text-3xl font-bold">Writing in progress...</h2>
+        <p class="mx-auto mb-8 max-w-md text-foreground-muted">
+          We are currently crafting our first set of articles covering modern design systems, Astro performance, and premium UI/UX design workflows.
+        </p>
+        <div class="flex justify-center">
+          <Button href="/contact" variant="primary">Connect with Us</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

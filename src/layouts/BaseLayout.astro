@@ -23,12 +23,31 @@ const availableThemes = [
     <meta name="author" content="Premium Design Company" />
     <meta name="generator" content={Astro.generator} />
     <title>Premium Design Company</title>
+    <script is:inline>
+      const getInitialTheme = () => {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'neutral-dark') return 'neutral-dark';
+        if (saved === 'light') return ''; // Explicit light theme override
+        
+        // Auto 1: Check system color scheme preference
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (systemPrefersDark) return 'neutral-dark';
+
+        // Auto 2: Check current hour (Dark theme active between 6:00 PM and 6:00 AM)
+        const hour = new Date().getHours();
+        const isNight = hour >= 18 || hour < 6;
+        if (isNight) return 'neutral-dark';
+
+        return '';
+      };
+
+      const theme = getInitialTheme();
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
   </head>
 
-  <!-- <div
-    class="h-screen w-full bg-[radial-gradient(circle,black_1px,transparent_1px)] [background-size:20px_20px]">
-  </div> -->
-
+  <!-- bg-background-muted bg-[radial-gradient(circle,var(--color-border-muted)_.25px,transparent_2.5px)]  [background-size:32px_32px]
+  is the dotted background pattern  -->
   <body
     class="mx-auto flex min-h-screen max-w-[1440px] flex-col bg-background-muted bg-[radial-gradient(circle,var(--color-border-muted)_.25px,transparent_2.5px)] p-4 text-foreground [background-size:32px_32px] sm:px-6 lg:px-8">
     <Header />
@@ -37,55 +56,72 @@ const availableThemes = [
     </main>
     <Footer />
 
-    <!-- Theme Switcher -->
-    <div
-      class="glass fixed bottom-4 right-4 z-50 hidden rounded-lg border border-border bg-card-bg p-3 shadow-lg backdrop-blur-sm">
-      <label
-        for="themeSelect"
-        class="sr-only mb-1 block text-xs font-medium text-foreground-muted">
-        Select Theme:
-      </label>
-      <select
-        id="themeSelect"
-        class="w-full cursor-pointer rounded-md border border-border bg-form-input-bg px-3 py-2 text-sm text-form-input-text focus:outline-none focus:ring-2 focus:ring-focus-ring">
-        {
-          availableThemes.map((theme) => (
-            <option value={theme.value}>{theme.label}</option>
-          ))
-        }
-      </select>
-    </div>
+    <!-- Floating Theme Toggle -->
+    <button
+      id="theme-toggle"
+      class="fixed bottom-6 right-6 z-50 flex items-center justify-center rounded-full border border-border-muted bg-card-bg p-3 shadow-lg backdrop-blur-sm text-foreground transition-all duration-200 hover:bg-background-muted hover:border-border hover:text-primary"
+      aria-label="Toggle Theme">
+      <!-- Sun Icon (hidden by default, shown in dark mode) -->
+      <svg
+        id="theme-toggle-light-icon"
+        class="hidden h-5 w-5"
+        fill="currentColor"
+        viewBox="0 0 20 20">
+        <path
+          d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z"
+          fill-rule="evenodd"
+          clip-rule="evenodd"></path>
+      </svg>
+      <!-- Moon Icon (shown by default, hidden in dark mode) -->
+      <svg
+        id="theme-toggle-dark-icon"
+        class="h-5 w-5"
+        fill="currentColor"
+        viewBox="0 0 20 20">
+        <path
+          d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+      </svg>
+    </button>
 
     <script is:inline>
-      // Copy paste available themes array (defined above on top of the document) to here, since Astro variables aren't accessible in inline scripts :(
-      const themes = [
-        { value: '', label: 'Neutral Light' },
-        { value: 'neutral-dark', label: 'Neutral Dark' },
-      ];
+      document.addEventListener('DOMContentLoaded', () => {
+        const themeToggle = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
 
-      // Set initial theme from localStorage or default to Neutral Light
-      const getSavedTheme = () => {
-        const saved = localStorage.getItem('theme');
-        // Validate the saved theme exists in our themes array
-        return themes.some((t) => t.value === saved) ? saved : '';
-      };
+        const updateIcons = (theme) => {
+          if (theme === 'neutral-dark') {
+            lightIcon?.classList.remove('hidden');
+            darkIcon?.classList.add('hidden');
+          } else {
+            lightIcon?.classList.add('hidden');
+            darkIcon?.classList.remove('hidden');
+          }
+        };
 
-      // Initialize theme
-      const currentTheme = getSavedTheme();
-      document.documentElement.setAttribute('data-theme', currentTheme);
+        // Initialize icons based on current theme set in <head>
+        const currentTheme = document.documentElement.getAttribute('data-theme') || '';
+        updateIcons(currentTheme);
 
-      // Set select value to match current theme
-      const themeSelect = document.getElementById('themeSelect');
-      if (themeSelect) {
-        themeSelect.value = currentTheme;
-
-        // Add event listener
-        themeSelect.addEventListener('change', (e) => {
-          const themeValue = e.target.value;
-          document.documentElement.setAttribute('data-theme', themeValue);
-          localStorage.setItem('theme', themeValue);
+        themeToggle?.addEventListener('click', () => {
+          const isDark = document.documentElement.getAttribute('data-theme') === 'neutral-dark';
+          // Save 'light' explicitly to distinguish it from 'no manual override'
+          const newTheme = isDark ? 'light' : 'neutral-dark';
+          
+          document.documentElement.setAttribute('data-theme', newTheme === 'light' ? '' : 'neutral-dark');
+          localStorage.setItem('theme', newTheme);
+          updateIcons(newTheme === 'light' ? '' : 'neutral-dark');
         });
-      }
+
+        // Listen for live system theme changes (e.g. system switches theme while page is open)
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+          if (!localStorage.getItem('theme')) {
+            const newTheme = e.matches ? 'neutral-dark' : '';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            updateIcons(newTheme);
+          }
+        });
+      });
     </script>
   </body>
 </html>

@@ -12,8 +12,20 @@ export default {
       '2xl': '1536px',
     },
     extend: {
+      fontSize: {
+        xs: ['1rem', { lineHeight: '1.5rem' }],
+        sm: ['1rem', { lineHeight: '1.5rem' }],
+      },
       fontFamily: {
-        // sans: ["DM Sans", "Montserrat", "Inter",  sans-serif],
+        sans: ["Switzer", "sans-serif"],
+      },
+      lineHeight: {
+        none: '1.5rem',
+        tight: '1.5rem',
+        snug: '1.5rem',
+        3: '1.5rem',
+        4: '1.5rem',
+        5: '1.5rem',
       },
       colors: {
         // Base
