@@ -1,0 +1,61 @@
+---
+// src/pages/schedule.astro
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Google Calendar Appointment Schedule URL with embed parameter (gv=true)
+const fullScheduleUrl = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3BvWoWlCzGZi1uGYw_r6P6bn5LFD56D6CVYFmOs1SPOTDIwV8CWNWR4Rb6D3aNqP1hHFqI-YYf?gv=true";
+const shortUrl = "https://calendar.app.google/sqFv2ek4HwjhMbMT6";
+---
+
+<BaseLayout>
+  <!-- Google Calendar Scheduling Assets -->
+  <link href="https://calendar.google.com/calendar/scheduling-button/load.css" rel="stylesheet" />
+  <script src="https://calendar.google.com/calendar/scheduling-button/load.js" async></script>
+
+  <section class="section">
+    <div class="container-custom mx-auto">
+      <header class="text-center mb-8">
+        <p class="text-sm font-medium uppercase tracking-wider text-muted mb-2">
+          <span class="text-xl text-[#ff6a00]">✷</span> Book A Call
+        </p>
+        <h1 class="section-title">
+          Schedule a Free Consultation
+        </h1>
+        <p class="section-subtitle">
+          Select an available date and time below to schedule your consultation with our team.
+        </p>
+      </header>
+
+      <!-- Embedded Google Calendar Container -->
+      <div class="card overflow-hidden p-2 sm:p-4 md:p-6 bg-background rounded-lg border border-border shadow-sm">
+        <div class="relative w-full min-h-[750px] md:min-h-[800px] rounded overflow-hidden bg-background">
+          <iframe
+            src={fullScheduleUrl}
+            class="w-full h-[750px] md:h-[800px] border-0 rounded"
+            loading="eager"
+            title="Google Calendar Appointment Scheduling"
+          ></iframe>
+        </div>
+
+        <!-- Secondary Access Option -->
+        <div class="mt-6 pt-4 border-t border-border-muted text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-sm text-foreground-muted">
+            Prefer to open in a full window or app?
+          </p>
+          <a
+            href={shortUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary text-sm inline-flex items-center gap-2 px-5 py-2.5 rounded-md"
+          >
+            Open in Google Calendar
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

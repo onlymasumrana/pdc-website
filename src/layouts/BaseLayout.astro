@@ -121,6 +121,52 @@ const availableThemes = [
             updateIcons(newTheme);
           }
         });
+
+        // === Premium Page Entry & Scroll Animations ===
+        // 1. Trigger Hero Page Entry Animation on Load
+        setTimeout(() => {
+          document.body.classList.add('loaded');
+        }, 100);
+
+        // 2. Automate Reveal Classes and Stagger Delays
+        const sections = document.querySelectorAll('main > section, main > div > section, footer');
+        sections.forEach((el, index) => {
+          // If first section (Hero / Header), slide in on load. Others on scroll.
+          if (index === 0) {
+            el.classList.add('reveal-on-load');
+          } else {
+            el.classList.add('reveal-on-scroll');
+          }
+        });
+
+        // Automatically add stagger delay to card grids
+        const grids = document.querySelectorAll('.grid');
+        grids.forEach((grid) => {
+          const children = grid.children;
+          Array.from(children).forEach((child, childIndex) => {
+            child.style.transitionDelay = `${childIndex * 75}ms`;
+          });
+        });
+
+        // 3. Intersection Observer for Scroll Reveals
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -8% 0px', // trigger slightly before entering viewport
+          threshold: 0.05,
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              obs.unobserve(entry.target); // Stop observing once animated
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+          observer.observe(el);
+        });
       });
     </script>
   </body>
