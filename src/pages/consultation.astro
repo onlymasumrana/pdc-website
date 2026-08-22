@@ -146,4 +146,60 @@ const projectLengthOptions = [
       </form>
     </div>
   </section>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form[action*="postbag.dev"]');
+      if (!form) return;
+
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonHTML = submitButton.innerHTML;
+        submitButton.disabled = true;
+
+        try {
+          const formData = new FormData(form);
+          const payload = {};
+          formData.forEach((value, key) => {
+            if (payload[key] !== undefined) {
+              payload[key] = Array.isArray(payload[key])
+                ? [...payload[key], value]
+                : [payload[key], value];
+            } else {
+              payload[key] = value;
+            }
+          });
+
+          const response = await fetch(form.action, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) throw new Error('Submission failed');
+
+          window.location.href = '/contact/success';
+        } catch (error) {
+          console.error('Consultation form submission error:', error);
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalButtonHTML;
+
+          let errorElement = form.querySelector('.form-submit-error');
+          if (!errorElement) {
+            errorElement = document.createElement('p');
+            errorElement.className =
+              'form-submit-error text-sm text-danger mt-2 text-center';
+            submitButton.closest('div').after(errorElement);
+          }
+          errorElement.textContent =
+            'Something went wrong. Please try again or email us directly.';
+        }
+      });
+    });
+  </script>
 </BaseLayout>
