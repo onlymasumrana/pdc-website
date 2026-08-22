@@ -390,6 +390,12 @@ const FORM_CONFIG = {
 </section>
 
 <script is:inline>
+  // Where each form should redirect on a successful submission
+  const FORM_SUCCESS_URLS = {
+    contact: '/contact/success',
+    quote: '/quote/success',
+  };
+
   // Form Management Classes
   class TabManager {
     constructor() {
@@ -645,9 +651,56 @@ const FORM_CONFIG = {
         }
       }
 
-      console.log(
-        `Form validation passed. Allowing FormSpree to handle submission to: ${form.action}`
-      );
+      console.log(`Form validation passed. Submitting to: ${form.action}`);
+      event.preventDefault();
+      this.submitForm(form, formType);
+    }
+
+    async submitForm(form, formType) {
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonHTML = submitButton.innerHTML;
+      submitButton.disabled = true;
+
+      try {
+        const formData = new FormData(form);
+        const payload = {};
+        formData.forEach((value, key) => {
+          if (payload[key] !== undefined) {
+            payload[key] = Array.isArray(payload[key])
+              ? [...payload[key], value]
+              : [payload[key], value];
+          } else {
+            payload[key] = value;
+          }
+        });
+
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error('Submission failed');
+
+        window.location.href = FORM_SUCCESS_URLS[formType] || '/';
+      } catch (error) {
+        console.error('Form submission error:', error);
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonHTML;
+
+        let errorElement = form.querySelector('.form-submit-error');
+        if (!errorElement) {
+          errorElement = document.createElement('p');
+          errorElement.className =
+            'form-submit-error text-sm text-danger mt-2 text-right';
+          submitButton.closest('div').after(errorElement);
+        }
+        errorElement.textContent =
+          'Something went wrong. Please try again or email us directly.';
+      }
     }
   }
 
