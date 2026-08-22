@@ -172,6 +172,7 @@ const FORM_CONFIG = {
         class="tab-content animated-block active space-y-6 p-8 md:rounded md:bg-background-muted"
         id="contact-form"
         data-form-type="contact">
+        <input type="hidden" name="_redirect" id="contact-redirect" />
         <!-- Name & Email -->
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
           <label class="animated-item block text-sm font-medium">
@@ -254,6 +255,7 @@ const FORM_CONFIG = {
         class="tab-content hidden space-y-6 p-8 md:rounded md:bg-background-muted"
         id="quote-form"
         data-form-type="quote">
+        <input type="hidden" name="_redirect" id="quote-redirect" />
         <!-- Services -->
         <div>
           <label class="mb-2 block text-sm font-semibold">Services *</label>
@@ -390,12 +392,6 @@ const FORM_CONFIG = {
 </section>
 
 <script is:inline>
-  // Where each form should redirect on a successful submission
-  const FORM_SUCCESS_URLS = {
-    contact: '/contact/success',
-    quote: '/quote/success',
-  };
-
   // Form Management Classes
   class TabManager {
     constructor() {
@@ -651,56 +647,9 @@ const FORM_CONFIG = {
         }
       }
 
-      console.log(`Form validation passed. Submitting to: ${form.action}`);
-      event.preventDefault();
-      this.submitForm(form, formType);
-    }
-
-    async submitForm(form, formType) {
-      const submitButton = form.querySelector('button[type="submit"]');
-      const originalButtonHTML = submitButton.innerHTML;
-      submitButton.disabled = true;
-
-      try {
-        const formData = new FormData(form);
-        const payload = {};
-        formData.forEach((value, key) => {
-          if (payload[key] !== undefined) {
-            payload[key] = Array.isArray(payload[key])
-              ? [...payload[key], value]
-              : [payload[key], value];
-          } else {
-            payload[key] = value;
-          }
-        });
-
-        const response = await fetch(form.action, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
-
-        if (!response.ok) throw new Error('Submission failed');
-
-        window.location.href = FORM_SUCCESS_URLS[formType] || '/';
-      } catch (error) {
-        console.error('Form submission error:', error);
-        submitButton.disabled = false;
-        submitButton.innerHTML = originalButtonHTML;
-
-        let errorElement = form.querySelector('.form-submit-error');
-        if (!errorElement) {
-          errorElement = document.createElement('p');
-          errorElement.className =
-            'form-submit-error text-sm text-danger mt-2 text-right';
-          submitButton.closest('div').after(errorElement);
-        }
-        errorElement.textContent =
-          'Something went wrong. Please try again or email us directly.';
-      }
+      console.log(
+        `Form validation passed. Allowing Postbag to handle submission to: ${form.action}`
+      );
     }
   }
 
@@ -714,6 +663,16 @@ const FORM_CONFIG = {
       console.log('✅ Contact form initialized successfully');
     } catch (error) {
       console.error('❌ Error initializing contact form:', error);
+    }
+
+    // Tell Postbag where to send the browser after a successful submission
+    const contactRedirect = document.getElementById('contact-redirect');
+    if (contactRedirect) {
+      contactRedirect.value = `${window.location.origin}/contact/success`;
+    }
+    const quoteRedirect = document.getElementById('quote-redirect');
+    if (quoteRedirect) {
+      quoteRedirect.value = `${window.location.origin}/quote/success`;
     }
   });
 
